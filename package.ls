@@ -23,6 +23,7 @@ scripts:
   """
 engines: {node: '*'}
 dependencies:
+  optimist: \0.6.x  
   jsonld: \0.1.x
   csv: \*
 devDependencies:

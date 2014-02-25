@@ -1,0 +1,31 @@
+#!/usr/bin/env lsc
+cli = (require \./lib).cli!
+
+parse_converter = ->
+  q = it / '.'
+  throw 'err' if q.length != 2
+  q
+
+argv = require \optimist
+  .usage 'must specify path for rawdata to be transformed. $0'
+
+  .demand 'input_file'
+  .describe 'input_file', 'the rawdata files.'
+  .alias 'i', 'input_file'
+
+  .demand 'output_file'
+  .describe 'output_file', 'output file path.'
+  .alias 'o', 'output_file'
+
+  .demand 'converter'
+  .describe 'converter', 'converter function name.'
+  .alias 'c', 'converter'
+
+  .argv
+
+[modname, fnname] = parse_converter argv.converter
+err, count <- cli.dispatch(modname, fnname) argv.input_file, argv.output_file
+if err
+  console.log err
+else
+  console.log "processed #count items."
