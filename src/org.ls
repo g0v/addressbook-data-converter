@@ -8,6 +8,9 @@ popololized_org = (record) ->
   if record.orgcode == '機關代碼' 
     return null
 
+  throw "name is empty" unless record.name
+  throw "orgcode is empty" unless record.orgcode
+
   find_other_names = ->
       ret = []
       if record.dissolution_note is \是
