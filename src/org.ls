@@ -4,6 +4,10 @@ require! csv
 # Orgnization
 
 popololized_org = (record) ->
+  #@FIXME: workround.
+  if record.orgcode == '機關代碼' 
+    return null
+
   find_other_names = ->
       ret = []
       if record.dissolution_note is \是
@@ -77,7 +81,6 @@ export function from_orglist(path, done)
 export function from_csv(path, opts, transform_cb, done)
   csv!
     .from path, opts
-    .transform (record) ->
-      #@FIXME: this is a wrokround.
-      transform_cb record unless record.orgcode == '機關代碼'
+    .transform (record, index, callback) ->
+      process.nextTick -> callback null, transform_cb record
     .to.array done 
