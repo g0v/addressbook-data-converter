@@ -83,4 +83,5 @@ export function from_csv(path, opts, transform_cb, done)
     .from path, opts
     .transform (record, index, callback) ->
       process.nextTick -> callback null, transform_cb record
+    .on \error, -> console.log it.message
     .to.array done 
