@@ -2,6 +2,7 @@ should = (require \chai).should!
 expect = (require \chai).expect
 
 from_orglist = (require \../).org! .from_orglist
+convert_orglist = (require \../).org! .convert_orglist
 
 describe 'Organization', ->
   expected_obj = do
@@ -36,4 +37,9 @@ describe 'Organization', ->
       count.should.eq 5
       orgs.length.should.eq 5
       orgs.0.should.deep.eq expected_obj
+      done!
+  describe 'convert orglist to json.', -> ``it``
+    .. 'should be able to process sync.', (done) ->
+      err, count <- convert_orglist \test/testdata/orglist.CSV, \test/testdata/orglist.out.json
+      count.should.eq 5
       done!
