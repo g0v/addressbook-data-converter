@@ -1,3 +1,4 @@
+require! fs
 should = (require \chai).should!
 expect = (require \chai).expect
 
@@ -39,6 +40,9 @@ describe 'Organization', ->
       orgs.0.should.deep.eq expected_obj
       done!
   describe 'convert orglist to json.', -> ``it``
+    afterEach (done) ->
+      <- fs.unlink \test/testdata/orglist.out.json
+      done!
     .. 'should be able to process sync.', (done) ->
       err, count <- convert_orglist \test/testdata/orglist.CSV, \test/testdata/orglist.out.json
       count.should.eq 5
