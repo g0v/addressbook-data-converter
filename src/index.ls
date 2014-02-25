@@ -1,0 +1,82 @@
+require! fs
+require! csv
+
+# Orgnization
+popololized_org = (record) ->
+  find_other_names = ->
+      ret = []
+      if record.dissolution_note is \是
+        ret.push do
+          name: record.name
+          start_date: null
+          end_date: record.dissolution_date
+      else
+        ret.push do
+          name: record.old_name
+          start_date: null
+          end_date: null
+      ret
+  find_current = -> 
+    other_names = []
+    if record.dissolution_note is \是
+      [record.new_name, find_other_names!, record.new_orgcode, record.dissolution_date, null]
+    else
+      [record.name, find_other_names!, record.orgcode, null, null]
+
+  [name, other_names, orgcode, founding_date, dissolution_date] = find_current!
+
+  # make a new record. 
+  do
+    name: name
+    other_names: other_names
+    identifiers: [
+        * identifier: orgcode
+          scheme: \orgcode
+    ]
+    classification: record.classification
+    parent_id: null
+    founding_date: founding_date
+    dissolution_date: dissolution_date
+    image: null
+    contact_details: [
+        * label_zh: \機關電話
+          type: \voice
+          value: record.phone
+          source: null
+        * label_zh: \機關傳真
+          type: \fax
+          value: record.fax
+          source: null
+    ]
+    links: []
+
+# CSV -> Array
+export function from_orglist(path, done)
+  opts = do
+    columns: do
+      orgcode: \機關代碼
+      name: \機關名稱
+      zipcode: \郵遞區號
+      address: \機關地址 
+      phone: \機關電話
+      parent_orgcode: \主管機關代碼
+      parent_name: \主管機關名稱
+      fax: \傳真
+      start_date: \機關生效日期
+      dissolution_date: \機關裁撤日期
+      classification: \機關層級
+      dissolution_note: \裁撤註記
+      new_orgcode: \新機關代碼
+      new_name: \新機關名稱
+      new_start_date: \新機關生效日
+      old_orgcode: \舊機關代碼
+      old_name: \舊機關名稱
+  from_csv path, opts, popololized_org, done
+
+export function from_csv(path, opts, transform_cb, done)
+  csv!
+    .from path, opts
+    .transform (record) ->
+      #@FIXME: this is a wrokround.
+      transform_cb record unless record.orgcode == '機關代碼'
+    .to.array done 
