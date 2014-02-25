@@ -3,8 +3,8 @@ expect = (require \chai).expect
 
 from_orglist = (require \../).org! .from_orglist
 
-describe 'Popoplo', ->
-  describe 'Organization', -> ``it``
+describe 'Organization', ->
+  describe 'source: orglist', -> ``it``
     .. 'from orglist', (done) ->
       expected_obj = do
         name: "內政部國土測繪中心"
