@@ -1,7 +1,7 @@
 should = (require \chai).should!
 expect = (require \chai).expect
 
-whoswho = require \../
+from_orglist = (require \../).org! .from_orglist
 
 describe 'Popoplo', ->
   describe 'Organization', -> ``it``
@@ -32,7 +32,7 @@ describe 'Popoplo', ->
               value: \04-22543403-
               source: null ]
         links: []
-      orgs, count <- whoswho.from_orglist \test/testdata/orglist.CSV 
+      orgs, count <- from_orglist \test/testdata/orglist.CSV 
       count.should.eq 5
       orgs.length.should.eq 5
       orgs.0.should.deep.eq expected_obj
