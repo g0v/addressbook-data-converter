@@ -23,11 +23,11 @@ describe 'Organization', ->
     dissolution_date: null
     image: null
     contact_details : [
-            * label_zh: \機關電話
+            * label: \機關電話
               type: \voice
               value: \04-22522966-
               source: null 
-            * label_zh: \機關傳真
+            * label: \機關傳真
               type: \fax
               value: \04-22543403-
               source: null ]

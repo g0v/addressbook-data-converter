@@ -3,7 +3,7 @@ require! csv
 
 # Orgnization
 
-popololized_org = (record) ->
+popololized_orglist_record = (record) ->
   #@FIXME: workround.
   if record.orgcode == '機關代碼' 
     return null
@@ -79,7 +79,7 @@ export function from_orglist(path, done)
       new_start_date: \新機關生效日
       old_orgcode: \舊機關代碼
       old_name: \舊機關名稱
-  from_csv path, opts, popololized_org, done
+  from_csv path, opts, popololized_orglist_record, done
 
 export function convert_orglist(path, dest, done) 
   result, count <- from_orglist path
