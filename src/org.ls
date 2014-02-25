@@ -47,11 +47,11 @@ popololized_org = (record) ->
     dissolution_date: dissolution_date
     image: null
     contact_details: [
-        * label_zh: \機關電話
+        * label: \機關電話
           type: \voice
           value: record.phone
           source: null
-        * label_zh: \機關傳真
+        * label: \機關傳真
           type: \fax
           value: record.fax
           source: null
