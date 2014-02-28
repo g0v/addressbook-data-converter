@@ -6,5 +6,5 @@ node_modules/*
 lib
 config.json
 config.ls
-
+test/testdata/central/
 /client/ref.js
