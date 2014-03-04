@@ -1,0 +1,30 @@
+popolized_mly_person = ->
+  do 
+    id: null
+    name: it.name
+    other_names: []
+    identifiers: []
+    email: null
+    gender: null
+    birth_date: null
+    death_date: null
+    image: it.avatar
+    summary: null
+    biography: null
+    national_identity: null
+    contact_details: []
+    links: []
+
+popolized_mly_membership = ->
+
+popolized_mly_org = ->
+
+export function from_mly(json, done)
+  person = []
+  memberships = []
+  orgs = []
+  for record in json
+    person.push popolized_mly_person record
+    memberships.push popolized_mly_membership record
+    orgs.push popolized_mly_org record
+  done [0, person, memberships]
