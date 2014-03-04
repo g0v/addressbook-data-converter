@@ -42,7 +42,7 @@ popololized_orglist_record = (record) ->
           scheme: \orgcode
     ]
     classification: record.classification
-    parent_id: null
+    parent_id: record.parent_orgcode
     founding_date: founding_date
     dissolution_date: dissolution_date
     image: null

@@ -18,7 +18,7 @@ describe 'Organization', ->
               scheme: \orgcode
             ]
     classification: \3
-    parent_id: null
+    parent_id: \301000000A
     founding_date: "0961106"
     dissolution_date: null
     image: null
