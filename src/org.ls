@@ -2,14 +2,16 @@ require! fs
 require! csv
 
 # Orgnization
+ensured_record = (record) ->
+  throw 'name is empty' unless record.name
+  throw 'orgcode is empty' unless record.orgcode
+  record
 
 popololized_orglist_record = (record) ->
   #@FIXME: workround.
   if record.orgcode == '機關代碼' 
     return null
-
-  throw "name is empty" unless record.name
-  throw "orgcode is empty" unless record.orgcode
+  record = ensured_record record
 
   find_other_names = ->
       ret = []
@@ -18,7 +20,7 @@ popololized_orglist_record = (record) ->
           name: record.name
           start_date: null
           end_date: record.dissolution_date
-      else
+      else if record.dissolution_note is not \是 and record.old_name?
         ret.push do
           name: record.old_name
           start_date: null
@@ -26,13 +28,13 @@ popololized_orglist_record = (record) ->
       ret
   find_current = -> 
     other_names = []
-    if record.dissolution_note is \是
+    if record.dissolution_note is \是 and record.new_name
       [record.new_name, find_other_names!, record.new_orgcode, record.dissolution_date, null]
     else
       [record.name, find_other_names!, record.orgcode, null, null]
 
   [name, other_names, orgcode, founding_date, dissolution_date] = find_current!
-
+  throw name unless name
   # make a new record. 
   do
     name: name
