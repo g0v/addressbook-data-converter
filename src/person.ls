@@ -7,7 +7,7 @@
 
 popolized_mly_person = ->
   do 
-    id: null
+    id: 0
     name: it.name
     other_names: []
     identifiers: []

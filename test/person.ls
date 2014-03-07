@@ -7,7 +7,6 @@ from_mly = (require \../).person! .from_mly
 
 expected_person = do
   id: 0
-  self_id: 'http://www.ly.gov.tw/03_leg/0301_main/legIntro.action?lgno=00001&stage=8'
   name: "丁守中"
   other_names: []
   identifiers: []
@@ -19,6 +18,7 @@ expected_person = do
   summary: null
   biography: null
   national_identity: null
+  contact_details: []
   links: []
 
 describe 'Person', ->
