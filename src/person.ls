@@ -1,3 +1,10 @@
+# # Person
+# ## 立法委員
+# ### 需要處理的身份
+# - 第N屆立法委員
+# - 第N屆立法院 ＸＸ委員會委員
+# - 政黨身份
+
 popolized_mly_person = ->
   do 
     id: null
