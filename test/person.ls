@@ -6,7 +6,8 @@ expect = (require \chai).expect
 from_mly = (require \../).person! .from_mly
 
 expected_person = do
-  id: 'http://www.ly.gov.tw/03_leg/0301_main/legIntro.action?lgno=00001&stage=8'
+  id: 0
+  self_id: 'http://www.ly.gov.tw/03_leg/0301_main/legIntro.action?lgno=00001&stage=8'
   name: "丁守中"
   other_names: []
   identifiers: []
@@ -21,7 +22,7 @@ expected_person = do
   links: []
 
 describe 'Person', ->
-  describe.skip 'load mly as array.', -> ``it``
+  describe 'load mly as array.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
       o = require path.resolve 'test/testdata/central/mly-8'
       o.should.be.ok
