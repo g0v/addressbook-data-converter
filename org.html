@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><title>org</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="org"><meta name="groc-project-path" content="src/org.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/org.ls">src/org.ls</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="nx">fs</span>
+<span class="nx">require</span><span class="o">!</span> <span class="nx">csv</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Orgnization</p></div></div><div class="code"><div class="wrapper"><span class="nv">ensured_record = </span><span class="nf">(record) -&gt;</span>
+  <span class="k">throw</span> <span class="s">&#39;name is empty&#39;</span> <span class="k">unless</span> <span class="nx">record</span><span class="p">.</span><span class="nx">name</span>
+  <span class="k">throw</span> <span class="s">&#39;orgcode is empty&#39;</span> <span class="k">unless</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgcode</span>
+  <span class="nx">record</span>
+
+<span class="nv">popololized_orglist_record = </span><span class="nf">(record) -&gt;</span>
+  <span class="c1">#@FIXME: workround.</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgcode</span> <span class="o">==</span> <span class="s">&#39;機關代碼&#39;</span> 
+    <span class="k">return</span> <span class="kc">null</span>
+  <span class="nv">record = </span><span class="nx">ensured_record</span> <span class="nx">record</span>
+
+  <span class="nv">find_other_names = </span><span class="nf">-&gt;</span>
+      <span class="nv">ret = </span><span class="p">[]</span>
+      <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="err">\是</span>
+        <span class="nx">ret</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+          <span class="nv">name: </span><span class="nx">record</span><span class="p">.</span><span class="nx">name</span>
+          <span class="nv">start_date: </span><span class="kc">null</span>
+          <span class="nv">end_date: </span><span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_date</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="o">not</span> <span class="err">\是</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">old_name</span><span class="o">?</span>
+        <span class="nx">ret</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+          <span class="nv">name: </span><span class="nx">record</span><span class="p">.</span><span class="nx">old_name</span>
+          <span class="nv">start_date: </span><span class="kc">null</span>
+          <span class="nv">end_date: </span><span class="kc">null</span>
+      <span class="nx">ret</span>
+  <span class="nv">find_current = </span><span class="nf">-&gt;</span> 
+    <span class="nv">other_names = </span><span class="p">[]</span>
+    <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="err">\是</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">new_name</span>
+      <span class="p">[</span><span class="nx">record</span><span class="p">.</span><span class="nx">new_name</span><span class="p">,</span> <span class="nx">find_other_names</span><span class="o">!</span><span class="p">,</span> <span class="nx">record</span><span class="p">.</span><span class="nx">new_orgcode</span><span class="p">,</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_date</span><span class="p">,</span> <span class="kc">null</span><span class="p">]</span>
+    <span class="k">else</span>
+      <span class="p">[</span><span class="nx">record</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">find_other_names</span><span class="o">!</span><span class="p">,</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgcode</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">]</span>
+
+  <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">other_names</span><span class="p">,</span> <span class="nx">orgcode</span><span class="p">,</span> <span class="nx">founding_date</span><span class="p">,</span> <span class="nx">dissolution_date</span><span class="p">]</span> <span class="o">=</span> <span class="nx">find_current</span><span class="o">!</span>
+  <span class="k">throw</span> <span class="nx">name</span> <span class="k">unless</span> <span class="nx">name</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>make a new record. </p></div></div><div class="code"><div class="wrapper">  <span class="nx">do</span>
+    <span class="nv">name: </span><span class="nx">name</span>
+    <span class="nv">other_names: </span><span class="nx">other_names</span>
+    <span class="nv">identifiers: </span><span class="p">[</span>
+        <span class="o">*</span> <span class="nv">identifier: </span><span class="nx">orgcode</span>
+          <span class="nv">scheme: </span><span class="s">\orgcode</span>
+    <span class="p">]</span>
+    <span class="nv">classification: </span><span class="nx">record</span><span class="p">.</span><span class="nx">classification</span>
+    <span class="nv">parent_id: </span><span class="nx">record</span><span class="p">.</span><span class="nx">parent_orgcode</span>
+    <span class="nv">founding_date: </span><span class="nx">founding_date</span>
+    <span class="nv">dissolution_date: </span><span class="nx">dissolution_date</span>
+    <span class="nv">image: </span><span class="kc">null</span>
+    <span class="nv">contact_details: </span><span class="p">[</span>
+        <span class="o">*</span> <span class="nv">label: </span><span class="err">\機關電話</span>
+          <span class="nv">type: </span><span class="s">\voice</span>
+          <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">phone</span>
+          <span class="nv">source: </span><span class="kc">null</span>
+        <span class="o">*</span> <span class="nv">label: </span><span class="err">\機關傳真</span>
+          <span class="nv">type: </span><span class="s">\fax</span>
+          <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">fax</span>
+          <span class="nv">source: </span><span class="kc">null</span>
+    <span class="p">]</span>
+    <span class="nv">links: </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>CSV -> Array</p></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">from_orglist</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nv">opts = </span><span class="nx">do</span>
+    <span class="nv">columns: </span><span class="nx">do</span>
+      <span class="nv">orgcode: </span><span class="err">\機關代碼</span>
+      <span class="nv">name: </span><span class="err">\機關名稱</span>
+      <span class="nv">zipcode: </span><span class="err">\郵遞區號</span>
+      <span class="nv">address: </span><span class="err">\機關地址</span> 
+      <span class="nv">phone: </span><span class="err">\機關電話</span>
+      <span class="nv">parent_orgcode: </span><span class="err">\主管機關代碼</span>
+      <span class="nv">parent_name: </span><span class="err">\主管機關名稱</span>
+      <span class="nv">fax: </span><span class="err">\傳真</span>
+      <span class="nv">start_date: </span><span class="err">\機關生效日期</span>
+      <span class="nv">dissolution_date: </span><span class="err">\機關裁撤日期</span>
+      <span class="nv">classification: </span><span class="err">\機關層級</span>
+      <span class="nv">dissolution_note: </span><span class="err">\裁撤註記</span>
+      <span class="nv">new_orgcode: </span><span class="err">\新機關代碼</span>
+      <span class="nv">new_name: </span><span class="err">\新機關名稱</span>
+      <span class="nv">new_start_date: </span><span class="err">\新機關生效日</span>
+      <span class="nv">old_orgcode: </span><span class="err">\舊機關代碼</span>
+      <span class="nv">old_name: </span><span class="err">\舊機關名稱</span>
+  <span class="nx">from_csv</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">popololized_orglist_record</span><span class="p">,</span> <span class="nx">done</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">convert_orglist</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">dest</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> 
+  <span class="nf">result, count &lt;-</span> <span class="nx">from_orglist</span> <span class="nx">path</span>
+  <span class="nv">json = </span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span> <span class="nx">result</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">4</span>
+  <span class="nf">err &lt;-</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span> <span class="nx">dest</span><span class="p">,</span> <span class="nx">json</span>
+  <span class="nx">done</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">count</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">from_csv</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">transform_cb</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nx">csv</span><span class="o">!</span>
+    <span class="p">.</span><span class="nx">from</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">opts</span>
+    <span class="p">.</span><span class="nx">transform</span> <span class="nf">(record, index, callback) -&gt;</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span> <span class="nf">-&gt;</span> <span class="nx">callback</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">transform_cb</span> <span class="nx">record</span>
+    <span class="p">.</span><span class="nx">on</span> <span class="s">\error</span><span class="p">,</span> <span class="nf">-&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">it</span><span class="p">.</span><span class="nx">message</span>
+    <span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">array</span> <span class="nx">done</span> </div></div></div></div></body></html>

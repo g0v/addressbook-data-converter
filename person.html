@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><title>person</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="person"><meta name="groc-project-path" content="src/person.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/person.ls">src/person.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="person">Person</h1>
+
+<h2 id="">立法委員</h2>
+
+<h3 id="">需要處理的身份</h3>
+
+<ul>
+<li>第N屆立法委員</li>
+<li>第N屆立法院 ＸＸ委員會委員</li>
+<li>政黨身份</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nv">popolized_mly_person = </span><span class="nf">-&gt;</span>
+  <span class="nx">do</span> 
+    <span class="nv">id: </span><span class="kc">null</span>
+    <span class="nv">name: </span><span class="nx">it</span><span class="p">.</span><span class="nx">name</span>
+    <span class="nv">other_names: </span><span class="p">[]</span>
+    <span class="nv">identifiers: </span><span class="p">[]</span>
+    <span class="nv">email: </span><span class="kc">null</span>
+    <span class="nv">gender: </span><span class="kc">null</span>
+    <span class="nv">birth_date: </span><span class="kc">null</span>
+    <span class="nv">death_date: </span><span class="kc">null</span>
+    <span class="nv">image: </span><span class="nx">it</span><span class="p">.</span><span class="nx">avatar</span>
+    <span class="nv">summary: </span><span class="kc">null</span>
+    <span class="nv">biography: </span><span class="kc">null</span>
+    <span class="nv">national_identity: </span><span class="kc">null</span>
+    <span class="nv">contact_details: </span><span class="p">[]</span>
+    <span class="nv">links: </span><span class="p">[]</span>
+
+<span class="nv">popolized_mly_membership = </span><span class="nf">-&gt;</span>
+
+<span class="nv">popolized_mly_org = </span><span class="nf">-&gt;</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">from_mly</span><span class="p">(</span><span class="nx">json</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nv">person = </span><span class="p">[]</span>
+  <span class="nv">memberships = </span><span class="p">[]</span>
+  <span class="nv">orgs = </span><span class="p">[]</span>
+  <span class="k">for</span> <span class="nx">record</span> <span class="k">in</span> <span class="nx">json</span>
+    <span class="nx">person</span><span class="p">.</span><span class="nx">push</span> <span class="nx">popolized_mly_person</span> <span class="nx">record</span>
+    <span class="nx">memberships</span><span class="p">.</span><span class="nx">push</span> <span class="nx">popolized_mly_membership</span> <span class="nx">record</span>
+    <span class="nx">orgs</span><span class="p">.</span><span class="nx">push</span> <span class="nx">popolized_mly_org</span> <span class="nx">record</span>
+  <span class="nx">done</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nx">person</span><span class="p">,</span> <span class="nx">memberships</span><span class="p">]</span></div></div></div></div></body></html>
