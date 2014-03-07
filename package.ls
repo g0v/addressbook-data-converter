@@ -2,13 +2,13 @@
 author:
   name: ['Chen Hsin-Yi']
   email: 'ossug.hychen@gmail.com'
-name: 'whoswho'
+name: 'addressbook-data-converter'
 description: 'who is who?'
 version: '0.0.1'
 main: \lib/index.js
 repository:
   type: 'git'
-  url: 'git://github.com/g0v/whoswho.git'
+  url: 'git://github.com/g0v/addressbook-data-converter.git'
 scripts:
   test: """
     mocha
