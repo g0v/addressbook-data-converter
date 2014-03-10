@@ -22,7 +22,7 @@ expected_person = do
   links: []
 
 describe 'Person', ->
-  describe 'load mly as array.', -> ``it``
+  describe.skip 'load mly as array.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
       o = require path.resolve 'test/testdata/central/mly-8'
       o.should.be.ok
