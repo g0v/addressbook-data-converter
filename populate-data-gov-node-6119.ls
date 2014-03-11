@@ -70,4 +70,4 @@ _cb = (record) ->
   o
 
 result, count <-  from_csv path, opts, _cb
-console.log JSON.stringify orgmap, null, 4
+console.log JSON.stringify [e for _, e of orgmap], null, 4
