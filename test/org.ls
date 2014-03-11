@@ -19,7 +19,7 @@ describe 'Organization', ->
             ]
     classification: \3
     parent_id: \301000000A
-    founding_date: "0961106"
+    founding_date: "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)"
     dissolution_date: null
     image: null
     contact_details : [

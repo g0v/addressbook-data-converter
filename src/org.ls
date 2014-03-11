@@ -30,7 +30,7 @@ popololized_orglist_record = (record) ->
   find_current = -> 
     other_names = []
     if record.dissolution_note is \是 and record.new_name
-      [record.new_name, find_other_names!, record.new_orgcode, record.dissolution_date, null]
+      [record.new_name, find_other_names!, record.new_orgcode, date_from_rocdate record.dissolution_date, null]
     else
       [record.name, find_other_names!, record.orgcode, null, null]
 
