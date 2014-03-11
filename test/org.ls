@@ -11,7 +11,7 @@ describe 'Organization', ->
     other_names: [
             * name: \內政部土地測量局
               start_date: null
-              end_date: "0961106"
+              end_date: "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)"
             ]
     identifiers: [
             * identifier: \301000100G
