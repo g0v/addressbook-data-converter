@@ -1,5 +1,6 @@
 require! fs
 require! csv
+require! \./util .date_from_rocdate
 
 # Orgnization
 ensured_record = (record) ->
@@ -19,7 +20,7 @@ popololized_orglist_record = (record) ->
         ret.push do
           name: record.name
           start_date: null
-          end_date: record.dissolution_date
+          end_date: date_from_rocdate record.dissolution_date
       else if record.dissolution_note is not \是 and record.old_name?
         ret.push do
           name: record.old_name
