@@ -52,7 +52,7 @@ popololized_orglist_record = (record) ->
     links: []
 
 # CSV -> Array
-export function from_orglist(acc, path, done)
+export function from_data_gov_7307(acc, path, done)
   opts = do
     columns: do
       orgcode: \機關代碼
