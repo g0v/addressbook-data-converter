@@ -1,6 +1,5 @@
 require! fs
-require! csv
-require! \./util .date_from_rocdate
+require! \./util
 
 # Orgnization
 ensured_record = (record) ->
@@ -19,7 +18,7 @@ popololized_orglist_record = (record) ->
       if record.dissolution_note is \是 and record.new_name?
         ret.push do
           name: record.new_name
-          start_date: date_from_rocdate record.dissolution_date
+          start_date: util.date_from_rocdate record.dissolution_date
           end_date: null
       else if record.dissolution_note is not \是 and record.old_name?
         ret.push do
@@ -37,8 +36,8 @@ popololized_orglist_record = (record) ->
     ]
     classification: record.classification
     parent_id: record.parent_orgcode
-    founding_date: date_from_rocdate record.founding_date
-    dissolution_date: date_from_rocdate record.dissolution_date
+    founding_date: util.date_from_rocdate record.founding_date
+    dissolution_date: util.date_from_rocdate record.dissolution_date
     image: null
     contact_details: [
         * label: \機關電話
@@ -73,18 +72,10 @@ export function from_orglist(path, done)
       new_start_date: \新機關生效日
       old_orgcode: \舊機關代碼
       old_name: \舊機關名稱
-  from_csv path, opts, popololized_orglist_record, done
+  util.from_csv path, opts, popololized_orglist_record, done
 
 export function convert_orglist(path, dest, done) 
   result, count <- from_orglist path
   json = JSON.stringify result, null, 4
   err <- fs.writeFile dest, json
   done err, count
-
-export function from_csv(path, opts, transform_cb, done)
-  csv!
-    .from path, opts
-    .transform (record, index, callback) ->
-      process.nextTick -> callback null, transform_cb record
-    .on \error, -> console.log it.message
-    .to.array done 
