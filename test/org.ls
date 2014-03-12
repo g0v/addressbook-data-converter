@@ -7,20 +7,20 @@ convert_orglist = (require \../).org! .convert_orglist
 
 describe 'Organization', ->
   expected_obj = do
-    name: "內政部國土測繪中心"
+    name: "內政部土地測量局"
     other_names: [
-            * name: \內政部土地測量局
-              start_date: null
-              end_date: "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)"
-            ]
+      "name": "內政部國土測繪中心",
+      "start_date": "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)",
+      "end_date": null
+    ]
     identifiers: [
-            * identifier: \301000100G
+            * identifier: \301080000G
               scheme: \orgcode
             ]
     classification: \3
     parent_id: \301000000A
-    founding_date: "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)"
-    dissolution_date: null
+    founding_date: null
+    dissolution_date: "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)"
     image: null
     contact_details : [
             * label: \機關電話

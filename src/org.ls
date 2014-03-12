@@ -16,38 +16,29 @@ popololized_orglist_record = (record) ->
 
   find_other_names = ->
       ret = []
-      if record.dissolution_note is \是
+      if record.dissolution_note is \是 and record.new_name?
         ret.push do
-          name: record.name
-          start_date: null
-          end_date: date_from_rocdate record.dissolution_date
+          name: record.new_name
+          start_date: date_from_rocdate record.dissolution_date
+          end_date: null
       else if record.dissolution_note is not \是 and record.old_name?
         ret.push do
           name: record.old_name
           start_date: null
           end_date: null
       ret
-  find_current = -> 
-    other_names = []
-    if record.dissolution_note is \是 and record.new_name
-      [record.new_name, find_other_names!, record.new_orgcode, date_from_rocdate record.dissolution_date, null]
-    else
-      [record.name, find_other_names!, record.orgcode, null, null]
 
-  [name, other_names, orgcode, founding_date, dissolution_date] = find_current!
-  throw name unless name
-  # make a new record. 
   do
-    name: name
-    other_names: other_names
+    name: record.name
+    other_names: find_other_names!
     identifiers: [
-        * identifier: orgcode
+        * identifier: record.orgcode
           scheme: \orgcode
     ]
     classification: record.classification
     parent_id: record.parent_orgcode
-    founding_date: founding_date
-    dissolution_date: dissolution_date
+    founding_date: date_from_rocdate record.founding_date
+    dissolution_date: date_from_rocdate record.dissolution_date
     image: null
     contact_details: [
         * label: \機關電話

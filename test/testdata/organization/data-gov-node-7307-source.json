@@ -1,22 +1,23 @@
 [
     {
-        "name": "內政部國土測繪中心",
+        "name": "內政部土地測量局",
         "other_names": [
             {
-                "name": "內政部土地測量局",
-                "start_date": null,
-                "end_date": "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)"
+                "name": "內政部國土測繪中心",
+                "start_date": "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)",
+                "end_date": null
             }
         ],
         "identifiers": [
             {
-                "identifier": "301000100G",
+                "identifier": "301080000G",
                 "scheme": "orgcode"
             }
         ],
         "classification": "3",
         "parent_id": "301000000A",
-        "founding_date": "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)",
+        "founding_date": null,
+        "dissolution_date": "Thu Dec 06 2007 00:00:00 GMT+0800 (CST)",
         "image": null,
         "contact_details": [
             {
@@ -35,23 +36,24 @@
         "links": []
     },
     {
-        "name": "太魯閣國家公園管理處",
+        "name": "內政部營建署太魯閣國家公園管理處",
         "other_names": [
             {
-                "name": "內政部營建署太魯閣國家公園管理處",
-                "start_date": null,
-                "end_date": "Mon Jan 07 2008 00:00:00 GMT+0800 (CST)"
+                "name": "太魯閣國家公園管理處",
+                "start_date": "Mon Jan 07 2008 00:00:00 GMT+0800 (CST)",
+                "end_date": null
             }
         ],
         "identifiers": [
             {
-                "identifier": "301021100G",
+                "identifier": "301020400G",
                 "scheme": "orgcode"
             }
         ],
         "classification": "4",
         "parent_id": "301020000G",
-        "founding_date": "Mon Jan 07 2008 00:00:00 GMT+0800 (CST)",
+        "founding_date": null,
+        "dissolution_date": "Mon Jan 07 2008 00:00:00 GMT+0800 (CST)",
         "image": null,
         "contact_details": [
             {
@@ -70,23 +72,24 @@
         "links": []
     },
     {
-        "name": "內政部空中勤務總隊籌備處",
+        "name": "內政部警政署空中警察隊",
         "other_names": [
             {
-                "name": "內政部警政署空中警察隊",
-                "start_date": null,
-                "end_date": "Thu Oct 07 2004 00:00:00 GMT+0800 (CST)"
+                "name": "內政部空中勤務總隊籌備處",
+                "start_date": "Thu Oct 07 2004 00:00:00 GMT+0800 (CST)",
+                "end_date": null
             }
         ],
         "identifiers": [
             {
-                "identifier": "301120000A",
+                "identifier": "301010500C",
                 "scheme": "orgcode"
             }
         ],
         "classification": "4",
         "parent_id": "301010000C",
-        "founding_date": "Thu Oct 07 2004 00:00:00 GMT+0800 (CST)",
+        "founding_date": null,
+        "dissolution_date": "Thu Oct 07 2004 00:00:00 GMT+0800 (CST)",
         "image": null,
         "contact_details": [
             {
@@ -105,23 +108,24 @@
         "links": []
     },
     {
-        "name": "內政部空中勤務總隊籌備處",
+        "name": "內政部消防署空中消防隊籌備處",
         "other_names": [
             {
-                "name": "內政部消防署空中消防隊籌備處",
-                "start_date": null,
-                "end_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)"
+                "name": "內政部空中勤務總隊籌備處",
+                "start_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)",
+                "end_date": null
             }
         ],
         "identifiers": [
             {
-                "identifier": "301120000A",
+                "identifier": "301060500C",
                 "scheme": "orgcode"
             }
         ],
         "classification": "4",
         "parent_id": "301060000C",
-        "founding_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)",
+        "founding_date": null,
+        "dissolution_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)",
         "image": null,
         "contact_details": [
             {
@@ -140,23 +144,24 @@
         "links": []
     },
     {
-        "name": "內政部空中勤務總隊籌備處",
+        "name": "交通部民用航空局航空隊",
         "other_names": [
             {
-                "name": "交通部民用航空局航空隊",
-                "start_date": null,
-                "end_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)"
+                "name": "內政部空中勤務總隊籌備處",
+                "start_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)",
+                "end_date": null
             }
         ],
         "identifiers": [
             {
-                "identifier": "301120000A",
+                "identifier": "315066000H",
                 "scheme": "orgcode"
             }
         ],
         "classification": "4",
         "parent_id": "315060000H",
-        "founding_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)",
+        "founding_date": null,
+        "dissolution_date": "Sun Jun 13 2004 00:00:00 GMT+0800 (CST)",
         "image": null,
         "contact_details": [
             {
