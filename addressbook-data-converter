@@ -18,7 +18,7 @@ argv = require \optimist
 
   .argv
 
-err, count <- cli.convert_data argv.converter, argv.input_file, argv.output_file
+err, count <- cli.convert_data argv.converter, [], argv.input_file, argv.output_file
 if err
   console.log err
 else

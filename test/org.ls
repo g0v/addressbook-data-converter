@@ -34,7 +34,7 @@ describe 'Organization', ->
     links: []
   describe 'load orglist as array.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
-      orgs, count <- from_orglist \test/testdata/organization/data-gov-node-7307-source.csv
+      orgs, count <- from_orglist [], \test/testdata/organization/data-gov-node-7307-source.csv
       count.should.eq 5
       orgs.length.should.eq 5
       orgs.0.should.deep.eq expected_obj
@@ -44,6 +44,6 @@ describe 'Organization', ->
       <- fs.unlink \test/testdata/orglist.out.json
       done!
     .. 'should be able to process sync.', (done) ->
-      err, count <- convert_data 'org.from_orglist', \test/testdata/organization/data-gov-node-7307-source.csv, \test/testdata/organization/data-gov-node-7307-source.json
+      err, count <- convert_data 'org.from_orglist', [], \test/testdata/organization/data-gov-node-7307-source.csv, \test/testdata/organization/data-gov-node-7307-source.json
       count.should.eq 5
       done!

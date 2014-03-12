@@ -31,8 +31,8 @@ export function dispatch(q, fnname)
   throw "#fnname is not a function." unless typeof fn is \function 
   fn
 
-export function convert_data(name, path, dest, done) 
-  result, count <- (dispatch name) path
+export function convert_data(name, acc, path, dest, done) 
+  result, count <- (dispatch name) acc, path
   json = JSON.stringify result, null, 4
   err <- fs.writeFile dest, json
   done err, count
