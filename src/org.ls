@@ -74,8 +74,3 @@ export function from_orglist(path, done)
       old_name: \舊機關名稱
   util.from_csv path, opts, popololized_orglist_record, done
 
-export function convert_orglist(path, dest, done) 
-  result, count <- from_orglist path
-  json = JSON.stringify result, null, 4
-  err <- fs.writeFile dest, json
-  done err, count

@@ -15,11 +15,24 @@
 # ``
 # $ addressbook-data-converter --input_file rawdata/central/orglist.CSV --output_file output/orglist.json
 # ``
+require! fs
 
-export function dispatch(modname, fnname) 
+parse_converter = ->
+  q = it / '.'
+  throw 'invalid query' if q.length != 2
+  q
+
+export function dispatch(q, fnname) 
+  [modname, fnname] = parse_converter q
   pkg = require \./
   throw "#modname is not a module." unless pkg[modname]?
   module = pkg[modname]!
   fn = module[fnname]
   throw "#fnname is not a function." unless typeof fn is \function 
   fn
+
+export function convert_data(name, path, dest, done) 
+  result, count <- (dispatch name) path
+  json = JSON.stringify result, null, 4
+  err <- fs.writeFile dest, json
+  done err, count

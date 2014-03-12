@@ -1,11 +1,6 @@
 #!/usr/bin/env lsc
 cli = (require \./lib).cli!
 
-parse_converter = ->
-  q = it / '.'
-  throw 'err' if q.length != 2
-  q
-
 argv = require \optimist
   .usage 'must specify path for rawdata to be transformed. $0'
 
@@ -23,8 +18,7 @@ argv = require \optimist
 
   .argv
 
-[modname, fnname] = parse_converter argv.converter
-err, count <- cli.dispatch(modname, fnname) argv.input_file, argv.output_file
+err, count <- cli.convert_data argv.converter, argv.input_file, argv.output_file
 if err
   console.log err
 else

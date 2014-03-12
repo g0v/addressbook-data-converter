@@ -3,7 +3,7 @@ should = (require \chai).should!
 expect = (require \chai).expect
 
 from_orglist = (require \../).org! .from_orglist
-convert_orglist = (require \../).org! .convert_orglist
+convert_data = (require \../).cli! .convert_data
 
 describe 'Organization', ->
   expected_obj = do
@@ -44,6 +44,6 @@ describe 'Organization', ->
       <- fs.unlink \test/testdata/orglist.out.json
       done!
     .. 'should be able to process sync.', (done) ->
-      err, count <- convert_orglist \test/testdata/organization/data-gov-node-7307-source.csv, \test/testdata/organization/data-gov-node-7307-source.json
+      err, count <- convert_data 'org.from_orglist', \test/testdata/organization/data-gov-node-7307-source.csv, \test/testdata/organization/data-gov-node-7307-source.json
       count.should.eq 5
       done!
