@@ -25,6 +25,11 @@ engines: {node: '*'}
 dependencies:
   optimist: \0.6.x  
   csv: \*
+  cheerio: \*
+  request: \*
+  async : \*
+  mkdirp: \*
+  time: \*
 devDependencies:
   mocha: \1.14.x
   supertest: \0.7.x
