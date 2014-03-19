@@ -3,6 +3,7 @@ should = (require \chai).should!
 expect = (require \chai).expect
 
 from_data_gov_7307 = (require \../).org! .from_data_gov_7307
+from_data_gov_6119 = (require \../).org! .from_data_gov_6119
 convert_data = (require \../).cli! .convert_data
 
 describe 'Organization', ->
@@ -26,13 +27,13 @@ describe 'Organization', ->
             * label: \機關電話
               type: \voice
               value: \04-22522966-
-              source: null 
+              source: null
             * label: \機關傳真
               type: \fax
               value: \04-22543403-
               source: null ]
     links: []
-  describe 'load orglist as array.', -> ``it``
+  describe 'process data.gov.tw node 7307.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
       orgs, count <- from_data_gov_7307 [], \test/testdata/organization/data-gov-node-7307-source.csv
       count.should.eq 5
@@ -46,4 +47,11 @@ describe 'Organization', ->
     .. 'should be able to process sync.', (done) ->
       err, count <- convert_data 'org.from_data_gov_7307', [], \test/testdata/organization/data-gov-node-7307-source.csv, \test/testdata/organization/data-gov-node-7307-source.json
       count.should.eq 5
+      done!
+  describe 'process data.gov.tw node 6119.', -> ``it``
+    .. 'should contain elements follow popolo specs.', (done) ->
+      orgs, count <- from_data_gov_6119 [], \test/testdata/organization/data-gov-node-6119-source.csv
+      count.should.eq 117
+      orgs.length.should.eq 117
+      orgs.0.name.should.eq \駐清奈辦事處
       done!
