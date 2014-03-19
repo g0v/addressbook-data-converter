@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><orgs>
     <org>
         <orgId>67000370</orgId>
-        <orgname>臺南市中西區戶政事務所</orgname>
+        <orgName>臺南市中西區戶政事務所</orgName>
         <address>臺南市中西區民族路三段258號</address>
         <tel>06-2232609</tel>
         <fax>06-2224400</fax>
@@ -11,7 +11,7 @@
     </org>
     <org>
         <orgId>67000360</orgId>
-        <orgname>臺南市安平區戶政事務所</orgname>
+        <orgName>臺南市安平區戶政事務所</orgName>
         <address>臺南市安平區育平路318號</address>
         <tel>06-2953155</tel>
         <fax>06-2953351</fax>
@@ -21,7 +21,7 @@
     </org>
     <org>
         <orgId>67000350</orgId>
-        <orgname>臺南市安南區戶政事務所</orgname>
+        <orgName>臺南市安南區戶政事務所</orgName>
         <address>臺南市安南區安中路二段306號</address>
         <tel>06-2471161</tel>
         <fax>06-2468792</fax>
@@ -31,7 +31,7 @@
     </org>
     <org>
         <orgId>67000340</orgId>
-        <orgname>臺南市北區戶政事務所</orgname>
+        <orgName>臺南市北區戶政事務所</orgName>
         <address>臺南市北區成功路238巷7號</address>
         <tel>06-2219303</tel>
         <fax>06-2224608</fax>
@@ -41,7 +41,7 @@
     </org>
     <org>
         <orgId>67000330</orgId>
-        <orgname>臺南市南區戶政事務所</orgname>
+        <orgName>臺南市南區戶政事務所</orgName>
         <address>臺南市南區明興路2號</address>
         <tel>06-2913702</tel>
         <fax>06-2913705</fax>
@@ -51,7 +51,7 @@
     </org>
     <org>
         <orgId>67000320</orgId>
-        <orgname>臺南市東區戶政事務所</orgname>
+        <orgName>臺南市東區戶政事務所</orgName>
         <address>臺南市東區崇善路195號</address>
         <tel>06-3351559</tel>
         <fax>06-2609412</fax>
@@ -61,7 +61,7 @@
     </org>
     <org>
         <orgId>67000310</orgId>
-        <orgname>臺南市永康區戶政事務所</orgname>
+        <orgName>臺南市永康區戶政事務所</orgName>
         <address>臺南市永康區大同街735號</address>
         <tel>06-2326734</tel>
         <fax>06-2015310</fax>
@@ -71,7 +71,7 @@
     </org>
     <org>
         <orgId>67000300</orgId>
-        <orgname>臺南市龍崎區戶政事務所</orgname>
+        <orgName>臺南市龍崎區戶政事務所</orgName>
         <address>臺南市龍崎區崎頂里新市子201號2樓</address>
         <tel>06-5941182</tel>
         <fax>06-5940275</fax>
@@ -81,7 +81,7 @@
     </org>
     <org>
         <orgId>67000290</orgId>
-        <orgname>臺南市關廟區戶政事務所</orgname>
+        <orgName>臺南市關廟區戶政事務所</orgName>
         <address>臺南市關廟區文衡路19號</address>
         <tel>06-5952062</tel>
         <fax>06-5962292</fax>
@@ -91,7 +91,7 @@
     </org>
     <org>
         <orgId>67000280</orgId>
-        <orgname>臺南市歸仁區戶政事務所</orgname>
+        <orgName>臺南市歸仁區戶政事務所</orgName>
         <address>臺南市歸仁區中正南路一段1205號</address>
         <tel>06-2396500</tel>
         <fax>06-2393054</fax>
@@ -101,7 +101,7 @@
     </org>
     <org>
         <orgId>67000270</orgId>
-        <orgname>臺南市仁德區戶政事務所</orgname>
+        <orgName>臺南市仁德區戶政事務所</orgName>
         <address>臺南市仁德區中山路606巷3號</address>
         <tel>06-2704430</tel>
         <fax>06-2708799</fax>
@@ -111,7 +111,7 @@
     </org>
     <org>
         <orgId>67000260</orgId>
-        <orgname>臺南市左鎮區戶政事務所</orgname>
+        <orgName>臺南市左鎮區戶政事務所</orgName>
         <address>臺南市左鎮區左鎮里122號</address>
         <tel>06-5731201</tel>
         <fax>06-5732276</fax>
@@ -121,7 +121,7 @@
     </org>
     <org>
         <orgId>67000250</orgId>
-        <orgname>臺南市南化區戶政事務所</orgname>
+        <orgName>臺南市南化區戶政事務所</orgName>
         <address>臺南市南化區南化里170號</address>
         <tel>06-5771164</tel>
         <fax>06-5773314</fax>
@@ -131,7 +131,7 @@
     </org>
     <org>
         <orgId>67000240</orgId>
-        <orgname>臺南市楠西區戶政事務所</orgname>
+        <orgName>臺南市楠西區戶政事務所</orgName>
         <address>臺南市楠西區中正路232號</address>
         <tel>06-5751082</tel>
         <fax>06-5752445</fax>
@@ -141,7 +141,7 @@
     </org>
     <org>
         <orgId>67000230</orgId>
-        <orgname>臺南市玉井區戶政事務所</orgname>
+        <orgName>臺南市玉井區戶政事務所</orgName>
         <address>臺南市玉井區中山路2之1號</address>
         <tel>06-5742474</tel>
         <fax>06-5746437</fax>
@@ -151,7 +151,7 @@
     </org>
     <org>
         <orgId>67000220</orgId>
-        <orgname>臺南市山上區戶政事務所</orgname>
+        <orgName>臺南市山上區戶政事務所</orgName>
         <address>臺南市山上區山上里山上36號</address>
         <tel>06-5781204</tel>
         <fax>06-5783013</fax>
@@ -161,7 +161,7 @@
     </org>
     <org>
         <orgId>67000210</orgId>
-        <orgname>臺南市安定區戶政事務所</orgname>
+        <orgName>臺南市安定區戶政事務所</orgName>
         <address>臺南市安定區保西里12鄰安定443之1號</address>
         <tel>06-5922228</tel>
         <fax>06-5920965</fax>
@@ -171,7 +171,7 @@
     </org>
     <org>
         <orgId>67000200</orgId>
-        <orgname>臺南市新市區戶政事務所</orgname>
+        <orgName>臺南市新市區戶政事務所</orgName>
         <address>臺南市新市區新市里2鄰光華街242號</address>
         <tel>06-5993582</tel>
         <fax>06-5012371</fax>
@@ -181,7 +181,7 @@
     </org>
     <org>
         <orgId>67000190</orgId>
-        <orgname>臺南市善化區戶政事務所</orgname>
+        <orgName>臺南市善化區戶政事務所</orgName>
         <address>臺南市善化區文昌里19鄰光復路269號</address>
         <tel>06-5817445</tel>
         <fax>06-5810746</fax>
@@ -191,7 +191,7 @@
     </org>
     <org>
         <orgId>67000180</orgId>
-        <orgname>臺南市新化區戶政事務所</orgname>
+        <orgName>臺南市新化區戶政事務所</orgName>
         <address>臺南市新化區和平街31巷11號</address>
         <tel>06-5903978</tel>
         <fax>06-5904643</fax>
@@ -201,7 +201,7 @@
     </org>
     <org>
         <orgId>67000170</orgId>
-        <orgname>臺南市北門區戶政事務所</orgname>
+        <orgName>臺南市北門區戶政事務所</orgName>
         <address>臺南市北門區北門里舊埕229號</address>
         <tel>06-7862244</tel>
         <fax>06-7861206</fax>
@@ -211,7 +211,7 @@
     </org>
     <org>
         <orgId>67000160</orgId>
-        <orgname>臺南市將軍區戶政事務所</orgname>
+        <orgName>臺南市將軍區戶政事務所</orgName>
         <address>臺南市將軍區忠興里20鄰忠興212之1號</address>
         <tel>06-7942154</tel>
         <fax>06-7943390</fax>
@@ -221,7 +221,7 @@
     </org>
     <org>
         <orgId>67000150</orgId>
-        <orgname>臺南市七股區戶政事務所</orgname>
+        <orgName>臺南市七股區戶政事務所</orgName>
         <address>臺南市七股區大埕380號</address>
         <tel>06-7872127</tel>
         <fax>06-7873194</fax>
@@ -231,7 +231,7 @@
     </org>
     <org>
         <orgId>67000140</orgId>
-        <orgname>臺南市西港區戶政事務所</orgname>
+        <orgName>臺南市西港區戶政事務所</orgName>
         <address>臺南巿西港區慶安里10鄰中山路337號</address>
         <tel>06-7952414</tel>
         <fax>06-7956235</fax>
@@ -241,7 +241,7 @@
     </org>
     <org>
         <orgId>67000130</orgId>
-        <orgname>臺南市學甲區戶政事務所</orgname>
+        <orgName>臺南市學甲區戶政事務所</orgName>
         <address>臺南市學甲區仁得里1鄰華宗路313號</address>
         <tel>06-7833844-24</tel>
         <fax>06-7820370</fax>
@@ -251,7 +251,7 @@
     </org>
     <org>
         <orgId>67000120</orgId>
-        <orgname>臺南市佳里區戶政事務所</orgname>
+        <orgName>臺南市佳里區戶政事務所</orgName>
         <address>臺南市佳里區忠孝路17號</address>
         <tel>06-7224172</tel>
         <fax>06-7232119</fax>
@@ -261,7 +261,7 @@
     </org>
     <org>
         <orgId>67000110</orgId>
-        <orgname>臺南市大內區戶政事務所</orgname>
+        <orgName>臺南市大內區戶政事務所</orgName>
         <address>臺南市大內區石城里8鄰石子瀨74號</address>
         <tel>06-5761259</tel>
         <fax>06-5763937</fax>
@@ -271,7 +271,7 @@
     </org>
     <org>
         <orgId>67000100</orgId>
-        <orgname>臺南市官田區戶政事務所</orgname>
+        <orgName>臺南市官田區戶政事務所</orgName>
         <address>臺南市官田區隆田里22鄰信義街一段237號</address>
         <tel>06-5791740</tel>
         <fax>06-5790699</fax>
@@ -281,7 +281,7 @@
     </org>
     <org>
         <orgId>67000090</orgId>
-        <orgname>臺南市六甲區戶政事務所</orgname>
+        <orgName>臺南市六甲區戶政事務所</orgName>
         <address>臺南市六甲區水林里4鄰中山路212號</address>
         <tel>06-6982408</tel>
         <fax>06-6983383</fax>
@@ -291,7 +291,7 @@
     </org>
     <org>
         <orgId>67000080</orgId>
-        <orgname>臺南市下營區戶政事務所</orgname>
+        <orgName>臺南市下營區戶政事務所</orgName>
         <address>臺南市下營區人和一街15號</address>
         <tel>06-6892480</tel>
         <fax>06-6897761</fax>
@@ -301,7 +301,7 @@
     </org>
     <org>
         <orgId>67000070</orgId>
-        <orgname>臺南市麻豆區戶政事務所</orgname>
+        <orgName>臺南市麻豆區戶政事務所</orgName>
         <address>臺南市麻豆區中華街35號</address>
         <tel>06-5722105</tel>
         <fax>06-5714419</fax>
@@ -311,7 +311,7 @@
     </org>
     <org>
         <orgId>67000060</orgId>
-        <orgname>臺南市東山區戶政事務所</orgname>
+        <orgName>臺南市東山區戶政事務所</orgName>
         <address>臺南市東山區東山219號之1</address>
         <tel>06-6801154</tel>
         <fax>06-6802275</fax>
@@ -321,7 +321,7 @@
     </org>
     <org>
         <orgId>67000050</orgId>
-        <orgname>臺南市後壁區戶政事務所</orgname>
+        <orgName>臺南市後壁區戶政事務所</orgName>
         <address>臺南市後壁區後壁里1鄰後壁6號</address>
         <tel>06-6872859</tel>
         <fax>06-6872479</fax>
@@ -331,7 +331,7 @@
     </org>
     <org>
         <orgId>67000040</orgId>
-        <orgname>臺南市柳營區戶政事務所</orgname>
+        <orgName>臺南市柳營區戶政事務所</orgName>
         <address>臺南市柳營區士林里11鄰博愛街2號</address>
         <tel>06-6220744</tel>
         <fax>06-6224280</fax>
@@ -341,7 +341,7 @@
     </org>
     <org>
         <orgId>67000030</orgId>
-        <orgname>臺南市白河區戶政事務所</orgname>
+        <orgName>臺南市白河區戶政事務所</orgName>
         <address>臺南市白河區中山路128號</address>
         <tel>06-6852314</tel>
         <fax>06-6831704</fax>
@@ -351,7 +351,7 @@
     </org>
     <org>
         <orgId>67000020</orgId>
-        <orgname>臺南市鹽水區戶政事務所</orgname>
+        <orgName>臺南市鹽水區戶政事務所</orgName>
         <address>臺南巿鹽水區北門路102號</address>
         <tel>06-6521404</tel>
         <fax>06-6531120</fax>
@@ -361,7 +361,7 @@
     </org>
     <org>
         <orgId>67000010</orgId>
-        <orgname>臺南市新營區戶政事務所</orgname>
+        <orgName>臺南市新營區戶政事務所</orgName>
         <address>臺南市新營區民治路36號世紀大樓一樓</address>
         <tel>06-6323470</tel>
         <fax>06-6350729</fax>
@@ -371,7 +371,7 @@
     </org>
     <org>
         <orgId>67000000</orgId>
-        <orgname>臺南市政府民政局</orgname>
+        <orgName>臺南市政府民政局</orgName>
         <address>臺南市安平區永華路二段6號；臺南市新營區民治路36號</address>
         <tel>06-2991111-8658</tel>
         <fax>06-2983089</fax>
@@ -381,7 +381,7 @@
     </org>
     <org>
         <orgId>66000290</orgId>
-        <orgname>臺中市和平區戶政事務所</orgname>
+        <orgName>臺中市和平區戶政事務所</orgName>
         <address>臺中市和平區南勢里巴新街8號</address>
         <tel>04-25941554</tel>
         <fax>04-25942807</fax>
@@ -391,7 +391,7 @@
     </org>
     <org>
         <orgId>66000280</orgId>
-        <orgname>臺中市大里區戶政事務所</orgname>
+        <orgName>臺中市大里區戶政事務所</orgName>
         <address>臺中市大里區新興路7號</address>
         <tel>04-24063251</tel>
         <fax>04-24061214</fax>
@@ -401,7 +401,7 @@
     </org>
     <org>
         <orgId>66000270</orgId>
-        <orgname>臺中市太平區戶政事務所</orgname>
+        <orgName>臺中市太平區戶政事務所</orgName>
         <address>臺中市太平區大源路2之18號</address>
         <tel>04-23936767</tel>
         <fax>04-23929809</fax>
@@ -411,7 +411,7 @@
     </org>
     <org>
         <orgId>66000260</orgId>
-        <orgname>臺中市霧峰區戶政事務所</orgname>
+        <orgName>臺中市霧峰區戶政事務所</orgName>
         <address>臺中市霧峰區吉峰路16號</address>
         <tel>04-23393497</tel>
         <fax>04-23320117</fax>
@@ -421,7 +421,7 @@
     </org>
     <org>
         <orgId>66000250</orgId>
-        <orgname>臺中市龍井區戶政事務所</orgname>
+        <orgName>臺中市龍井區戶政事務所</orgName>
         <address>臺中市龍井區沙田路四段257號</address>
         <tel>04-26353644</tel>
         <fax>04-26359915</fax>
@@ -431,7 +431,7 @@
     </org>
     <org>
         <orgId>66000240</orgId>
-        <orgname>臺中市大肚區戶政事務所</orgname>
+        <orgName>臺中市大肚區戶政事務所</orgName>
         <address>臺中市大肚區沙田路三段38之1號</address>
         <tel>04-26997881</tel>
         <fax>04-26995661</fax>
@@ -441,7 +441,7 @@
     </org>
     <org>
         <orgId>66000230</orgId>
-        <orgname>臺中市烏日區戶政事務所</orgname>
+        <orgName>臺中市烏日區戶政事務所</orgName>
         <address>臺中市烏日區高鐵路一段170號</address>
         <tel>04-23372054</tel>
         <fax>04-23365883</fax>
@@ -451,7 +451,7 @@
     </org>
     <org>
         <orgId>66000220</orgId>
-        <orgname>臺中市大安區戶政事務所</orgname>
+        <orgName>臺中市大安區戶政事務所</orgName>
         <address>臺中市大安區中山南路302號</address>
         <tel>04-26712214</tel>
         <fax>04-26711724</fax>
@@ -461,7 +461,7 @@
     </org>
     <org>
         <orgId>66000210</orgId>
-        <orgname>臺中市外埔區戶政事務所</orgname>
+        <orgName>臺中市外埔區戶政事務所</orgName>
         <address>臺中市外埔區六分路352號</address>
         <tel>04-26833430</tel>
         <fax>04-26837207</fax>
@@ -471,7 +471,7 @@
     </org>
     <org>
         <orgId>66000200</orgId>
-        <orgname>臺中市石岡區戶政事務所</orgname>
+        <orgName>臺中市石岡區戶政事務所</orgName>
         <address>臺中市石岡區明德路18號</address>
         <tel>04-25722972</tel>
         <fax>04-25722374</fax>
@@ -481,7 +481,7 @@
     </org>
     <org>
         <orgId>66000190</orgId>
-        <orgname>臺中市新社區戶政事務所</orgname>
+        <orgName>臺中市新社區戶政事務所</orgName>
         <address>臺中市新社區興社街二段28之2號</address>
         <tel>04-25811420</tel>
         <fax>04-25814607</fax>
@@ -491,7 +491,7 @@
     </org>
     <org>
         <orgId>66000180</orgId>
-        <orgname>臺中市大雅區戶政事務所</orgname>
+        <orgName>臺中市大雅區戶政事務所</orgName>
         <address>臺中市大雅區雅環路二段299號二樓</address>
         <tel>04-25664274</tel>
         <fax>04-25687102</fax>
@@ -501,7 +501,7 @@
     </org>
     <org>
         <orgId>66000170</orgId>
-        <orgname>臺中市潭子區戶政事務所</orgname>
+        <orgName>臺中市潭子區戶政事務所</orgName>
         <address>臺中市潭子區中山路二段237巷3號</address>
         <tel>04-25340889</tel>
         <fax>04-25346443</fax>
@@ -511,7 +511,7 @@
     </org>
     <org>
         <orgId>66000160</orgId>
-        <orgname>臺中市神岡區戶政事務所</orgname>
+        <orgName>臺中市神岡區戶政事務所</orgName>
         <address>臺中市神岡區神岡里18鄰神岡路121之1號</address>
         <tel>04-25622183</tel>
         <fax>04-25613289</fax>
@@ -521,7 +521,7 @@
     </org>
     <org>
         <orgId>66000150</orgId>
-        <orgname>臺中市后里區戶政事務所</orgname>
+        <orgName>臺中市后里區戶政事務所</orgName>
         <address>臺中市后里區公安路90號</address>
         <tel>04-25562241</tel>
         <fax>04-25579118</fax>
@@ -531,7 +531,7 @@
     </org>
     <org>
         <orgId>66000140</orgId>
-        <orgname>臺中市梧棲區戶政事務所</orgname>
+        <orgName>臺中市梧棲區戶政事務所</orgName>
         <address>臺中市梧棲區中興路212號</address>
         <tel>04-26562543</tel>
         <fax>04-26564014</fax>
@@ -541,7 +541,7 @@
     </org>
     <org>
         <orgId>66000130</orgId>
-        <orgname>臺中市沙鹿區戶政事務所</orgname>
+        <orgName>臺中市沙鹿區戶政事務所</orgName>
         <address>臺中市沙鹿區鎮政路16號</address>
         <tel>04-26627104</tel>
         <fax>04-26652409</fax>
@@ -551,7 +551,7 @@
     </org>
     <org>
         <orgId>66000120</orgId>
-        <orgname>臺中市清水區戶政事務所</orgname>
+        <orgName>臺中市清水區戶政事務所</orgName>
         <address>臺中市清水區鰲峰路239號</address>
         <tel>04-26280801</tel>
         <fax>04-26280809</fax>
@@ -561,7 +561,7 @@
     </org>
     <org>
         <orgId>66000110</orgId>
-        <orgname>臺中市大甲區戶政事務所</orgname>
+        <orgName>臺中市大甲區戶政事務所</orgName>
         <address>臺中市大甲區民權路52號6樓</address>
         <tel>04-26876157</tel>
         <fax>04-26880878</fax>
@@ -571,7 +571,7 @@
     </org>
     <org>
         <orgId>66000100</orgId>
-        <orgname>臺中市東勢區戶政事務所</orgname>
+        <orgName>臺中市東勢區戶政事務所</orgName>
         <address>臺中市東勢區豐勢路516號</address>
         <tel>04-25873644</tel>
         <fax>04-25871683</fax>
@@ -581,7 +581,7 @@
     </org>
     <org>
         <orgId>66000090</orgId>
-        <orgname>臺中市豐原區戶政事務所</orgname>
+        <orgName>臺中市豐原區戶政事務所</orgName>
         <address>臺中市豐原區市政路2號</address>
         <tel>04-25221044</tel>
         <fax>04-25255162</fax>
@@ -591,7 +591,7 @@
     </org>
     <org>
         <orgId>66000080</orgId>
-        <orgname>臺中市北屯區戶政事務所</orgname>
+        <orgName>臺中市北屯區戶政事務所</orgName>
         <address>臺中市北屯區崇德路三段10號</address>
         <tel>04-22453371</tel>
         <fax>04-22463381</fax>
@@ -601,7 +601,7 @@
     </org>
     <org>
         <orgId>66000070</orgId>
-        <orgname>臺中市南屯區戶政事務所</orgname>
+        <orgName>臺中市南屯區戶政事務所</orgName>
         <address>臺中市南屯區永春東路679號</address>
         <tel>04-24736255</tel>
         <fax>04-24736266</fax>
@@ -611,7 +611,7 @@
     </org>
     <org>
         <orgId>66000060</orgId>
-        <orgname>臺中市西屯區戶政事務所</orgname>
+        <orgName>臺中市西屯區戶政事務所</orgName>
         <address>臺中市西屯區市政北二路386號</address>
         <tel>04-22550081</tel>
         <fax>04-22552622</fax>
@@ -621,7 +621,7 @@
     </org>
     <org>
         <orgId>66000050</orgId>
-        <orgname>臺中市北區戶政事務所</orgname>
+        <orgName>臺中市北區戶政事務所</orgName>
         <address>臺中市北區永興街299號</address>
         <tel>04-22343542</tel>
         <fax>04-22351421</fax>
@@ -631,7 +631,7 @@
     </org>
     <org>
         <orgId>66000040</orgId>
-        <orgname>臺中市西區戶政事務所</orgname>
+        <orgName>臺中市西區戶政事務所</orgName>
         <address>臺中市西區三民路一段161號三樓</address>
         <tel>04-22247300</tel>
         <fax>04-22228480</fax>
@@ -641,7 +641,7 @@
     </org>
     <org>
         <orgId>66000030</orgId>
-        <orgname>臺中市南區戶政事務所</orgname>
+        <orgName>臺中市南區戶政事務所</orgName>
         <address>臺中市南區工學路72號一樓</address>
         <tel>04-22627887</tel>
         <fax>04-22628948</fax>
@@ -651,7 +651,7 @@
     </org>
     <org>
         <orgId>66000020</orgId>
-        <orgname>臺中市東區戶政事務所</orgname>
+        <orgName>臺中市東區戶政事務所</orgName>
         <address>臺中市東區和平街61號</address>
         <tel>04-22200209</tel>
         <fax>04-22229301</fax>
@@ -661,7 +661,7 @@
     </org>
     <org>
         <orgId>66000010</orgId>
-        <orgname>臺中市中區戶政事務所</orgname>
+        <orgName>臺中市中區戶政事務所</orgName>
         <address>臺中市中區興中街80號</address>
         <tel>04-22247517</tel>
         <fax>04-22253290</fax>
@@ -671,7 +671,7 @@
     </org>
     <org>
         <orgId>66000000</orgId>
-        <orgname>臺中市政府民政局</orgname>
+        <orgName>臺中市政府民政局</orgName>
         <address>臺中市西屯區臺灣大道三段99號惠中樓6樓</address>
         <tel>04-22289111-2901</tel>
         <fax>04-22555549</fax>
@@ -681,7 +681,7 @@
     </org>
     <org>
         <orgId>65000270</orgId>
-        <orgname>新北市金山戶政事務所</orgname>
+        <orgName>新北市金山戶政事務所</orgName>
         <address>新北市金山區民生路67號</address>
         <tel>02-24982059</tel>
         <fax>02-24985871</fax>
@@ -691,7 +691,7 @@
     </org>
     <org>
         <orgId>65000170</orgId>
-        <orgname>新北市林口戶政事務所</orgname>
+        <orgName>新北市林口戶政事務所</orgName>
         <address>新北市林口區仁愛路一段378號</address>
         <tel>02-26011574</tel>
         <fax>02-26033396</fax>
@@ -701,7 +701,7 @@
     </org>
     <org>
         <orgId>65000160</orgId>
-        <orgname>新北市泰山戶政事務所</orgname>
+        <orgName>新北市泰山戶政事務所</orgName>
         <address>新北市泰山區全興路212號四樓</address>
         <tel>02-29096775</tel>
         <fax>02-22971273</fax>
@@ -711,7 +711,7 @@
     </org>
     <org>
         <orgId>65000150</orgId>
-        <orgname>新北市五股戶政事務所</orgname>
+        <orgName>新北市五股戶政事務所</orgName>
         <address>新北市五股區中興路4段70號</address>
         <tel>02-22916698</tel>
         <fax>02-22941356</fax>
@@ -721,7 +721,7 @@
     </org>
     <org>
         <orgId>65000140</orgId>
-        <orgname>新北市蘆洲戶政事務所</orgname>
+        <orgName>新北市蘆洲戶政事務所</orgName>
         <address>新北市蘆洲區集賢路245號8樓</address>
         <tel>02-22818536</tel>
         <fax>02-22829418</fax>
@@ -731,7 +731,7 @@
     </org>
     <org>
         <orgId>65000130</orgId>
-        <orgname>新北市土城戶政事務所</orgname>
+        <orgName>新北市土城戶政事務所</orgName>
         <address>新北市土城區和平路28號</address>
         <tel>02-22605640</tel>
         <fax>02-22607054</fax>
@@ -741,7 +741,7 @@
     </org>
     <org>
         <orgId>65000120</orgId>
-        <orgname>新北市瑞芳戶政事務所</orgname>
+        <orgName>新北市瑞芳戶政事務所</orgName>
         <address>新北市瑞芳區中正路30號5樓</address>
         <tel>02-24972229</tel>
         <fax>02-24969197</fax>
@@ -751,7 +751,7 @@
     </org>
     <org>
         <orgId>65000110</orgId>
-        <orgname>新北市汐止戶政事務所</orgname>
+        <orgName>新北市汐止戶政事務所</orgName>
         <address>新北市汐止區新台五路一段268號六樓</address>
         <tel>02-26429866</tel>
         <fax>02-26429855</fax>
@@ -761,7 +761,7 @@
     </org>
     <org>
         <orgId>65000100</orgId>
-        <orgname>新北市淡水戶政事務所</orgname>
+        <orgName>新北市淡水戶政事務所</orgName>
         <address>新北市淡水區中正路227號</address>
         <tel>02-26232830</tel>
         <fax>02-26223722</fax>
@@ -771,7 +771,7 @@
     </org>
     <org>
         <orgId>65000090</orgId>
-        <orgname>新北市三峽戶政事務所</orgname>
+        <orgName>新北市三峽戶政事務所</orgName>
         <address>新北市三峽區光明路71號5樓</address>
         <tel>02-26711173</tel>
         <fax>02-26732123</fax>
@@ -781,7 +781,7 @@
     </org>
     <org>
         <orgId>65000080</orgId>
-        <orgname>新北市鶯歌戶政事務所</orgname>
+        <orgName>新北市鶯歌戶政事務所</orgName>
         <address>新北市鶯歌區仁愛路五十三號</address>
         <tel>02-26797784</tel>
         <fax>02-26784493</fax>
@@ -791,7 +791,7 @@
     </org>
     <org>
         <orgId>65000070</orgId>
-        <orgname>新北市樹林戶政事務所</orgname>
+        <orgName>新北市樹林戶政事務所</orgName>
         <address>新北市樹林區保安街一段285號</address>
         <tel>02-26842131</tel>
         <fax>02-26842139</fax>
@@ -801,7 +801,7 @@
     </org>
     <org>
         <orgId>65000060</orgId>
-        <orgname>新北市新店戶政事務所</orgname>
+        <orgName>新北市新店戶政事務所</orgName>
         <address>新北市新店區行政街２號二樓</address>
         <tel>02-29147675</tel>
         <fax>02-29145491</fax>
@@ -811,7 +811,7 @@
     </org>
     <org>
         <orgId>65000050</orgId>
-        <orgname>新北市新莊戶政事務所</orgname>
+        <orgName>新北市新莊戶政事務所</orgName>
         <address>新北市新莊區中華路一段1號二樓</address>
         <tel>02-29912866</tel>
         <fax>02-29933609</fax>
@@ -821,7 +821,7 @@
     </org>
     <org>
         <orgId>65000040</orgId>
-        <orgname>新北市永和戶政事務所</orgname>
+        <orgName>新北市永和戶政事務所</orgName>
         <address>新北市永和區竹林路200之1號</address>
         <tel>02-29291276</tel>
         <fax>02-29214922</fax>
@@ -831,7 +831,7 @@
     </org>
     <org>
         <orgId>65000030</orgId>
-        <orgname>新北市中和戶政事務所</orgname>
+        <orgName>新北市中和戶政事務所</orgName>
         <address>新北市中和區南山路236號四、五樓</address>
         <tel>02-29495759</tel>
         <fax>02-29494046</fax>
@@ -841,7 +841,7 @@
     </org>
     <org>
         <orgId>65000020</orgId>
-        <orgname>新北市三重戶政事務所</orgname>
+        <orgName>新北市三重戶政事務所</orgName>
         <address>新北市三重區新北大道一段9號五–六樓</address>
         <tel>02-29812291</tel>
         <fax>02-29863666</fax>
@@ -851,7 +851,7 @@
     </org>
     <org>
         <orgId>65000010</orgId>
-        <orgname>新北市板橋戶政事務所</orgname>
+        <orgName>新北市板橋戶政事務所</orgName>
         <address>新北市板橋區中正路6號</address>
         <tel>02-29655656</tel>
         <fax>02-29661214</fax>
@@ -861,7 +861,7 @@
     </org>
     <org>
         <orgId>65000000</orgId>
-        <orgname>新北市政府民政局</orgname>
+        <orgName>新北市政府民政局</orgName>
         <address>新北市板橋區中山路一段一六一號14樓</address>
         <tel>02-29692105</tel>
         <fax>02-29683491</fax>
@@ -871,7 +871,7 @@
     </org>
     <org>
         <orgId>64000380</orgId>
-        <orgname>高雄市那瑪夏區</orgname>
+        <orgName>高雄市那瑪夏區</orgName>
         <address>高雄市那瑪夏區南沙魯里鞍山巷60號</address>
         <tel>07-6701141</tel>
         <fax>07-6701473</fax>
@@ -881,7 +881,7 @@
     </org>
     <org>
         <orgId>64000370</orgId>
-        <orgname>高雄市桃源區</orgname>
+        <orgName>高雄市桃源區</orgName>
         <address>高雄市桃源區南進巷200號</address>
         <tel>07-6861035</tel>
         <fax>07-6861084</fax>
@@ -891,7 +891,7 @@
     </org>
     <org>
         <orgId>64000360</orgId>
-        <orgname>高雄市茂林區戶政事務所</orgname>
+        <orgName>高雄市茂林區戶政事務所</orgName>
         <address>高雄市茂林區茂林里13之1號</address>
         <tel>07-6801231</tel>
         <fax>07-6801476</fax>
@@ -901,7 +901,7 @@
     </org>
     <org>
         <orgId>64000350</orgId>
-        <orgname>高雄市內門區戶政事務所</orgname>
+        <orgName>高雄市內門區戶政事務所</orgName>
         <address>高雄市內門區內門里內門114號</address>
         <tel>07-6671595</tel>
         <fax>07-6672794</fax>
@@ -911,7 +911,7 @@
     </org>
     <org>
         <orgId>64000340</orgId>
-        <orgname>高雄市杉林區戶政事務所</orgname>
+        <orgName>高雄市杉林區戶政事務所</orgName>
         <address>高雄市杉林區山仙路87號</address>
         <tel>07-6771344</tel>
         <fax>07-6771958</fax>
@@ -921,7 +921,7 @@
     </org>
     <org>
         <orgId>64000330</orgId>
-        <orgname>高雄市甲仙區</orgname>
+        <orgName>高雄市甲仙區</orgName>
         <address>高雄市甲仙區東安里和安街42-1號</address>
         <tel>07-6751420</tel>
         <fax>07-6753149</fax>
@@ -931,7 +931,7 @@
     </org>
     <org>
         <orgId>64000320</orgId>
-        <orgname>高雄市六龜區戶政事務所</orgname>
+        <orgName>高雄市六龜區戶政事務所</orgName>
         <address>高雄市六龜區民治路18之2號</address>
         <tel>07-6891401</tel>
         <fax>07-6893374</fax>
@@ -941,7 +941,7 @@
     </org>
     <org>
         <orgId>64000310</orgId>
-        <orgname>高雄市美濃區戶政事務所</orgname>
+        <orgName>高雄市美濃區戶政事務所</orgName>
         <address>高雄市美濃區美中路256號</address>
         <tel>07-6812734</tel>
         <fax>07-6811964</fax>
@@ -951,7 +951,7 @@
     </org>
     <org>
         <orgId>64000300</orgId>
-        <orgname>高雄市旗山區</orgname>
+        <orgName>高雄市旗山區</orgName>
         <address>高雄市旗山區延平一路503號</address>
         <tel>07-6614461</tel>
         <fax>07-6622440</fax>
@@ -961,7 +961,7 @@
     </org>
     <org>
         <orgId>64000290</orgId>
-        <orgname>高雄市梓官戶政事務所</orgname>
+        <orgName>高雄市梓官戶政事務所</orgName>
         <address>高雄市梓官區梓義里進學路5號</address>
         <tel>07-6171538</tel>
         <fax>07-6194480</fax>
@@ -971,7 +971,7 @@
     </org>
     <org>
         <orgId>64000260</orgId>
-        <orgname>高雄市茄萣區戶政事務所</orgname>
+        <orgName>高雄市茄萣區戶政事務所</orgName>
         <address>高雄市茄萣區茄萣路二段3號</address>
         <tel>07-6902004</tel>
         <fax>07-6902287</fax>
@@ -981,7 +981,7 @@
     </org>
     <org>
         <orgId>64000250</orgId>
-        <orgname>高雄市湖內區戶政事所</orgname>
+        <orgName>高雄市湖內區戶政事所</orgName>
         <address>高雄市湖內區中正路二段97號</address>
         <tel>07-6993191</tel>
         <fax>07-6992002</fax>
@@ -991,7 +991,7 @@
     </org>
     <org>
         <orgId>64000240</orgId>
-        <orgname>高雄市路竹區戶政事務所</orgname>
+        <orgName>高雄市路竹區戶政事務所</orgName>
         <address>高雄市路竹區國昌路86巷26號</address>
         <tel>07-6962518</tel>
         <fax>07-6969982</fax>
@@ -1001,7 +1001,7 @@
     </org>
     <org>
         <orgId>64000230</orgId>
-        <orgname>高雄市阿蓮戶政事務所</orgname>
+        <orgName>高雄市阿蓮戶政事務所</orgName>
         <address>高雄市阿蓮區忠孝路228號</address>
         <tel>07-6312242</tel>
         <fax>07-6318450</fax>
@@ -1011,7 +1011,7 @@
     </org>
     <org>
         <orgId>64000210</orgId>
-        <orgname>高雄市燕巢區戶政事務所</orgname>
+        <orgName>高雄市燕巢區戶政事務所</orgName>
         <address>高雄市燕巢區中民路585之1號</address>
         <tel>07-6161194</tel>
         <fax>07-6166132</fax>
@@ -1021,7 +1021,7 @@
     </org>
     <org>
         <orgId>64000200</orgId>
-        <orgname>高雄市橋頭區戶政事務所</orgname>
+        <orgName>高雄市橋頭區戶政事務所</orgName>
         <address>高雄市橋頭區隆豐路3號</address>
         <tel>07-6113430</tel>
         <fax>07-6110750</fax>
@@ -1031,7 +1031,7 @@
     </org>
     <org>
         <orgId>64000190</orgId>
-        <orgname>高雄市岡山區戶政事務所</orgname>
+        <orgName>高雄市岡山區戶政事務所</orgName>
         <address>高雄市岡山區岡山路345巷1號</address>
         <tel>07-6217389</tel>
         <fax>07-6233167</fax>
@@ -1041,7 +1041,7 @@
     </org>
     <org>
         <orgId>64000180</orgId>
-        <orgname>高雄市鳥松區戶政事務所</orgname>
+        <orgName>高雄市鳥松區戶政事務所</orgName>
         <address>高雄市鳥松區中正路96號</address>
         <tel>07-7316414</tel>
         <fax>07-7320026</fax>
@@ -1051,7 +1051,7 @@
     </org>
     <org>
         <orgId>64000170</orgId>
-        <orgname>高雄市仁武區戶政事務所</orgname>
+        <orgName>高雄市仁武區戶政事務所</orgName>
         <address>高雄市仁武區仁武里中正路94號4樓</address>
         <tel>07-3711328</tel>
         <fax>07-3727393</fax>
@@ -1061,7 +1061,7 @@
     </org>
     <org>
         <orgId>64000160</orgId>
-        <orgname>高雄市大社區戶政事務所</orgname>
+        <orgName>高雄市大社區戶政事務所</orgName>
         <address>高雄市大社區三民路332號</address>
         <tel>07-3515020</tel>
         <fax>07-3526216</fax>
@@ -1071,7 +1071,7 @@
     </org>
     <org>
         <orgId>64000150</orgId>
-        <orgname>高雄市大樹區戶政事務所</orgname>
+        <orgName>高雄市大樹區戶政事務所</orgName>
         <address>高雄市大樹區中興南路17號</address>
         <tel>07-6513088</tel>
         <fax>07-6521478</fax>
@@ -1081,7 +1081,7 @@
     </org>
     <org>
         <orgId>64000140</orgId>
-        <orgname>高雄市大寮區戶政事務所</orgname>
+        <orgName>高雄市大寮區戶政事務所</orgName>
         <address>高雄市大寮區鳳林三路375號</address>
         <tel>07-7817516</tel>
         <fax>07-7837645</fax>
@@ -1091,7 +1091,7 @@
     </org>
     <org>
         <orgId>64000130</orgId>
-        <orgname>高雄市林園區戶政事務所</orgname>
+        <orgName>高雄市林園區戶政事務所</orgName>
         <address>高雄市林園區林園北路189號</address>
         <tel>07-6413486</tel>
         <fax>07-6428613</fax>
@@ -1101,7 +1101,7 @@
     </org>
     <org>
         <orgId>64000122</orgId>
-        <orgname>高雄市鳳山區第二戶政事務所</orgname>
+        <orgName>高雄市鳳山區第二戶政事務所</orgName>
         <address>高雄市鳳山區五甲二路472號4樓</address>
         <tel>07-7511841</tel>
         <fax>07-7719544</fax>
@@ -1111,7 +1111,7 @@
     </org>
     <org>
         <orgId>64000121</orgId>
-        <orgname>高雄市鳳山區第一戶政事務所</orgname>
+        <orgName>高雄市鳳山區第一戶政事務所</orgName>
         <address>高雄市鳳山區經武路34巷1號</address>
         <tel>07-7429784</tel>
         <fax>07-7482856</fax>
@@ -1121,7 +1121,7 @@
     </org>
     <org>
         <orgId>64000110</orgId>
-        <orgname>高雄市小港區戶政事務所</orgname>
+        <orgName>高雄市小港區戶政事務所</orgName>
         <address>高雄市小港區小港路158號2樓</address>
         <tel>07-8119784</tel>
         <fax>07-8311034</fax>
@@ -1131,7 +1131,7 @@
     </org>
     <org>
         <orgId>64000100</orgId>
-        <orgname>高雄市旗津區戶政事務所</orgname>
+        <orgName>高雄市旗津區戶政事務所</orgName>
         <address>高雄市旗津區旗津三路2號一樓</address>
         <tel>07-5711500</tel>
         <fax>07-5717422</fax>
@@ -1141,7 +1141,7 @@
     </org>
     <org>
         <orgId>64000090</orgId>
-        <orgname>高雄市前鎮區戶政事務所</orgname>
+        <orgName>高雄市前鎮區戶政事務所</orgName>
         <address>高雄市前鎮區康定路151號一樓</address>
         <tel>07-8115128</tel>
         <fax>07-8120694</fax>
@@ -1151,7 +1151,7 @@
     </org>
     <org>
         <orgId>64000080</orgId>
-        <orgname>高雄市苓雅區戶政事務所</orgname>
+        <orgName>高雄市苓雅區戶政事務所</orgName>
         <address>高雄市苓雅區民權一路85號二樓;高雄苓雅區三多一路166號</address>
         <tel>07-3302232</tel>
         <fax>07-3319837</fax>
@@ -1161,7 +1161,7 @@
     </org>
     <org>
         <orgId>64000070</orgId>
-        <orgname>高雄市前金區戶政事務所</orgname>
+        <orgName>高雄市前金區戶政事務所</orgName>
         <address>高雄市前金區自強二路169號1樓</address>
         <tel>07-2911091</tel>
         <fax>07-2518583</fax>
@@ -1171,7 +1171,7 @@
     </org>
     <org>
         <orgId>64000060</orgId>
-        <orgname>高雄市新興區戶政事務所</orgname>
+        <orgName>高雄市新興區戶政事務所</orgName>
         <address>高雄市新興區中正三路34號二樓</address>
         <tel>07-2364015</tel>
         <fax>07-2372455</fax>
@@ -1181,7 +1181,7 @@
     </org>
     <org>
         <orgId>64000052</orgId>
-        <orgname>高雄市三民區第二戶政事務所</orgname>
+        <orgName>高雄市三民區第二戶政事務所</orgName>
         <address>高雄市三民區大順二路468號9樓</address>
         <tel>07-3951246</tel>
         <fax>07-3953306</fax>
@@ -1191,7 +1191,7 @@
     </org>
     <org>
         <orgId>64000051</orgId>
-        <orgname>高雄市三民區第一戶政事務所</orgname>
+        <orgName>高雄市三民區第一戶政事務所</orgName>
         <address>高雄市三民區哈爾濱街215號六樓</address>
         <tel>07-3236171</tel>
         <fax>07-3228934</fax>
@@ -1201,7 +1201,7 @@
     </org>
     <org>
         <orgId>64000040</orgId>
-        <orgname>高雄市楠梓區戶政事務所</orgname>
+        <orgName>高雄市楠梓區戶政事務所</orgName>
         <address>高雄市楠梓區楠梓新路264號一樓</address>
         <tel>07-3511895</tel>
         <fax>07-3530926</fax>
@@ -1211,7 +1211,7 @@
     </org>
     <org>
         <orgId>64000030</orgId>
-        <orgname>高雄市左營區戶政事務所</orgname>
+        <orgName>高雄市左營區戶政事務所</orgName>
         <address>高雄市左營區左營大路479號三樓</address>
         <tel>07-5829803</tel>
         <fax>07-5850370</fax>
@@ -1221,7 +1221,7 @@
     </org>
     <org>
         <orgId>64000020</orgId>
-        <orgname>高雄市鼓山區戶政事務所</orgname>
+        <orgName>高雄市鼓山區戶政事務所</orgName>
         <address>高雄市鼓山區鼓山二路166號一樓</address>
         <tel>07-5510404</tel>
         <fax>07-5331714</fax>
@@ -1231,7 +1231,7 @@
     </org>
     <org>
         <orgId>64000010</orgId>
-        <orgname>高雄市鹽埕區戶政事務所</orgname>
+        <orgName>高雄市鹽埕區戶政事務所</orgName>
         <address>高雄市鹽埕區大仁路6號七樓</address>
         <tel>07-5615030</tel>
         <fax>07-5322976</fax>
@@ -1241,7 +1241,7 @@
     </org>
     <org>
         <orgId>64000000</orgId>
-        <orgname>高雄市政府民政局</orgname>
+        <orgName>高雄市政府民政局</orgName>
         <address>高雄市鳳山區光復路二段132號四樓</address>
         <tel>07-7995678-5126</tel>
         <fax>07-7479735</fax>
@@ -1251,7 +1251,7 @@
     </org>
     <org>
         <orgId>63000120</orgId>
-        <orgname>臺北市北投區戶政事務所</orgname>
+        <orgName>臺北市北投區戶政事務所</orgName>
         <address>臺北市北投區新市街30號三樓</address>
         <tel>02-28924170</tel>
         <fax>02-28952936</fax>
@@ -1261,7 +1261,7 @@
     </org>
     <org>
         <orgId>63000110</orgId>
-        <orgname>臺北市士林區戶政事務所</orgname>
+        <orgName>臺北市士林區戶政事務所</orgName>
         <address>臺北市士林區中正路439號三樓</address>
         <tel>02-28803252</tel>
         <fax>02-28830534</fax>
@@ -1271,7 +1271,7 @@
     </org>
     <org>
         <orgId>63000100</orgId>
-        <orgname>臺北市內湖區戶政事務所</orgname>
+        <orgName>臺北市內湖區戶政事務所</orgName>
         <address>臺北市內湖區民權東路六段99號三樓</address>
         <tel>02-27912277-9</tel>
         <fax>02-27945743</fax>
@@ -1281,7 +1281,7 @@
     </org>
     <org>
         <orgId>63000090</orgId>
-        <orgname>臺北市南港區戶政事務所</orgname>
+        <orgName>臺北市南港區戶政事務所</orgName>
         <address>臺北市南港區南港路一段360號四樓</address>
         <tel>02-27825196</tel>
         <fax>02-27888675</fax>
@@ -1291,7 +1291,7 @@
     </org>
     <org>
         <orgId>63000080</orgId>
-        <orgname>臺北市文山區戶政事務所</orgname>
+        <orgName>臺北市文山區戶政事務所</orgName>
         <address>臺北市文山區木柵路三段220號二樓</address>
         <tel>02-29395885</tel>
         <fax>02-29364284</fax>
@@ -1301,7 +1301,7 @@
     </org>
     <org>
         <orgId>63000070</orgId>
-        <orgname>臺北市萬華區戶政事務所</orgname>
+        <orgName>臺北市萬華區戶政事務所</orgName>
         <address>臺北市萬華區和平西路3段120號4樓</address>
         <tel>02-23062706</tel>
         <fax>02-23082868</fax>
@@ -1311,7 +1311,7 @@
     </org>
     <org>
         <orgId>63000060</orgId>
-        <orgname>臺北市大同區戶政事務所</orgname>
+        <orgName>臺北市大同區戶政事務所</orgName>
         <address>臺北市大同區昌吉街57號三樓之1</address>
         <tel>02-25942569</tel>
         <fax>02-25862975</fax>
@@ -1321,7 +1321,7 @@
     </org>
     <org>
         <orgId>63000050</orgId>
-        <orgname>臺北市中正區戶政事務所</orgname>
+        <orgName>臺北市中正區戶政事務所</orgName>
         <address>臺北市中正區羅斯福路一段8號四樓</address>
         <tel>02-23948838</tel>
         <fax>02-23942541</fax>
@@ -1331,7 +1331,7 @@
     </org>
     <org>
         <orgId>63000040</orgId>
-        <orgname>臺北市中山區戶政事務所</orgname>
+        <orgName>臺北市中山區戶政事務所</orgName>
         <address>臺北市中山區松江路367號二樓</address>
         <tel>02-25032461</tel>
         <fax>02-25015804</fax>
@@ -1341,7 +1341,7 @@
     </org>
     <org>
         <orgId>63000030</orgId>
-        <orgname>臺北市大安區戶政事務所</orgname>
+        <orgName>臺北市大安區戶政事務所</orgName>
         <address>臺北市大安區新生南路二段86號</address>
         <tel>02-23587877</tel>
         <fax>02-23587281</fax>
@@ -1351,7 +1351,7 @@
     </org>
     <org>
         <orgId>63000020</orgId>
-        <orgname>臺北市信義區戶政事務所</orgname>
+        <orgName>臺北市信義區戶政事務所</orgName>
         <address>臺北市信義區信義路5段15號2樓</address>
         <tel>02-27233977</tel>
         <fax>02-27224692</fax>
@@ -1361,7 +1361,7 @@
     </org>
     <org>
         <orgId>63000010</orgId>
-        <orgname>臺北市松山區戶政事務所</orgname>
+        <orgName>臺北市松山區戶政事務所</orgName>
         <address>臺北市松山區八德路四段692號四樓</address>
         <tel>02-27533043</tel>
         <fax>02-27645292</fax>
@@ -1371,7 +1371,7 @@
     </org>
     <org>
         <orgId>63000000</orgId>
-        <orgname>臺北市政府民政局</orgname>
+        <orgName>臺北市政府民政局</orgName>
         <address>臺北市信義區市府路1號9樓中央區</address>
         <tel>02-27208889</tel>
         <fax>02-27235933</fax>
@@ -1381,7 +1381,7 @@
     </org>
     <org>
         <orgId>10020020</orgId>
-        <orgname>嘉義市西區戶政事務所</orgname>
+        <orgName>嘉義市西區戶政事務所</orgName>
         <address>嘉義市西區錦州二街28號2樓</address>
         <tel>05-2831823</tel>
         <fax>05-2831829</fax>
@@ -1391,7 +1391,7 @@
     </org>
     <org>
         <orgId>10020010</orgId>
-        <orgname>嘉義市東區戶政事務所</orgname>
+        <orgName>嘉義市東區戶政事務所</orgName>
         <address>嘉義市東區吳鳳北路184號四樓</address>
         <tel>05-2226330</tel>
         <fax>05-2251903</fax>
@@ -1401,7 +1401,7 @@
     </org>
     <org>
         <orgId>10020000</orgId>
-        <orgname>嘉義市政府民政處</orgname>
+        <orgName>嘉義市政府民政處</orgName>
         <address>嘉義市中山路199號</address>
         <tel>05-2254321-343</tel>
         <fax>05-2240451</fax>
@@ -1411,7 +1411,7 @@
     </org>
     <org>
         <orgId>10018030</orgId>
-        <orgname>新竹市香山戶政事務所</orgname>
+        <orgName>新竹市香山戶政事務所</orgName>
         <address>新竹市香山區埔前里3鄰牛埔路430號　</address>
         <tel>03-5388639</tel>
         <fax>03-5302129</fax>
@@ -1421,7 +1421,7 @@
     </org>
     <org>
         <orgId>10018020</orgId>
-        <orgname>新竹市北區戶政事務所</orgname>
+        <orgName>新竹市北區戶政事務所</orgName>
         <address>新竹市北區國華街69號二樓</address>
         <tel>03-5152020</tel>
         <fax>03-5152036</fax>
@@ -1431,7 +1431,7 @@
     </org>
     <org>
         <orgId>10018010</orgId>
-        <orgname>新竹市東區戶政事務所</orgname>
+        <orgName>新竹市東區戶政事務所</orgName>
         <address>新竹市東區民族路40之1號</address>
         <tel>03-5226020</tel>
         <fax>03-5248032</fax>
@@ -1441,7 +1441,7 @@
     </org>
     <org>
         <orgId>10018000</orgId>
-        <orgname>新竹市政府民政處</orgname>
+        <orgName>新竹市政府民政處</orgName>
         <address>新竹市北區大同里5鄰中正路120號</address>
         <tel>03-5216121-235</tel>
         <fax>03-5245571</fax>
@@ -1451,7 +1451,7 @@
     </org>
     <org>
         <orgId>10017070</orgId>
-        <orgname>基隆市信義區戶政事務所</orgname>
+        <orgName>基隆市信義區戶政事務所</orgName>
         <address>基隆市信義區信一路6號</address>
         <tel>02-24261535</tel>
         <fax>02-24260980</fax>
@@ -1461,7 +1461,7 @@
     </org>
     <org>
         <orgId>10017060</orgId>
-        <orgname>基隆市安樂區戶政事務所</orgname>
+        <orgName>基隆市安樂區戶政事務所</orgName>
         <address>基隆市安樂區安樂路二段164號後棟一樓</address>
         <tel>02-24312159</tel>
         <fax>02-24332400</fax>
@@ -1471,7 +1471,7 @@
     </org>
     <org>
         <orgId>10017050</orgId>
-        <orgname>基隆市中山區戶政事務所</orgname>
+        <orgName>基隆市中山區戶政事務所</orgName>
         <address>基隆市中山區文化路168號</address>
         <tel>02-24242426</tel>
         <fax>02-24274503</fax>
@@ -1481,7 +1481,7 @@
     </org>
     <org>
         <orgId>10017040</orgId>
-        <orgname>基隆市仁愛區戶政事務所</orgname>
+        <orgName>基隆市仁愛區戶政事務所</orgName>
         <address>基隆市仁愛區光一路28號</address>
         <tel>02-24328669</tel>
         <fax>02-24323234</fax>
@@ -1491,7 +1491,7 @@
     </org>
     <org>
         <orgId>10017030</orgId>
-        <orgname>基隆市暖暖區戶政事務所</orgname>
+        <orgName>基隆市暖暖區戶政事務所</orgName>
         <address>基隆市暖暖區暖暖街246巷180號</address>
         <tel>02-24575228-31</tel>
         <fax>02-24582329</fax>
@@ -1501,7 +1501,7 @@
     </org>
     <org>
         <orgId>10017020</orgId>
-        <orgname>基隆市七堵區戶政事務所</orgname>
+        <orgName>基隆市七堵區戶政事務所</orgName>
         <address>基隆市七堵區光明路21號一樓</address>
         <tel>02-24568430</tel>
         <fax>02-24560710</fax>
@@ -1511,7 +1511,7 @@
     </org>
     <org>
         <orgId>10017010</orgId>
-        <orgname>基隆市中正區戶政事務所</orgname>
+        <orgName>基隆市中正區戶政事務所</orgName>
         <address>基隆市中正區中正路674號一．二樓</address>
         <tel>02-24634911</tel>
         <fax>02-24633360</fax>
@@ -1521,7 +1521,7 @@
     </org>
     <org>
         <orgId>10017000</orgId>
-        <orgname>基隆市政府民政處</orgname>
+        <orgName>基隆市政府民政處</orgName>
         <address>基隆市安樂區安樂路二段164號九樓後棟</address>
         <tel>02-24312145</tel>
         <fax>02-24318540</fax>
@@ -1531,7 +1531,7 @@
     </org>
     <org>
         <orgId>10016060</orgId>
-        <orgname>澎湖縣七美鄉戶政事務所</orgname>
+        <orgName>澎湖縣七美鄉戶政事務所</orgName>
         <address>澎湖縣七美鄉平和村10鄰9號之3</address>
         <tel>06-9971263</tel>
         <fax>06-9971438</fax>
@@ -1541,7 +1541,7 @@
     </org>
     <org>
         <orgId>10016050</orgId>
-        <orgname>澎湖縣望安鄉戶政事務所</orgname>
+        <orgName>澎湖縣望安鄉戶政事務所</orgName>
         <address>澎湖縣望安鄉望安73之5號</address>
         <tel>06-9991077</tel>
         <fax>06-9991805</fax>
@@ -1551,7 +1551,7 @@
     </org>
     <org>
         <orgId>10016040</orgId>
-        <orgname>澎湖縣西嶼鄉戶政事務所</orgname>
+        <orgName>澎湖縣西嶼鄉戶政事務所</orgName>
         <address>澎湖縣西嶼鄉池東村6鄰小池角97號之3</address>
         <tel>06-9981331</tel>
         <fax>06-9982814</fax>
@@ -1561,7 +1561,7 @@
     </org>
     <org>
         <orgId>10016030</orgId>
-        <orgname>澎湖縣白沙鄉戶政事務所</orgname>
+        <orgName>澎湖縣白沙鄉戶政事務所</orgName>
         <address>澎湖縣白沙鄉赤崁村1鄰大赤崁9號之5</address>
         <tel>06-9931077</tel>
         <fax>06-9932480</fax>
@@ -1571,7 +1571,7 @@
     </org>
     <org>
         <orgId>10016020</orgId>
-        <orgname>澎湖縣湖西鄉戶政事務所</orgname>
+        <orgName>澎湖縣湖西鄉戶政事務所</orgName>
         <address>澎湖縣湖西鄉湖西村6鄰湖西77號之10</address>
         <tel>06-9921054</tel>
         <fax>06-9921043</fax>
@@ -1581,7 +1581,7 @@
     </org>
     <org>
         <orgId>10016010</orgId>
-        <orgname>澎湖縣馬公市戶政事務所</orgname>
+        <orgName>澎湖縣馬公市戶政事務所</orgName>
         <address>澎湖縣馬公市永壽街81號</address>
         <tel>06-9272370</tel>
         <fax>06-9263708</fax>
@@ -1591,7 +1591,7 @@
     </org>
     <org>
         <orgId>10016000</orgId>
-        <orgname>澎湖縣政府民政處</orgname>
+        <orgName>澎湖縣政府民政處</orgName>
         <address>澎湖縣馬公市治平路32號</address>
         <tel>06-9274400-268</tel>
         <fax>06-9264840</fax>
@@ -1601,7 +1601,7 @@
     </org>
     <org>
         <orgId>10015130</orgId>
-        <orgname>花蓮縣卓溪鄉戶政事務所</orgname>
+        <orgName>花蓮縣卓溪鄉戶政事務所</orgName>
         <address>花蓮縣卓溪鄉卓溪村6鄰中正66之6號</address>
         <tel>03-8883647</tel>
         <fax>03-8881331</fax>
@@ -1611,7 +1611,7 @@
     </org>
     <org>
         <orgId>10015120</orgId>
-        <orgname>花蓮縣萬榮鄉戶政事務所</orgname>
+        <orgName>花蓮縣萬榮鄉戶政事務所</orgName>
         <address>花蓮縣萬榮鄉萬榮村1鄰萬榮12號</address>
         <tel>03-8751488</tel>
         <fax>03-8751373</fax>
@@ -1621,7 +1621,7 @@
     </org>
     <org>
         <orgId>10015110</orgId>
-        <orgname>花蓮縣秀林鄉</orgname>
+        <orgName>花蓮縣秀林鄉</orgName>
         <address>花蓮縣秀林鄉秀林村12鄰秀林78號</address>
         <tel>03-8611544</tel>
         <fax>03-8610050</fax>
@@ -1631,7 +1631,7 @@
     </org>
     <org>
         <orgId>10015100</orgId>
-        <orgname>花蓮縣富里鄉戶政事務所</orgname>
+        <orgName>花蓮縣富里鄉戶政事務所</orgName>
         <address>花蓮縣富里鄉富里村21鄰中山路144號</address>
         <tel>03-8831529</tel>
         <fax>03-8830330</fax>
@@ -1641,7 +1641,7 @@
     </org>
     <org>
         <orgId>10015090</orgId>
-        <orgname>花蓮縣瑞穗鄉</orgname>
+        <orgName>花蓮縣瑞穗鄉</orgName>
         <address>花蓮縣瑞穗鄉瑞穗村1鄰成功南路19之1號</address>
         <tel>03-8872109</tel>
         <fax>03-8870789</fax>
@@ -1651,7 +1651,7 @@
     </org>
     <org>
         <orgId>10015080</orgId>
-        <orgname>花蓮縣豐濱鄉戶政事務所</orgname>
+        <orgName>花蓮縣豐濱鄉戶政事務所</orgName>
         <address>花蓮縣豐濱鄉三民路102號</address>
         <tel>03-8791157</tel>
         <fax>03-8791431</fax>
@@ -1661,7 +1661,7 @@
     </org>
     <org>
         <orgId>10015070</orgId>
-        <orgname>花蓮縣光復鄉</orgname>
+        <orgName>花蓮縣光復鄉</orgName>
         <address>花蓮縣光復鄉大華村中正路一段129號</address>
         <tel>038-701164</tel>
         <fax>038-700428</fax>
@@ -1671,7 +1671,7 @@
     </org>
     <org>
         <orgId>10015060</orgId>
-        <orgname>花蓮縣壽豐鄉戶政事務所</orgname>
+        <orgName>花蓮縣壽豐鄉戶政事務所</orgName>
         <address>花蓮縣壽豐鄉壽豐村8鄰壽山路24號</address>
         <tel>03-8650600</tel>
         <fax>03-8654846</fax>
@@ -1681,7 +1681,7 @@
     </org>
     <org>
         <orgId>10015050</orgId>
-        <orgname>花蓮縣吉安鄉戶政事務所</orgname>
+        <orgName>花蓮縣吉安鄉戶政事務所</orgName>
         <address>花蓮縣吉安鄉吉安村吉安路二段124巷6號</address>
         <tel>03-8528267</tel>
         <fax>03-8534542</fax>
@@ -1691,7 +1691,7 @@
     </org>
     <org>
         <orgId>10015040</orgId>
-        <orgname>花蓮縣新城鄉戶政事務所</orgname>
+        <orgName>花蓮縣新城鄉戶政事務所</orgName>
         <address>花蓮縣新城鄉北埔路267號</address>
         <tel>03-8261040</tel>
         <fax>03-8261110</fax>
@@ -1701,7 +1701,7 @@
     </org>
     <org>
         <orgId>10015030</orgId>
-        <orgname>花蓮縣玉里鎮</orgname>
+        <orgName>花蓮縣玉里鎮</orgName>
         <address>花蓮縣玉里鎮忠孝路149號</address>
         <tel>03-8882546</tel>
         <fax>03-8881231</fax>
@@ -1711,7 +1711,7 @@
     </org>
     <org>
         <orgId>10015020</orgId>
-        <orgname>花蓮縣鳳林鎮戶政事務所</orgname>
+        <orgName>花蓮縣鳳林鎮戶政事務所</orgName>
         <address>花蓮縣鳳林鎮鳳智里1鄰公正街20號</address>
         <tel>03-8763784</tel>
         <fax>03-8760113</fax>
@@ -1721,7 +1721,7 @@
     </org>
     <org>
         <orgId>10015010</orgId>
-        <orgname>花蓮縣花蓮市戶政事務所</orgname>
+        <orgName>花蓮縣花蓮市戶政事務所</orgName>
         <address>花蓮市國威里復興街67號</address>
         <tel>03-8339641</tel>
         <fax>03-8359942</fax>
@@ -1731,7 +1731,7 @@
     </org>
     <org>
         <orgId>10015000</orgId>
-        <orgname>花蓮縣政府民政處</orgname>
+        <orgName>花蓮縣政府民政處</orgName>
         <address>花蓮縣花蓮市府後路6號</address>
         <tel>03-8236412</tel>
         <fax>03-8228557</fax>
@@ -1741,7 +1741,7 @@
     </org>
     <org>
         <orgId>10014090</orgId>
-        <orgname>臺東縣太麻里戶政事務所</orgname>
+        <orgName>臺東縣太麻里戶政事務所</orgName>
         <address>臺東縣太麻里鄉泰和村8 鄰太麻里街396號</address>
         <tel>089-781174</tel>
         <fax>089-780559</fax>
@@ -1751,7 +1751,7 @@
     </org>
     <org>
         <orgId>10014030</orgId>
-        <orgname>臺東縣關山戶政事務所</orgname>
+        <orgName>臺東縣關山戶政事務所</orgName>
         <address>臺東縣關山鎮新福里新政路2號</address>
         <tel>089-811410</tel>
         <fax>089-813116</fax>
@@ -1761,7 +1761,7 @@
     </org>
     <org>
         <orgId>10014020</orgId>
-        <orgname>臺東縣成功戶政事務所</orgname>
+        <orgName>臺東縣成功戶政事務所</orgName>
         <address>臺東縣成功鎮光復路58號</address>
         <tel>089-851281</tel>
         <fax>089-853413</fax>
@@ -1771,7 +1771,7 @@
     </org>
     <org>
         <orgId>10014010</orgId>
-        <orgname>臺東縣臺東戶政事務所</orgname>
+        <orgName>臺東縣臺東戶政事務所</orgName>
         <address>臺東縣臺東市信義路291號</address>
         <tel>089-323490</tel>
         <fax>089-342771</fax>
@@ -1781,7 +1781,7 @@
     </org>
     <org>
         <orgId>10014000</orgId>
-        <orgname>臺東縣政府民政處</orgname>
+        <orgName>臺東縣政府民政處</orgName>
         <address>台東縣台東市中山路276號</address>
         <tel>089-326141-351</tel>
         <fax>089-350380</fax>
@@ -1791,7 +1791,7 @@
     </org>
     <org>
         <orgId>10013160</orgId>
-        <orgname>屏東縣枋寮戶政事務所</orgname>
+        <orgName>屏東縣枋寮戶政事務所</orgName>
         <address>屏東縣枋寮鄉枋寮村德興路46號</address>
         <tel>08-8784271</tel>
         <fax>08-8780958</fax>
@@ -1801,7 +1801,7 @@
     </org>
     <org>
         <orgId>10013130</orgId>
-        <orgname>屏東縣內埔戶政事務所</orgname>
+        <orgName>屏東縣內埔戶政事務所</orgName>
         <address>屏東縣內埔鄉內埔村廣濟路24號</address>
         <tel>08-7792707</tel>
         <fax>08-7692445</fax>
@@ -1811,7 +1811,7 @@
     </org>
     <org>
         <orgId>10013090</orgId>
-        <orgname>屏東縣里港戶政事務所</orgname>
+        <orgName>屏東縣里港戶政事務所</orgName>
         <address>屏東縣里港鄉中山路105號</address>
         <tel>08-7751209</tel>
         <fax>08-7757950</fax>
@@ -1821,7 +1821,7 @@
     </org>
     <org>
         <orgId>10013050</orgId>
-        <orgname>屏東縣萬丹戶政事務所</orgname>
+        <orgName>屏東縣萬丹戶政事務所</orgName>
         <address>屏東縣萬丹鄉和平西路159號</address>
         <tel>08-7772850</tel>
         <fax>08-7770553</fax>
@@ -1831,7 +1831,7 @@
     </org>
     <org>
         <orgId>10013040</orgId>
-        <orgname>屏東縣恆春戶政事務所</orgname>
+        <orgName>屏東縣恆春戶政事務所</orgName>
         <address>屏東縣恆春鎮天文路60號</address>
         <tel>08-8895713</tel>
         <fax>08-8895964</fax>
@@ -1841,7 +1841,7 @@
     </org>
     <org>
         <orgId>10013030</orgId>
-        <orgname>屏東縣東港戶政事務所</orgname>
+        <orgName>屏東縣東港戶政事務所</orgName>
         <address>屏東縣東港鎮新生三路175號</address>
         <tel>08-8322871</tel>
         <fax>08-8333294</fax>
@@ -1851,7 +1851,7 @@
     </org>
     <org>
         <orgId>10013020</orgId>
-        <orgname>屏東縣潮州戶政事務所</orgname>
+        <orgName>屏東縣潮州戶政事務所</orgName>
         <address>屏東縣潮州鎮光華里中山路12號</address>
         <tel>08-7882704</tel>
         <fax>08-7800945</fax>
@@ -1861,7 +1861,7 @@
     </org>
     <org>
         <orgId>10013010</orgId>
-        <orgname>屏東縣屏東市戶政事務所</orgname>
+        <orgName>屏東縣屏東市戶政事務所</orgName>
         <address>屏東縣屏東市自由路531號</address>
         <tel>08-7322539</tel>
         <fax>08-7324849</fax>
@@ -1871,7 +1871,7 @@
     </org>
     <org>
         <orgId>10013000</orgId>
-        <orgname>屏東縣政府民政處</orgname>
+        <orgName>屏東縣政府民政處</orgName>
         <address>屏東縣屏東市自由路527號</address>
         <tel>08-7320415-3123</tel>
         <fax>08-7338851</fax>
@@ -1881,7 +1881,7 @@
     </org>
     <org>
         <orgId>10010180</orgId>
-        <orgname>嘉義縣阿里山鄉戶政事務所</orgname>
+        <orgName>嘉義縣阿里山鄉戶政事務所</orgName>
         <address>嘉義縣阿里山鄉樂野村2鄰樂野68號</address>
         <tel>05-2562806</tel>
         <fax>05-2562807</fax>
@@ -1891,7 +1891,7 @@
     </org>
     <org>
         <orgId>10010170</orgId>
-        <orgname>嘉義縣大埔鄉戶政事務所</orgname>
+        <orgName>嘉義縣大埔鄉戶政事務所</orgName>
         <address>嘉義縣大埔鄉大埔村53號</address>
         <tel>05-2521072</tel>
         <fax>05-2521614</fax>
@@ -1901,7 +1901,7 @@
     </org>
     <org>
         <orgId>10010160</orgId>
-        <orgname>嘉義縣番路鄉戶政事務所</orgname>
+        <orgName>嘉義縣番路鄉戶政事務所</orgName>
         <address>嘉義縣番路鄉下坑村1鄰菜公店28號</address>
         <tel>05-2591144</tel>
         <fax>05-2590317</fax>
@@ -1911,7 +1911,7 @@
     </org>
     <org>
         <orgId>10010150</orgId>
-        <orgname>嘉義縣梅山鄉戶政事務所</orgname>
+        <orgName>嘉義縣梅山鄉戶政事務所</orgName>
         <address>嘉義縣梅山鄉環南路120號</address>
         <tel>05-2621525</tel>
         <fax>05-2620410</fax>
@@ -1921,7 +1921,7 @@
     </org>
     <org>
         <orgId>10010140</orgId>
-        <orgname>嘉義縣竹崎鄉戶政事務所</orgname>
+        <orgName>嘉義縣竹崎鄉戶政事務所</orgName>
         <address>嘉義縣竹崎鄉竹崎村中山路70號</address>
         <tel>05-2611072</tel>
         <fax>05-2615935</fax>
@@ -1931,7 +1931,7 @@
     </org>
     <org>
         <orgId>10010130</orgId>
-        <orgname>嘉義縣中埔鄉戶政事務所</orgname>
+        <orgName>嘉義縣中埔鄉戶政事務所</orgName>
         <address>嘉義縣中埔鄉中正路64號</address>
         <tel>05-2531154</tel>
         <fax>05-2530653</fax>
@@ -1941,7 +1941,7 @@
     </org>
     <org>
         <orgId>10010120</orgId>
-        <orgname>嘉義縣水上鄉戶政事務所</orgname>
+        <orgName>嘉義縣水上鄉戶政事務所</orgName>
         <address>嘉義縣水上鄉水上村市政街31巷23號</address>
         <tel>05-2682354</tel>
         <fax>05-2682184</fax>
@@ -1951,7 +1951,7 @@
     </org>
     <org>
         <orgId>10010110</orgId>
-        <orgname>嘉義縣鹿草鄉戶政事務所</orgname>
+        <orgName>嘉義縣鹿草鄉戶政事務所</orgName>
         <address>嘉義縣鹿草鄉西井村286號</address>
         <tel>05-3752301</tel>
         <fax>05-3751823</fax>
@@ -1961,7 +1961,7 @@
     </org>
     <org>
         <orgId>10010100</orgId>
-        <orgname>嘉義縣義竹鄉戶政事務所</orgname>
+        <orgName>嘉義縣義竹鄉戶政事務所</orgName>
         <address>嘉義縣義竹鄉仁里村389號之2</address>
         <tel>05-3412274</tel>
         <fax>05-3418122</fax>
@@ -1971,7 +1971,7 @@
     </org>
     <org>
         <orgId>10010090</orgId>
-        <orgname>嘉義縣東石鄉戶政事務所</orgname>
+        <orgName>嘉義縣東石鄉戶政事務所</orgName>
         <address>嘉義縣東石鄉東石村36號之1</address>
         <tel>05-3732355</tel>
         <fax>05-3730475</fax>
@@ -1981,7 +1981,7 @@
     </org>
     <org>
         <orgId>10010080</orgId>
-        <orgname>嘉義縣六腳鄉戶政事務所</orgname>
+        <orgName>嘉義縣六腳鄉戶政事務所</orgName>
         <address>嘉義縣六腳鄉蒜頭村178號</address>
         <tel>05-3802204</tel>
         <fax>05-3804817</fax>
@@ -1991,7 +1991,7 @@
     </org>
     <org>
         <orgId>10010070</orgId>
-        <orgname>嘉義縣新港鄉戶政事務所</orgname>
+        <orgName>嘉義縣新港鄉戶政事務所</orgName>
         <address>嘉義縣新港鄉中山路159號</address>
         <tel>05-3742514</tel>
         <fax>05-3741904</fax>
@@ -2001,7 +2001,7 @@
     </org>
     <org>
         <orgId>10010060</orgId>
-        <orgname>嘉義縣溪口鄉戶政事務所</orgname>
+        <orgName>嘉義縣溪口鄉戶政事務所</orgName>
         <address>嘉義縣溪口鄉中正路142號</address>
         <tel>05-2691473</tel>
         <fax>05-2695394</fax>
@@ -2011,7 +2011,7 @@
     </org>
     <org>
         <orgId>10010050</orgId>
-        <orgname>嘉義縣民雄鄉戶政事務所</orgname>
+        <orgName>嘉義縣民雄鄉戶政事務所</orgName>
         <address>嘉義縣民雄鄉東榮村民族路21號之1</address>
         <tel>05-2262073</tel>
         <fax>05-2269073</fax>
@@ -2021,7 +2021,7 @@
     </org>
     <org>
         <orgId>10010040</orgId>
-        <orgname>嘉義縣大林鎮戶政事務所</orgname>
+        <orgName>嘉義縣大林鎮戶政事務所</orgName>
         <address>嘉義縣大林鎮中山路86號</address>
         <tel>05-2652241</tel>
         <fax>05-2652392</fax>
@@ -2031,7 +2031,7 @@
     </org>
     <org>
         <orgId>10010030</orgId>
-        <orgname>嘉義縣布袋鎮戶政事務所</orgname>
+        <orgName>嘉義縣布袋鎮戶政事務所</orgName>
         <address>嘉義縣布袋鎮光復里11鄰自由路1號</address>
         <tel>05-3472501</tel>
         <fax>05-3472900</fax>
@@ -2041,7 +2041,7 @@
     </org>
     <org>
         <orgId>10010020</orgId>
-        <orgname>嘉義縣朴子市戶政事務所</orgname>
+        <orgName>嘉義縣朴子市戶政事務所</orgName>
         <address>嘉義縣朴子市光復路35號</address>
         <tel>05-3793571</tel>
         <fax>05-3705437</fax>
@@ -2051,7 +2051,7 @@
     </org>
     <org>
         <orgId>10010010</orgId>
-        <orgname>嘉義縣太保市戶政事務所</orgname>
+        <orgName>嘉義縣太保市戶政事務所</orgName>
         <address>嘉義縣太保市太保里1鄰太保22號</address>
         <tel>05-3711081</tel>
         <fax>05-3711777</fax>
@@ -2061,7 +2061,7 @@
     </org>
     <org>
         <orgId>10010000</orgId>
-        <orgname>嘉義縣政府民政處</orgname>
+        <orgName>嘉義縣政府民政處</orgName>
         <address>嘉義縣太保市祥和新村祥和一路東段1號</address>
         <tel>05-3620091</tel>
         <fax>05-3620399</fax>
@@ -2071,7 +2071,7 @@
     </org>
     <org>
         <orgId>10009200</orgId>
-        <orgname>雲林縣水林鄉戶政事務所</orgname>
+        <orgName>雲林縣水林鄉戶政事務所</orgName>
         <address>雲林縣水林鄉水林路58之1號</address>
         <tel>05-7853906</tel>
         <fax>05-7851888</fax>
@@ -2081,7 +2081,7 @@
     </org>
     <org>
         <orgId>10009190</orgId>
-        <orgname>雲林縣口湖鄉戶政事務所</orgname>
+        <orgName>雲林縣口湖鄉戶政事務所</orgName>
         <address>雲林縣口湖鄉湖東村6鄰文明路16號</address>
         <tel>05-7892794</tel>
         <fax>05-7891646</fax>
@@ -2091,7 +2091,7 @@
     </org>
     <org>
         <orgId>10009180</orgId>
-        <orgname>雲林縣四湖鄉戶政事務所</orgname>
+        <orgName>雲林縣四湖鄉戶政事務所</orgName>
         <address>雲林縣四湖鄉中湖街23號</address>
         <tel>05-7872313</tel>
         <fax>05-7872676</fax>
@@ -2101,7 +2101,7 @@
     </org>
     <org>
         <orgId>10009170</orgId>
-        <orgname>雲林縣元長鄉戶政事務所</orgname>
+        <orgName>雲林縣元長鄉戶政事務所</orgName>
         <address>雲林縣元長鄉中山路124之1號</address>
         <tel>05-7882014</tel>
         <fax>05-7885161</fax>
@@ -2111,7 +2111,7 @@
     </org>
     <org>
         <orgId>10009160</orgId>
-        <orgname>雲林縣臺西鄉戶政事務所</orgname>
+        <orgName>雲林縣臺西鄉戶政事務所</orgName>
         <address>雲林縣台西鄉民權路1號</address>
         <tel>05-6982374</tel>
         <fax>05-6985259</fax>
@@ -2121,7 +2121,7 @@
     </org>
     <org>
         <orgId>10009150</orgId>
-        <orgname>雲林縣褒忠鄉戶政事務所</orgname>
+        <orgName>雲林縣褒忠鄉戶政事務所</orgName>
         <address>雲林縣褒忠鄉中勝村泰安路3號</address>
         <tel>05-6972348</tel>
         <fax>05-6971873</fax>
@@ -2131,7 +2131,7 @@
     </org>
     <org>
         <orgId>10009140</orgId>
-        <orgname>雲林縣東勢鄉戶政事務所</orgname>
+        <orgName>雲林縣東勢鄉戶政事務所</orgName>
         <address>雲林縣東勢鄉東南村9鄰懷恩街42號</address>
         <tel>05-6991053</tel>
         <fax>05-6994036</fax>
@@ -2141,7 +2141,7 @@
     </org>
     <org>
         <orgId>10009130</orgId>
-        <orgname>雲林縣麥寮鄉戶政事務所</orgname>
+        <orgName>雲林縣麥寮鄉戶政事務所</orgName>
         <address>雲林縣麥寮鄉麥津村中興路123號</address>
         <tel>05-6932948</tel>
         <fax>05-6936518</fax>
@@ -2151,7 +2151,7 @@
     </org>
     <org>
         <orgId>10009120</orgId>
-        <orgname>雲林縣崙背鄉戶政事務所</orgname>
+        <orgName>雲林縣崙背鄉戶政事務所</orgName>
         <address>雲林縣崙背鄉東明村3鄰民權路114之1號</address>
         <tel>05-6962304</tel>
         <fax>05-6968227</fax>
@@ -2161,7 +2161,7 @@
     </org>
     <org>
         <orgId>10009110</orgId>
-        <orgname>雲林縣二崙鄉戶政事務所</orgname>
+        <orgName>雲林縣二崙鄉戶政事務所</orgName>
         <address>雲林縣二崙鄉崙東村6鄰中山路一段168巷37號</address>
         <tel>05-5982009</tel>
         <fax>05-5980230</fax>
@@ -2171,7 +2171,7 @@
     </org>
     <org>
         <orgId>10009100</orgId>
-        <orgname>雲林縣林內鄉戶政事務所</orgname>
+        <orgName>雲林縣林內鄉戶政事務所</orgName>
         <address>雲林縣林內鄉林南村中山路1之1號</address>
         <tel>05-5892694</tel>
         <fax>05-5894393</fax>
@@ -2181,7 +2181,7 @@
     </org>
     <org>
         <orgId>10009090</orgId>
-        <orgname>雲林縣莿桐鄉戶政事務所</orgname>
+        <orgName>雲林縣莿桐鄉戶政事務所</orgName>
         <address>雲林縣莿桐鄉中山路170號</address>
         <tel>05-5842049</tel>
         <fax>05-5849706</fax>
@@ -2191,7 +2191,7 @@
     </org>
     <org>
         <orgId>10009080</orgId>
-        <orgname>雲林縣大埤鄉戶政事務所</orgname>
+        <orgName>雲林縣大埤鄉戶政事務所</orgName>
         <address>雲林縣大埤鄉中山路102號</address>
         <tel>05-5912244</tel>
         <fax>05-5913235</fax>
@@ -2201,7 +2201,7 @@
     </org>
     <org>
         <orgId>10009070</orgId>
-        <orgname>雲林縣古坑鄉戶政事務所</orgname>
+        <orgName>雲林縣古坑鄉戶政事務所</orgName>
         <address>雲林縣古坑鄉古坑村中華路36號</address>
         <tel>05-5821274</tel>
         <fax>05-5825293</fax>
@@ -2211,7 +2211,7 @@
     </org>
     <org>
         <orgId>10009060</orgId>
-        <orgname>雲林縣北港鎮戶政事務所</orgname>
+        <orgName>雲林縣北港鎮戶政事務所</orgName>
         <address>雲林縣北港鎮慶華街2號</address>
         <tel>05-7833441</tel>
         <fax>05-7824741</fax>
@@ -2221,7 +2221,7 @@
     </org>
     <org>
         <orgId>10009050</orgId>
-        <orgname>雲林縣土庫鎮戶政事務所</orgname>
+        <orgName>雲林縣土庫鎮戶政事務所</orgName>
         <address>雲林縣土庫鎮中山路245之1號</address>
         <tel>05-6623815</tel>
         <fax>05-6625493</fax>
@@ -2231,7 +2231,7 @@
     </org>
     <org>
         <orgId>10009040</orgId>
-        <orgname>雲林縣西螺鎮戶政事務所</orgname>
+        <orgName>雲林縣西螺鎮戶政事務所</orgName>
         <address>雲林縣西螺鎮中山路292號</address>
         <tel>05-5862127</tel>
         <fax>05-5871101</fax>
@@ -2241,7 +2241,7 @@
     </org>
     <org>
         <orgId>10009030</orgId>
-        <orgname>雲林縣虎尾鎮戶政事務所</orgname>
+        <orgName>雲林縣虎尾鎮戶政事務所</orgName>
         <address>雲林縣虎尾鎮行政路8號</address>
         <tel>05-6329274</tel>
         <fax>05-6335722</fax>
@@ -2251,7 +2251,7 @@
     </org>
     <org>
         <orgId>10009020</orgId>
-        <orgname>雲林縣斗南鎮戶政事務所</orgname>
+        <orgName>雲林縣斗南鎮戶政事務所</orgName>
         <address>雲林縣斗南鎮中山路178號</address>
         <tel>05-5975440</tel>
         <fax>05-5961582</fax>
@@ -2261,7 +2261,7 @@
     </org>
     <org>
         <orgId>10009010</orgId>
-        <orgname>雲林縣斗六市戶政事務所</orgname>
+        <orgName>雲林縣斗六市戶政事務所</orgName>
         <address>雲林縣斗六巿鎮西里13鄰公園路77號</address>
         <tel>05-5322542</tel>
         <fax>05-5351981</fax>
@@ -2271,7 +2271,7 @@
     </org>
     <org>
         <orgId>10009000</orgId>
-        <orgname>雲林縣政府民政處</orgname>
+        <orgName>雲林縣政府民政處</orgName>
         <address>雲林縣斗六市雲林路二段515號</address>
         <tel>05-5320199</tel>
         <fax>05-5339395</fax>
@@ -2281,7 +2281,7 @@
     </org>
     <org>
         <orgId>10008130</orgId>
-        <orgname>南投縣仁愛鄉戶政事務所</orgname>
+        <orgName>南投縣仁愛鄉戶政事務所</orgName>
         <address>南投縣仁愛鄉大同村仁和路89號</address>
         <tel>049-2802541</tel>
         <fax>049-2801423</fax>
@@ -2291,7 +2291,7 @@
     </org>
     <org>
         <orgId>10008120</orgId>
-        <orgname>南投縣信義鄉戶政事務所</orgname>
+        <orgName>南投縣信義鄉戶政事務所</orgName>
         <address>南投縣信義鄉玉山路19號</address>
         <tel>049-2791262</tel>
         <fax>049-2792342</fax>
@@ -2301,7 +2301,7 @@
     </org>
     <org>
         <orgId>10008110</orgId>
-        <orgname>南投縣水里鄉戶政事務所</orgname>
+        <orgName>南投縣水里鄉戶政事務所</orgName>
         <address>南投縣水里鄉博愛路203號</address>
         <tel>049-2770874</tel>
         <fax>049-2772109</fax>
@@ -2311,7 +2311,7 @@
     </org>
     <org>
         <orgId>10008100</orgId>
-        <orgname>南投縣國姓鄉戶政事務所</orgname>
+        <orgName>南投縣國姓鄉戶政事務所</orgName>
         <address>南投縣國姓鄉國姓路267之1號</address>
         <tel>049-2721331</tel>
         <fax>049-2721892</fax>
@@ -2321,7 +2321,7 @@
     </org>
     <org>
         <orgId>10008090</orgId>
-        <orgname>南投縣魚池鄉戶政事務所</orgname>
+        <orgName>南投縣魚池鄉戶政事務所</orgName>
         <address>南投縣魚池鄉魚池村魚池街356號</address>
         <tel>049-2898078</tel>
         <fax>049-2896913</fax>
@@ -2331,7 +2331,7 @@
     </org>
     <org>
         <orgId>10008080</orgId>
-        <orgname>南投縣中寮鄉戶政事務所</orgname>
+        <orgName>南投縣中寮鄉戶政事務所</orgName>
         <address>南投縣中寮鄉永平路282號</address>
         <tel>049-2691841</tel>
         <fax>049-2693939</fax>
@@ -2341,7 +2341,7 @@
     </org>
     <org>
         <orgId>10008070</orgId>
-        <orgname>南投縣鹿谷鄉戶政事務所</orgname>
+        <orgName>南投縣鹿谷鄉戶政事務所</orgName>
         <address>南投縣鹿谷鄉中正路二段71號</address>
         <tel>049-2752505</tel>
         <fax>049-2753678</fax>
@@ -2351,7 +2351,7 @@
     </org>
     <org>
         <orgId>10008060</orgId>
-        <orgname>南投縣名間鄉戶政事務所</orgname>
+        <orgName>南投縣名間鄉戶政事務所</orgName>
         <address>南投縣名間鄉彰南路42之1號</address>
         <tel>049-2732454</tel>
         <fax>049-2730749</fax>
@@ -2361,7 +2361,7 @@
     </org>
     <org>
         <orgId>10008050</orgId>
-        <orgname>南投縣集集鎮戶政事務所</orgname>
+        <orgName>南投縣集集鎮戶政事務所</orgName>
         <address>南投縣集集鎮育才街168號</address>
         <tel>049-2762414</tel>
         <fax>049-2761764</fax>
@@ -2371,7 +2371,7 @@
     </org>
     <org>
         <orgId>10008040</orgId>
-        <orgname>南投縣竹山鎮戶政事務所</orgname>
+        <orgName>南投縣竹山鎮戶政事務所</orgName>
         <address>南投縣竹山鎮中山里大智路823號</address>
         <tel>049-2643406</tel>
         <fax>049-2653740</fax>
@@ -2381,7 +2381,7 @@
     </org>
     <org>
         <orgId>10008030</orgId>
-        <orgname>南投縣草屯鎮戶政事務所</orgname>
+        <orgName>南投縣草屯鎮戶政事務所</orgName>
         <address>南投縣草屯鎮玉峰街2號</address>
         <tel>049-2333434</tel>
         <fax>049-2319858</fax>
@@ -2391,7 +2391,7 @@
     </org>
     <org>
         <orgId>10008020</orgId>
-        <orgname>南投縣埔里鎮戶政事務所</orgname>
+        <orgName>南投縣埔里鎮戶政事務所</orgName>
         <address>南投縣埔里鎮中山路二段246號</address>
         <tel>049-2984294</tel>
         <fax>049-2995873</fax>
@@ -2401,7 +2401,7 @@
     </org>
     <org>
         <orgId>10008010</orgId>
-        <orgname>南投縣南投市戶政事務所</orgname>
+        <orgName>南投縣南投市戶政事務所</orgName>
         <address>南投縣南投市育樂一街16號</address>
         <tel>049-2223004</tel>
         <fax>049-2234047</fax>
@@ -2411,7 +2411,7 @@
     </org>
     <org>
         <orgId>10008000</orgId>
-        <orgname>南投縣政府民政處</orgname>
+        <orgName>南投縣政府民政處</orgName>
         <address>南投縣南投市中興路660號　</address>
         <tel>049-2222014</tel>
         <fax>049-2241802</fax>
@@ -2421,7 +2421,7 @@
     </org>
     <org>
         <orgId>10007260</orgId>
-        <orgname>彰化縣溪州鄉戶政事務所</orgname>
+        <orgName>彰化縣溪州鄉戶政事務所</orgName>
         <address>彰化縣溪州鄉中山路三段284號</address>
         <tel>04-8895441</tel>
         <fax>04-8897320</fax>
@@ -2431,7 +2431,7 @@
     </org>
     <org>
         <orgId>10007250</orgId>
-        <orgname>彰化縣竹塘鄉戶政事務所</orgname>
+        <orgName>彰化縣竹塘鄉戶政事務所</orgName>
         <address>彰化縣竹塘鄉竹塘村竹林路一段２５３號</address>
         <tel>04-8972674</tel>
         <fax>04-8970148</fax>
@@ -2441,7 +2441,7 @@
     </org>
     <org>
         <orgId>10007240</orgId>
-        <orgname>彰化縣大城鄉戶政事務所</orgname>
+        <orgName>彰化縣大城鄉戶政事務所</orgName>
         <address>彰化縣大城鄉東城村北平路90號</address>
         <tel>04-8941120</tel>
         <fax>04-8946120</fax>
@@ -2451,7 +2451,7 @@
     </org>
     <org>
         <orgId>10007230</orgId>
-        <orgname>彰化縣芳苑鄉戶政事務所</orgname>
+        <orgName>彰化縣芳苑鄉戶政事務所</orgName>
         <address>彰化縣芳苑鄉芳苑村斗苑路芳苑段202號二樓</address>
         <tel>04-8983693</tel>
         <fax>04-8981443</fax>
@@ -2461,7 +2461,7 @@
     </org>
     <org>
         <orgId>10007220</orgId>
-        <orgname>彰化縣埤頭鄉戶政事務所</orgname>
+        <orgName>彰化縣埤頭鄉戶政事務所</orgName>
         <address>彰化縣埤頭鄉斗苑西路315號</address>
         <tel>04-8922340</tel>
         <fax>04-8928725</fax>
@@ -2471,7 +2471,7 @@
     </org>
     <org>
         <orgId>10007210</orgId>
-        <orgname>彰化縣田尾鄉戶政事務所</orgname>
+        <orgName>彰化縣田尾鄉戶政事務所</orgName>
         <address>彰化縣田尾鄉田尾村光復路三段148號</address>
         <tel>04-8832965</tel>
         <fax>04-8832140</fax>
@@ -2481,7 +2481,7 @@
     </org>
     <org>
         <orgId>10007200</orgId>
-        <orgname>彰化縣二林鎮戶政事務所</orgname>
+        <orgName>彰化縣二林鎮戶政事務所</orgName>
         <address>彰化縣二林鎮斗苑路五段80號</address>
         <tel>04-8960683</tel>
         <fax>04-8952265</fax>
@@ -2491,7 +2491,7 @@
     </org>
     <org>
         <orgId>10007190</orgId>
-        <orgname>彰化縣北斗鎮戶政事務所</orgname>
+        <orgName>彰化縣北斗鎮戶政事務所</orgName>
         <address>彰化縣北斗鎮地政路466號</address>
         <tel>04-8882779</tel>
         <fax>04-8886093</fax>
@@ -2501,7 +2501,7 @@
     </org>
     <org>
         <orgId>10007180</orgId>
-        <orgname>彰化縣二水鄉戶政事務所</orgname>
+        <orgName>彰化縣二水鄉戶政事務所</orgName>
         <address>彰化縣二水鄉文化村員集路三段472號</address>
         <tel>04-8792373</tel>
         <fax>04-8791560</fax>
@@ -2511,7 +2511,7 @@
     </org>
     <org>
         <orgId>10007170</orgId>
-        <orgname>彰化縣社頭鄉戶政事務所</orgname>
+        <orgName>彰化縣社頭鄉戶政事務所</orgName>
         <address>彰化縣社頭鄉員集路二段220號</address>
         <tel>04-8732464</tel>
         <fax>04-8732075</fax>
@@ -2521,7 +2521,7 @@
     </org>
     <org>
         <orgId>10007160</orgId>
-        <orgname>彰化縣永靖鄉戶政事務所</orgname>
+        <orgName>彰化縣永靖鄉戶政事務所</orgName>
         <address>彰化縣永靖鄉永東村7鄰永靖街20號</address>
         <tel>04-8223825</tel>
         <fax>04-8234486</fax>
@@ -2531,7 +2531,7 @@
     </org>
     <org>
         <orgId>10007150</orgId>
-        <orgname>彰化縣埔心鄉戶政事務所</orgname>
+        <orgName>彰化縣埔心鄉戶政事務所</orgName>
         <address>彰化縣埔心鄉義民村員鹿路二段332號6樓</address>
         <tel>04-8281675</tel>
         <fax>04-8293723</fax>
@@ -2541,7 +2541,7 @@
     </org>
     <org>
         <orgId>10007140</orgId>
-        <orgname>彰化縣埔鹽鄉戶政事務所</orgname>
+        <orgName>彰化縣埔鹽鄉戶政事務所</orgName>
         <address>彰化縣埔鹽鄉好修村員鹿路二段160號二樓</address>
         <tel>04-8653706</tel>
         <fax>04-8655437</fax>
@@ -2551,7 +2551,7 @@
     </org>
     <org>
         <orgId>10007130</orgId>
-        <orgname>彰化縣大村鄉戶政事務所</orgname>
+        <orgName>彰化縣大村鄉戶政事務所</orgName>
         <address>彰化縣大村鄉茄苳路一段50號</address>
         <tel>04-8523164</tel>
         <fax>04-8530325</fax>
@@ -2561,7 +2561,7 @@
     </org>
     <org>
         <orgId>10007120</orgId>
-        <orgname>彰化縣田中鎮戶政事務所</orgname>
+        <orgName>彰化縣田中鎮戶政事務所</orgName>
         <address>彰化縣田中鎮西路街100號</address>
         <tel>04-8745657</tel>
         <fax>04-8746446</fax>
@@ -2571,7 +2571,7 @@
     </org>
     <org>
         <orgId>10007110</orgId>
-        <orgname>彰化縣溪湖鎮戶政事務所</orgname>
+        <orgName>彰化縣溪湖鎮戶政事務所</orgName>
         <address>彰化縣溪湖鎮青雅路68號</address>
         <tel>04-8853214</tel>
         <fax>04-8819350</fax>
@@ -2581,7 +2581,7 @@
     </org>
     <org>
         <orgId>10007100</orgId>
-        <orgname>彰化縣員林鎮戶政事務所</orgname>
+        <orgName>彰化縣員林鎮戶政事務所</orgName>
         <address>彰化縣員林鎮和平東街1號</address>
         <tel>04-8368395</tel>
         <fax>04-8319080</fax>
@@ -2591,7 +2591,7 @@
     </org>
     <org>
         <orgId>10007090</orgId>
-        <orgname>彰化縣芬園鄉戶政事務所</orgname>
+        <orgName>彰化縣芬園鄉戶政事務所</orgName>
         <address>彰化縣芬園鄉社口村彰南路四段177號</address>
         <tel>049-2522844</tel>
         <fax>049-2524376</fax>
@@ -2601,7 +2601,7 @@
     </org>
     <org>
         <orgId>10007080</orgId>
-        <orgname>彰化縣花壇鄉戶政事務所</orgname>
+        <orgName>彰化縣花壇鄉戶政事務所</orgName>
         <address>彰化縣花壇鄉長沙村18鄰彰員路二段507號</address>
         <tel>04-7862594</tel>
         <fax>04-7873770</fax>
@@ -2611,7 +2611,7 @@
     </org>
     <org>
         <orgId>10007070</orgId>
-        <orgname>彰化縣秀水鄉戶政事務所</orgname>
+        <orgName>彰化縣秀水鄉戶政事務所</orgName>
         <address>彰化縣秀水鄉中山路290之5號</address>
         <tel>04-7692645</tel>
         <fax>04-7682378</fax>
@@ -2621,7 +2621,7 @@
     </org>
     <org>
         <orgId>10007060</orgId>
-        <orgname>彰化縣福興鄉戶政事務所</orgname>
+        <orgName>彰化縣福興鄉戶政事務所</orgName>
         <address>彰化縣福興鄉彰鹿路七段491號</address>
         <tel>04-7773394</tel>
         <fax>04-7769445</fax>
@@ -2631,7 +2631,7 @@
     </org>
     <org>
         <orgId>10007050</orgId>
-        <orgname>彰化縣伸港鄉戶政事務所</orgname>
+        <orgName>彰化縣伸港鄉戶政事務所</orgName>
         <address>彰化縣伸港鄉大同村中興路二段197號</address>
         <tel>04-7982394</tel>
         <fax>04-7991233</fax>
@@ -2641,7 +2641,7 @@
     </org>
     <org>
         <orgId>10007040</orgId>
-        <orgname>彰化縣線西鄉戶政事務所</orgname>
+        <orgName>彰化縣線西鄉戶政事務所</orgName>
         <address>彰化縣線西鄉中央路二段71號</address>
         <tel>04-7584040</tel>
         <fax>04-7583059</fax>
@@ -2651,7 +2651,7 @@
     </org>
     <org>
         <orgId>10007030</orgId>
-        <orgname>彰化縣和美鎮戶政事務所</orgname>
+        <orgName>彰化縣和美鎮戶政事務所</orgName>
         <address>彰化縣和美鎮鹿和路六段335號</address>
         <tel>04-7554321</tel>
         <fax>04-7564507</fax>
@@ -2661,7 +2661,7 @@
     </org>
     <org>
         <orgId>10007020</orgId>
-        <orgname>彰化縣鹿港鎮戶政事務所</orgname>
+        <orgName>彰化縣鹿港鎮戶政事務所</orgName>
         <address>彰化縣鹿港鎮中山路292號</address>
         <tel>04-7773744</tel>
         <fax>04-7767069</fax>
@@ -2671,7 +2671,7 @@
     </org>
     <org>
         <orgId>10007010</orgId>
-        <orgname>彰化縣彰化市戶政事務所</orgname>
+        <orgName>彰化縣彰化市戶政事務所</orgName>
         <address>彰化縣彰化市中興路100號</address>
         <tel>04-7266813</tel>
         <fax>04-7279390</fax>
@@ -2681,7 +2681,7 @@
     </org>
     <org>
         <orgId>10007000</orgId>
-        <orgname>彰化縣政府民政處</orgname>
+        <orgName>彰化縣政府民政處</orgName>
         <address>彰化縣彰化市中山路二段416號7樓</address>
         <tel>04-7531741</tel>
         <fax>04-7281287</fax>
@@ -2691,7 +2691,7 @@
     </org>
     <org>
         <orgId>10005180</orgId>
-        <orgname>苗栗縣泰安鄉戶政事務所</orgname>
+        <orgName>苗栗縣泰安鄉戶政事務所</orgName>
         <address>苗栗縣泰安鄉清安村洗水坑19號</address>
         <tel>037-941058</tel>
         <fax>037-941281</fax>
@@ -2701,7 +2701,7 @@
     </org>
     <org>
         <orgId>10005170</orgId>
-        <orgname>苗栗縣獅潭鄉戶政事務所</orgname>
+        <orgName>苗栗縣獅潭鄉戶政事務所</orgName>
         <address>苗栗縣獅潭鄉新店村11鄰新店130之5號</address>
         <tel>037-931277</tel>
         <fax>037-931913</fax>
@@ -2711,7 +2711,7 @@
     </org>
     <org>
         <orgId>10005160</orgId>
-        <orgname>苗栗縣三灣鄉戶政事務所</orgname>
+        <orgName>苗栗縣三灣鄉戶政事務所</orgName>
         <address>苗栗縣三灣鄉中正路256號</address>
         <tel>037-831080</tel>
         <fax>037-832849</fax>
@@ -2721,7 +2721,7 @@
     </org>
     <org>
         <orgId>10005150</orgId>
-        <orgname>苗栗縣造橋鄉戶政事務所</orgname>
+        <orgName>苗栗縣造橋鄉戶政事務所</orgName>
         <address>苗栗縣造橋鄉東興五之五號</address>
         <tel>037-540085</tel>
         <fax>037-540179</fax>
@@ -2731,7 +2731,7 @@
     </org>
     <org>
         <orgId>10005140</orgId>
-        <orgname>苗栗縣西湖鄉戶政事務所</orgname>
+        <orgName>苗栗縣西湖鄉戶政事務所</orgName>
         <address>苗栗縣西湖鄉金獅26之7號</address>
         <tel>037-921344</tel>
         <fax>037-922707</fax>
@@ -2741,7 +2741,7 @@
     </org>
     <org>
         <orgId>10005130</orgId>
-        <orgname>苗栗縣三義鄉戶政事務所</orgname>
+        <orgName>苗栗縣三義鄉戶政事務所</orgName>
         <address>苗栗縣三義鄉廣盛村6鄰廣盛83號</address>
         <tel>037-872004</tel>
         <fax>037-876046</fax>
@@ -2751,7 +2751,7 @@
     </org>
     <org>
         <orgId>10005120</orgId>
-        <orgname>苗栗縣頭屋鄉戶政事務所</orgname>
+        <orgName>苗栗縣頭屋鄉戶政事務所</orgName>
         <address>苗栗縣頭屋鄉頭屋村中山街17之1號</address>
         <tel>037-250437</tel>
         <fax>037-251362</fax>
@@ -2761,7 +2761,7 @@
     </org>
     <org>
         <orgId>10005110</orgId>
-        <orgname>苗栗縣南庄鄉戶政事務所</orgname>
+        <orgName>苗栗縣南庄鄉戶政事務所</orgName>
         <address>苗栗縣南庄鄉大同路25號</address>
         <tel>037-822140</tel>
         <fax>037-824386</fax>
@@ -2771,7 +2771,7 @@
     </org>
     <org>
         <orgId>10005100</orgId>
-        <orgname>苗栗縣銅鑼鄉戶政事務所</orgname>
+        <orgName>苗栗縣銅鑼鄉戶政事務所</orgName>
         <address>苗栗縣銅鑼鄉福興村18鄰復興路16號</address>
         <tel>037-981546</tel>
         <fax>037-982544</fax>
@@ -2781,7 +2781,7 @@
     </org>
     <org>
         <orgId>10005090</orgId>
-        <orgname>苗栗縣公館鄉戶政事務所</orgname>
+        <orgName>苗栗縣公館鄉戶政事務所</orgName>
         <address>苗栗縣公館鄉大同路181號</address>
         <tel>037-224436</tel>
         <fax>037-231546</fax>
@@ -2791,7 +2791,7 @@
     </org>
     <org>
         <orgId>10005080</orgId>
-        <orgname>苗栗縣大湖鄉戶政事務所</orgname>
+        <orgName>苗栗縣大湖鄉戶政事務所</orgName>
         <address>苗栗縣大湖鄉中原路56號</address>
         <tel>037-992114</tel>
         <fax>037-993114</fax>
@@ -2801,7 +2801,7 @@
     </org>
     <org>
         <orgId>10005070</orgId>
-        <orgname>苗栗縣卓蘭鎮戶政事務所</orgname>
+        <orgName>苗栗縣卓蘭鎮戶政事務所</orgName>
         <address>苗栗縣卓蘭鎮中山路106之1號</address>
         <tel>04-25892081</tel>
         <fax>04-25896469</fax>
@@ -2811,7 +2811,7 @@
     </org>
     <org>
         <orgId>10005060</orgId>
-        <orgname>苗栗縣後龍鎮戶政事務所</orgname>
+        <orgName>苗栗縣後龍鎮戶政事務所</orgName>
         <address>苗栗縣後龍鎮大庄里中山路一四二號</address>
         <tel>037-722061</tel>
         <fax>037-720925</fax>
@@ -2821,7 +2821,7 @@
     </org>
     <org>
         <orgId>10005050</orgId>
-        <orgname>苗栗縣頭份鎮戶政事務所</orgname>
+        <orgName>苗栗縣頭份鎮戶政事務所</orgName>
         <address>苗栗縣頭份鎮和平路68號</address>
         <tel>037-665732</tel>
         <fax>037-691823</fax>
@@ -2831,7 +2831,7 @@
     </org>
     <org>
         <orgId>10005040</orgId>
-        <orgname>苗栗縣竹南鎮戶政事務所</orgname>
+        <orgName>苗栗縣竹南鎮戶政事務所</orgName>
         <address>苗栗縣竹南鎮中正路110號</address>
         <tel>037-475945</tel>
         <fax>037-465519</fax>
@@ -2841,7 +2841,7 @@
     </org>
     <org>
         <orgId>10005030</orgId>
-        <orgname>苗栗縣通霄鎮戶政事務所</orgname>
+        <orgName>苗栗縣通霄鎮戶政事務所</orgName>
         <address>苗栗縣通霄鎮中正路14號</address>
         <tel>037-753144</tel>
         <fax>037-757549</fax>
@@ -2851,7 +2851,7 @@
     </org>
     <org>
         <orgId>10005020</orgId>
-        <orgname>苗栗縣苑裡鎮戶政事務所</orgname>
+        <orgName>苗栗縣苑裡鎮戶政事務所</orgName>
         <address>苗栗縣苑裡鎮建國路51之1號</address>
         <tel>037-861474</tel>
         <fax>037-853585</fax>
@@ -2861,7 +2861,7 @@
     </org>
     <org>
         <orgId>10005010</orgId>
-        <orgname>苗栗縣苗栗市戶政事務所</orgname>
+        <orgName>苗栗縣苗栗市戶政事務所</orgName>
         <address>苗栗縣苗栗市福麗里15鄰至公路555號</address>
         <tel>037-324250</tel>
         <fax>037-359405</fax>
@@ -2871,7 +2871,7 @@
     </org>
     <org>
         <orgId>10005000</orgId>
-        <orgname>苗栗縣政府民政處</orgname>
+        <orgName>苗栗縣政府民政處</orgName>
         <address>苗栗縣苗栗市府前路1號</address>
         <tel>037-322449</tel>
         <fax>037-359963</fax>
@@ -2881,7 +2881,7 @@
     </org>
     <org>
         <orgId>10004130</orgId>
-        <orgname>新竹縣五峰鄉戶政事務所</orgname>
+        <orgName>新竹縣五峰鄉戶政事務所</orgName>
         <address>新竹縣五峰鄉戶政事務所</address>
         <tel>03-5851085</tel>
         <fax>03-5851495</fax>
@@ -2891,7 +2891,7 @@
     </org>
     <org>
         <orgId>10004120</orgId>
-        <orgname>新竹縣尖石鄉戶政事務所</orgname>
+        <orgName>新竹縣尖石鄉戶政事務所</orgName>
         <address>新竹縣尖石鄉嘉樂村二鄰麥樹仁63號</address>
         <tel>03-5841258</tel>
         <fax>03-5841035</fax>
@@ -2901,7 +2901,7 @@
     </org>
     <org>
         <orgId>10004110</orgId>
-        <orgname>新竹縣峨眉鄉戶政事務所</orgname>
+        <orgName>新竹縣峨眉鄉戶政事務所</orgName>
         <address>新竹縣峨眉鄉峨眉街1號</address>
         <tel>03-5800253</tel>
         <fax>03-5800602</fax>
@@ -2911,7 +2911,7 @@
     </org>
     <org>
         <orgId>10004100</orgId>
-        <orgname>新竹縣寶山鄉戶政事務所</orgname>
+        <orgName>新竹縣寶山鄉戶政事務所</orgName>
         <address>新竹縣寶山鄉雙園路二段325號三樓</address>
         <tel>03-5202804</tel>
         <fax>03-5208025</fax>
@@ -2921,7 +2921,7 @@
     </org>
     <org>
         <orgId>10004090</orgId>
-        <orgname>新竹縣北埔鄉戶政事務所</orgname>
+        <orgName>新竹縣北埔鄉戶政事務所</orgName>
         <address>新竹縣北埔鄉南興街68號</address>
         <tel>03-5802834</tel>
         <fax>03-5803361</fax>
@@ -2931,7 +2931,7 @@
     </org>
     <org>
         <orgId>10004080</orgId>
-        <orgname>新竹縣橫山鄉戶政事務所</orgname>
+        <orgName>新竹縣橫山鄉戶政事務所</orgName>
         <address>新竹縣橫山鄉新興村新興街105號</address>
         <tel>03-5932473</tel>
         <fax>03-5933147</fax>
@@ -2941,7 +2941,7 @@
     </org>
     <org>
         <orgId>10004070</orgId>
-        <orgname>新竹縣芎林鄉戶政事務所</orgname>
+        <orgName>新竹縣芎林鄉戶政事務所</orgName>
         <address>新竹縣芎林鄉文林村7鄰文山路339號</address>
         <tel>03-5922197</tel>
         <fax>03-5924702</fax>
@@ -2951,7 +2951,7 @@
     </org>
     <org>
         <orgId>10004060</orgId>
-        <orgname>新竹縣新豐鄉戶政事務所</orgname>
+        <orgName>新竹縣新豐鄉戶政事務所</orgName>
         <address>新竹縣新豐鄉建興路二段792巷6號</address>
         <tel>03-5591776</tel>
         <fax>03-5572488</fax>
@@ -2961,7 +2961,7 @@
     </org>
     <org>
         <orgId>10004050</orgId>
-        <orgname>新竹縣湖口鄉戶政事務所</orgname>
+        <orgName>新竹縣湖口鄉戶政事務所</orgName>
         <address>新竹縣湖口鄉成功路119巷8號</address>
         <tel>03-5991199</tel>
         <fax>03-5902629</fax>
@@ -2971,7 +2971,7 @@
     </org>
     <org>
         <orgId>10004040</orgId>
-        <orgname>新竹縣關西鎮戶政事務所</orgname>
+        <orgName>新竹縣關西鎮戶政事務所</orgName>
         <address>新竹縣關西鎮光復路168號</address>
         <tel>03-5872314</tel>
         <fax>03-5870492</fax>
@@ -2981,7 +2981,7 @@
     </org>
     <org>
         <orgId>10004030</orgId>
-        <orgname>新竹縣新埔鎮戶政事務所</orgname>
+        <orgName>新竹縣新埔鎮戶政事務所</orgName>
         <address>新竹縣新埔鎮廣和路８號</address>
         <tel>03-5882424</tel>
         <fax>03-5892417</fax>
@@ -2991,7 +2991,7 @@
     </org>
     <org>
         <orgId>10004020</orgId>
-        <orgname>新竹縣竹東鎮戶政事務所</orgname>
+        <orgName>新竹縣竹東鎮戶政事務所</orgName>
         <address>新竹縣竹東鎮康寧街89號</address>
         <tel>03-5966334</tel>
         <fax>03-5956718</fax>
@@ -3001,7 +3001,7 @@
     </org>
     <org>
         <orgId>10004010</orgId>
-        <orgname>新竹縣竹北市戶政事務所</orgname>
+        <orgName>新竹縣竹北市戶政事務所</orgName>
         <address>新竹縣竹北市竹義里25鄰中正西路50之1號</address>
         <tel>03-5552427</tel>
         <fax>03-5514887</fax>
@@ -3011,7 +3011,7 @@
     </org>
     <org>
         <orgId>10004000</orgId>
-        <orgname>新竹縣政府民政處</orgname>
+        <orgName>新竹縣政府民政處</orgName>
         <address>新竹縣竹北市光明六路10號</address>
         <tel>035-518101-2170</tel>
         <fax>035-559281</fax>
@@ -3021,7 +3021,7 @@
     </org>
     <org>
         <orgId>10003130</orgId>
-        <orgname>桃園縣復興鄉戶政事務所</orgname>
+        <orgName>桃園縣復興鄉戶政事務所</orgName>
         <address>桃園縣復興鄉中正路180號</address>
         <tel>03-3822337</tel>
         <fax>03-3821459</fax>
@@ -3031,7 +3031,7 @@
     </org>
     <org>
         <orgId>10003120</orgId>
-        <orgname>桃園縣觀音鄉戶政事務所</orgname>
+        <orgName>桃園縣觀音鄉戶政事務所</orgName>
         <address>桃園縣觀音鄉觀和路28號</address>
         <tel>03-4732050</tel>
         <fax>03-4734812</fax>
@@ -3041,7 +3041,7 @@
     </org>
     <org>
         <orgId>10003110</orgId>
-        <orgname>桃園縣新屋鄉戶政事務所</orgname>
+        <orgName>桃園縣新屋鄉戶政事務所</orgName>
         <address>桃園縣新屋鄉中山路241號三樓</address>
         <tel>03-4772102</tel>
         <fax>03-4777134</fax>
@@ -3051,7 +3051,7 @@
     </org>
     <org>
         <orgId>10003100</orgId>
-        <orgname>桃園縣平鎮市戶政事務所</orgname>
+        <orgName>桃園縣平鎮市戶政事務所</orgName>
         <address>桃園縣平鎮市德育路242號</address>
         <tel>03-4580112</tel>
         <fax>03-4579656</fax>
@@ -3061,7 +3061,7 @@
     </org>
     <org>
         <orgId>10003090</orgId>
-        <orgname>桃園縣龍潭鄉戶政事務所</orgname>
+        <orgName>桃園縣龍潭鄉戶政事務所</orgName>
         <address>桃園縣龍潭鄉中正路210號二樓</address>
         <tel>03-4792394</tel>
         <fax>03-4709857</fax>
@@ -3071,7 +3071,7 @@
     </org>
     <org>
         <orgId>10003080</orgId>
-        <orgname>桃園縣八德市戶政事務所</orgname>
+        <orgName>桃園縣八德市戶政事務所</orgName>
         <address>桃園縣八德市興豐路304巷2號</address>
         <tel>03-3682851</tel>
         <fax>03-3654975</fax>
@@ -3081,7 +3081,7 @@
     </org>
     <org>
         <orgId>10003070</orgId>
-        <orgname>桃園縣龜山鄉戶政事務所</orgname>
+        <orgName>桃園縣龜山鄉戶政事務所</orgName>
         <address>桃園縣龜山鄉自強南路99號</address>
         <tel>03-3201922</tel>
         <fax>03-3509710</fax>
@@ -3091,7 +3091,7 @@
     </org>
     <org>
         <orgId>10003060</orgId>
-        <orgname>桃園縣大園鄉戶政事務所</orgname>
+        <orgName>桃園縣大園鄉戶政事務所</orgName>
         <address>桃園縣大園鄉中山北路162號</address>
         <tel>03-3862474</tel>
         <fax>03-3851274</fax>
@@ -3101,7 +3101,7 @@
     </org>
     <org>
         <orgId>10003050</orgId>
-        <orgname>桃園縣蘆竹鄉戶政事務所</orgname>
+        <orgName>桃園縣蘆竹鄉戶政事務所</orgName>
         <address>桃園縣蘆竹鄉長安路二段236號4樓</address>
         <tel>03-3226227</tel>
         <fax>03-3526380</fax>
@@ -3111,7 +3111,7 @@
     </org>
     <org>
         <orgId>10003040</orgId>
-        <orgname>桃園縣楊梅市</orgname>
+        <orgName>桃園縣楊梅市</orgName>
         <address>桃園縣楊梅市校前路409號3樓</address>
         <tel>03-4782324</tel>
         <fax>03-4754240</fax>
@@ -3121,7 +3121,7 @@
     </org>
     <org>
         <orgId>10003030</orgId>
-        <orgname>桃園縣大溪鎮戶政事務所</orgname>
+        <orgName>桃園縣大溪鎮戶政事務所</orgName>
         <address>桃園縣大溪鎮康莊路181號4樓</address>
         <tel>03-3883184-36</tel>
         <fax>03-3877515</fax>
@@ -3131,7 +3131,7 @@
     </org>
     <org>
         <orgId>10003020</orgId>
-        <orgname>桃園縣中壢市戶政事務所</orgname>
+        <orgName>桃園縣中壢市戶政事務所</orgName>
         <address>桃園縣中壢市溪洲街298號</address>
         <tel>03-4521100</tel>
         <fax>03-4536401</fax>
@@ -3141,7 +3141,7 @@
     </org>
     <org>
         <orgId>10003010</orgId>
-        <orgname>桃園縣桃園市戶政事務所</orgname>
+        <orgName>桃園縣桃園市戶政事務所</orgName>
         <address>桃園縣桃園市國豐三街123號</address>
         <tel>03-3608880</tel>
         <fax>03-3608886</fax>
@@ -3151,7 +3151,7 @@
     </org>
     <org>
         <orgId>10003000</orgId>
-        <orgname>桃園縣政府民政局</orgname>
+        <orgName>桃園縣政府民政局</orgName>
         <address>桃園縣桃園市縣府路1號6樓</address>
         <tel>03-3322101-5620</tel>
         <fax>03-3366794</fax>
@@ -3161,7 +3161,7 @@
     </org>
     <org>
         <orgId>10002120</orgId>
-        <orgname>宜蘭縣南澳鄉戶政事務所</orgname>
+        <orgName>宜蘭縣南澳鄉戶政事務所</orgName>
         <address>宜蘭縣南澳鄉蘇花路二段431號</address>
         <tel>03-9981044</tel>
         <fax>03-9982542</fax>
@@ -3171,7 +3171,7 @@
     </org>
     <org>
         <orgId>10002110</orgId>
-        <orgname>宜蘭縣大同鄉戶政事務所</orgname>
+        <orgName>宜蘭縣大同鄉戶政事務所</orgName>
         <address>宜蘭縣大同鄉崙埤村朝陽50號</address>
         <tel>03-9801178</tel>
         <fax>03-9801298</fax>
@@ -3181,7 +3181,7 @@
     </org>
     <org>
         <orgId>10002100</orgId>
-        <orgname>宜蘭縣三星鄉戶政事務所</orgname>
+        <orgName>宜蘭縣三星鄉戶政事務所</orgName>
         <address>宜蘭縣三星鄉義德村8鄰中山路7之6號</address>
         <tel>03-9892233-1</tel>
         <fax>03-9893193</fax>
@@ -3191,7 +3191,7 @@
     </org>
     <org>
         <orgId>10002090</orgId>
-        <orgname>宜蘭縣五結鄉戶政事務所</orgname>
+        <orgName>宜蘭縣五結鄉戶政事務所</orgName>
         <address>宜蘭縣五結鄉五結路二段339號</address>
         <tel>03-9501841</tel>
         <fax>03-9601336</fax>
@@ -3201,7 +3201,7 @@
     </org>
     <org>
         <orgId>10002080</orgId>
-        <orgname>宜蘭縣冬山鄉戶政事務所</orgname>
+        <orgName>宜蘭縣冬山鄉戶政事務所</orgName>
         <address>宜蘭縣冬山鄉冬山路170號</address>
         <tel>03-9591437</tel>
         <fax>03-9590862</fax>
@@ -3211,7 +3211,7 @@
     </org>
     <org>
         <orgId>10002070</orgId>
-        <orgname>宜蘭縣員山鄉戶政事務所</orgname>
+        <orgName>宜蘭縣員山鄉戶政事務所</orgName>
         <address>宜蘭縣員山鄉員山路一段207號二樓</address>
         <tel>03-9223394</tel>
         <fax>03-9225170</fax>
@@ -3221,7 +3221,7 @@
     </org>
     <org>
         <orgId>10002060</orgId>
-        <orgname>宜蘭縣壯圍鄉戶政事務所</orgname>
+        <orgName>宜蘭縣壯圍鄉戶政事務所</orgName>
         <address>宜蘭縣壯圍鄉壯五路260號</address>
         <tel>03-9385097</tel>
         <fax>03-9382176</fax>
@@ -3231,7 +3231,7 @@
     </org>
     <org>
         <orgId>10002050</orgId>
-        <orgname>宜蘭縣礁溪鄉戶政事務所</orgname>
+        <orgName>宜蘭縣礁溪鄉戶政事務所</orgName>
         <address>宜蘭縣礁溪鄉礁溪路四段126號</address>
         <tel>03-9882470</tel>
         <fax>03-9884027</fax>
@@ -3241,7 +3241,7 @@
     </org>
     <org>
         <orgId>10002040</orgId>
-        <orgname>宜蘭縣頭城鎮戶政事務所</orgname>
+        <orgName>宜蘭縣頭城鎮戶政事務所</orgName>
         <address>宜蘭縣頭城鎮開蘭路281號</address>
         <tel>03-9771294</tel>
         <fax>03-9774590</fax>
@@ -3251,7 +3251,7 @@
     </org>
     <org>
         <orgId>10002030</orgId>
-        <orgname>宜蘭縣蘇澳鎮戶政事務所</orgname>
+        <orgName>宜蘭縣蘇澳鎮戶政事務所</orgName>
         <address>宜蘭縣蘇澳鎮中山路一段254號</address>
         <tel>03-9963080-201</tel>
         <fax>03-9973312</fax>
@@ -3261,7 +3261,7 @@
     </org>
     <org>
         <orgId>10002020</orgId>
-        <orgname>宜蘭縣羅東鎮戶政事務所</orgname>
+        <orgName>宜蘭縣羅東鎮戶政事務所</orgName>
         <address>宜蘭縣羅東鎮公正路159之1號</address>
         <tel>03-9575952</tel>
         <fax>03-9564970</fax>
@@ -3271,7 +3271,7 @@
     </org>
     <org>
         <orgId>10002010</orgId>
-        <orgname>宜蘭縣宜蘭市戶政事務所</orgname>
+        <orgName>宜蘭縣宜蘭市戶政事務所</orgName>
         <address>宜蘭縣宜蘭市中華路146號二樓</address>
         <tel>03-9322229-16</tel>
         <fax>03-9358674</fax>
@@ -3281,7 +3281,7 @@
     </org>
     <org>
         <orgId>10002000</orgId>
-        <orgname>宜蘭縣政府民政處</orgname>
+        <orgName>宜蘭縣政府民政處</orgName>
         <address>宜蘭縣宜蘭市縣政北路一號</address>
         <tel>03-9251000-3013</tel>
         <fax>03-9254981</fax>
@@ -3291,7 +3291,7 @@
     </org>
     <org>
         <orgId>09020060</orgId>
-        <orgname>金門縣烏坵鄉</orgname>
+        <orgName>金門縣烏坵鄉</orgName>
         <address>金門縣烏坵鄉大坵村1號</address>
         <tel>082-666039</tel>
         <fax>082-666081</fax>
@@ -3301,7 +3301,7 @@
     </org>
     <org>
         <orgId>09020050</orgId>
-        <orgname>金門縣烈嶼鄉</orgname>
+        <orgName>金門縣烈嶼鄉</orgName>
         <address>金門縣烈嶼鄉烈嶼鄉西路60號</address>
         <tel>082-363079</tel>
         <fax>082-363393</fax>
@@ -3311,7 +3311,7 @@
     </org>
     <org>
         <orgId>09020040</orgId>
-        <orgname>金門縣金寧鄉</orgname>
+        <orgName>金門縣金寧鄉</orgName>
         <address>金門縣金寧鄉仁愛新村1號</address>
         <tel>082-324281</tel>
         <fax>082-322479</fax>
@@ -3321,7 +3321,7 @@
     </org>
     <org>
         <orgId>09020030</orgId>
-        <orgname>金門縣金湖鎮戶政事務所</orgname>
+        <orgName>金門縣金湖鎮戶政事務所</orgName>
         <address>金門縣金湖鎮新市里林森路2號</address>
         <tel>082-330790</tel>
         <fax>082-334708</fax>
@@ -3331,7 +3331,7 @@
     </org>
     <org>
         <orgId>09020020</orgId>
-        <orgname>金門縣金沙鎮</orgname>
+        <orgName>金門縣金沙鎮</orgName>
         <address>金門縣金沙鎮環島東路一段112號</address>
         <tel>082-351924</tel>
         <fax>082-353409</fax>
@@ -3341,7 +3341,7 @@
     </org>
     <org>
         <orgId>09020010</orgId>
-        <orgname>金門縣金城鎮戶政事務所</orgname>
+        <orgName>金門縣金城鎮戶政事務所</orgName>
         <address>金門縣金城鎮民生路2號二樓</address>
         <tel>082-324283</tel>
         <fax>082-322485</fax>
@@ -3351,7 +3351,7 @@
     </org>
     <org>
         <orgId>09020000</orgId>
-        <orgname>金門縣民政處</orgname>
+        <orgName>金門縣民政處</orgName>
         <address>金門縣金城鎮民生路60號</address>
         <tel>082-318823-62120</tel>
         <fax>082-371220</fax>
@@ -3361,7 +3361,7 @@
     </org>
     <org>
         <orgId>09007040</orgId>
-        <orgname>連江縣東引鄉戶政事務所</orgname>
+        <orgName>連江縣東引鄉戶政事務所</orgName>
         <address>連江縣東引鄉中柳村122號</address>
         <tel>0836-76159</tel>
         <fax>0836-76137</fax>
@@ -3371,7 +3371,7 @@
     </org>
     <org>
         <orgId>09007030</orgId>
-        <orgname>連江縣莒光鄉戶政事務所</orgname>
+        <orgName>連江縣莒光鄉戶政事務所</orgName>
         <address>連江縣莒光鄉青帆村74之1號</address>
         <tel>0836-88020</tel>
         <fax>0836-88275</fax>
@@ -3381,7 +3381,7 @@
     </org>
     <org>
         <orgId>09007020</orgId>
-        <orgname>連江縣北竿鄉戶政事務所</orgname>
+        <orgName>連江縣北竿鄉戶政事務所</orgName>
         <address>連江縣北竿鄉塘岐村260之2號</address>
         <tel>0836-55325</tel>
         <fax>0836-55073</fax>
@@ -3391,7 +3391,7 @@
     </org>
     <org>
         <orgId>09007010</orgId>
-        <orgname>連江縣南竿鄉戶政事務所</orgname>
+        <orgName>連江縣南竿鄉戶政事務所</orgName>
         <address>連江縣南竿鄉清水村139號</address>
         <tel>0836-25009</tel>
         <fax>0836-22462</fax>
@@ -3401,7 +3401,7 @@
     </org>
     <org>
         <orgId>09007000</orgId>
-        <orgname>連江縣政府民政局</orgname>
+        <orgName>連江縣政府民政局</orgName>
         <address>連江縣南竿鄉介壽村76號</address>
         <tel>0836-22485-22</tel>
         <fax>0836-22209</fax>
@@ -3411,7 +3411,7 @@
     </org>
     <org>
         <orgId>00000000</orgId>
-        <orgname>內政部戶政司戶政司</orgname>
+        <orgName>內政部戶政司戶政司</orgName>
         <address>臺北市徐州路5號6樓</address>
         <tel>02-89127500-12345</tel>
         <fax>02-89127533</fax>

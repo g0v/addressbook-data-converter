@@ -1,4 +1,4 @@
-require! fs
+require! <[fs cheerio]>
 require! \./util
 
 # Orgnization
@@ -144,3 +144,53 @@ export function from_data_gov_6119(acc, path, done)
     o
   result, count <- util.from_csv path, opts, _cb, done
   [[e for _, e of orgmap], count]
+
+export function from_data_gov_7437(acc, path, done)
+  correct_name = ->
+    badnames =
+      \高雄市那瑪夏區
+      \高雄市桃源區
+      \高雄市甲仙區
+      \高雄市旗山區
+      \花蓮縣秀林鄉
+      \花蓮縣瑞穗鄉
+      \花蓮縣光復鄉
+      \花蓮縣玉里鎮
+      \桃園縣楊梅市
+      \金門縣烏坵鄉
+      \金門縣烈嶼鄉
+      \金門縣金寧鄉
+      \金門縣金沙鎮
+    if it in badnames then "#{it}戶政事務所" else it
+
+  orgmap = {}
+  orgs = acc
+  for org in orgs
+    orgmap[org.name] = org
+
+  content = fs.readFileSync path, 'utf-8'
+  $ = cheerio.load content, {xmlMode:true}
+  orgs = $ 'orgs' .find 'org'
+  count = orgs.length
+
+  get = (o, q) -> o.find q .text!
+
+  orgs.each ->
+    obj = do
+      name: correct_name (get @, 'orgname')
+      address: get @, 'address'
+      other_names: []
+      contact_details: [
+        {label: '機關電話', 'type': 'voice', 'value': get @, 'tel'}
+        {label: '機關電郵', 'type': 'email', 'value': get @, 'email'}
+        {label: '機關傳真', 'type': 'fax', 'value': get @, 'fax'}
+      ]
+      note: get @, 'description'
+      links: [
+        * url: get @, 'website'
+      ]
+    unless orgmap[obj.name]
+      orgmap[obj.name] = obj
+    else
+      orgmap[obj.name] <<< obj
+  done [[e for _, e of orgmap], count]
