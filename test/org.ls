@@ -59,5 +59,4 @@ describe 'Organization', ->
   describe 'process data.gov.tw node 7437.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
       orgs, count <- from_data_gov_7437 [], \test/testdata/organization/data-gov-node-7437-source.xml
-      console.log orgs
       done!
