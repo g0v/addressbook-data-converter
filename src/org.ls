@@ -80,7 +80,6 @@ export function from_data_gov_6119(acc, path, done)
   root = ''
   for org in orgs
     orgmap[org.name] = org
-
   opts = do
     columns: do
       area: \地區
@@ -142,8 +141,9 @@ export function from_data_gov_6119(acc, path, done)
     else
       orgmap[o.name] = o
     o
-  result, count <- util.from_csv path, opts, _cb
-  done [e for _, e of orgmap], count
+  <- util.from_csv path, opts, _cb
+  result = [e for _, e of orgmap]
+  done result, result.length
 
 export function from_data_gov_7437(acc, path, done)
   correct_name = ->
@@ -192,4 +192,5 @@ export function from_data_gov_7437(acc, path, done)
       orgmap[obj.name] = obj
     else
       orgmap[obj.name] <<< obj
-  done [e for _, e of orgmap], orgs.length
+  result = [e for _, e of orgmap]
+  done result, result.length
