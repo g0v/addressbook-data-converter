@@ -52,8 +52,8 @@ describe 'Organization', ->
   describe 'process data.gov.tw node 6119.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
       orgs, count <- from_data_gov_6119 [], \test/testdata/organization/data-gov-node-6119-source.csv
-      count.should.eq 117
-      orgs.length.should.eq 117
+      count.should.eq 116
+      orgs.length.should.eq 116
       orgs.0.name.should.eq \駐清奈辦事處
       done!
   describe 'process data.gov.tw node 7437.', -> ``it``
