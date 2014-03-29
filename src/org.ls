@@ -142,8 +142,8 @@ export function from_data_gov_6119(acc, path, done)
     else
       orgmap[o.name] = o
     o
-  result, count <- util.from_csv path, opts, _cb, done
-  [[e for _, e of orgmap], count]
+  result, count <- util.from_csv path, opts, _cb
+  done [e for _, e of orgmap], count
 
 export function from_data_gov_7437(acc, path, done)
   correct_name = ->
@@ -165,16 +165,15 @@ export function from_data_gov_7437(acc, path, done)
 
   orgmap = {}
   orgs = acc
+
   for org in orgs
     orgmap[org.name] = org
 
   content = fs.readFileSync path, 'utf-8'
   $ = cheerio.load content, {xmlMode:true}
   orgs = $ 'orgs' .find 'org'
-  count = orgs.length
 
   get = (o, q) -> o.find q .text!
-
   orgs.each ->
     obj = do
       name: correct_name (get @, 'orgname')
@@ -193,4 +192,4 @@ export function from_data_gov_7437(acc, path, done)
       orgmap[obj.name] = obj
     else
       orgmap[obj.name] <<< obj
-  done [[e for _, e of orgmap], count]
+  done [e for _, e of orgmap], orgs.length
