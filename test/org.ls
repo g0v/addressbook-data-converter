@@ -5,6 +5,7 @@ expect = (require \chai).expect
 from_data_gov_7307 = (require \../).org! .from_data_gov_7307
 from_data_gov_6119 = (require \../).org! .from_data_gov_6119
 from_data_gov_7437 = (require \../).org! .from_data_gov_7437
+from_data_gov_7620 = (require \../).org! .from_data_gov_7620
 convert_data = (require \../).cli! .convert_data
 
 describe 'Organization', ->
@@ -61,4 +62,10 @@ describe 'Organization', ->
       orgs, count <- from_data_gov_7437 [], \test/testdata/organization/data-gov-node-7437-source.xml
       count.should.eq 342
       orgs.0.name.should.eq '臺南市中西區戶政事務所'
+      done!
+  describe 'process data.gov.tw node 7620.', -> ``it``
+    .. 'should contain elements follow popolo specs.', (done) ->
+      orgs, count <- from_data_gov_7620 [], \test/testdata/organization/data-gov-node-7620-source.xml
+      count.should.eq 134
+      orgs.0.name.should.eq '內政部地政司'
       done!

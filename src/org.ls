@@ -195,3 +195,34 @@ export function from_data_gov_7437(acc, path, done)
       orgmap[obj.name] <<< obj
   result = [e for _, e of orgmap]
   done result, result.length
+
+export function from_data_gov_7620(acc, path, done)
+  orgmap = {}
+  orgs = acc
+
+  for org in orgs
+    orgmap[org.name] = org
+
+  content = fs.readFileSync path, 'utf-8'
+  $ = cheerio.load content, {xmlMode:true}
+  orgs = $ 'channel' .find 'item'
+  get = (o, q) -> o.find q .text!
+  orgs.each ->
+    [address, tel, email, fax] = [1,2,3,4]
+    obj = do
+      name: get @, 'title1'
+      address: address
+      other_names: []
+      contact_details: [
+        {label: '機關電話', 'type': 'voice', 'value': tel}
+        {label: '機關電郵', 'type': 'email', 'value': email}
+        {label: '機關傳真', 'type': 'fax', 'value': fax}
+      ]
+      note: get @, 'description'
+      links: []
+    unless orgmap[obj.name]
+      orgmap[obj.name] = obj
+    else
+      orgmap[obj.name] <<< obj
+  result = [e for _, e of orgmap]
+  done result, result.length
