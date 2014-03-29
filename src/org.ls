@@ -170,6 +170,7 @@ export function from_data_gov_7437(acc, path, done)
     orgmap[org.name] = org
 
   content = fs.readFileSync path, 'utf-8'
+  content = content.replace /orgName/g, 'orgname'
   $ = cheerio.load content, {xmlMode:true}
   orgs = $ 'orgs' .find 'org'
 

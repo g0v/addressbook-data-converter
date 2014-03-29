@@ -59,4 +59,6 @@ describe 'Organization', ->
   describe 'process data.gov.tw node 7437.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
       orgs, count <- from_data_gov_7437 [], \test/testdata/organization/data-gov-node-7437-source.xml
+      count.should.eq 342
+      orgs.0.name.should.eq '臺南市中西區戶政事務所'
       done!
