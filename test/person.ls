@@ -22,9 +22,9 @@ expected_person = do
   links: []
 
 describe 'Person', ->
-  describe.skip 'load mly as array.', -> ``it``
+  describe 'load mly as array.', -> ``it``
     .. 'should contain elements follow popolo specs.', (done) ->
-      o = require path.resolve 'test/testdata/central/mly-8'
+      o = require path.resolve 'test/testdata/person/github-g0v-twlyparser-mly-8.json'
       o.should.be.ok
       [err, person, memberships, orgs] <- from_mly o
       person.0.should.deep.eq expected_person
