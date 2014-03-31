@@ -1,5 +1,18 @@
 require! <[cheerio request async url mkdirp fs path]>
 
+save-remote = (uri, fname, done) ->
+  _, {size}? <- fs.stat fname
+  return done! if size?
+
+  writer = with fs.createWriteStream fname
+    ..on \error -> throw it
+    ..on \close ->
+      <- setTimeout _, 1000ms
+      console.log \done fname
+      done!
+  console.log uri
+  request {method: \GET, uri} .pipe writer
+
 fetch-gov-data = (category, set, done) ->
   err, res, body <- request set.url
   throw \err if err
@@ -10,24 +23,22 @@ fetch-gov-data = (category, set, done) ->
     uri = set.real_url
 
   if set.output_file?
-    fname = set.output_file 
+    fname = set.output_file
   else
     ext = path.extname uri .toLowerCase!
     rfname = "data-gov-node-#{nodeid}-source#{ext}"
     fname = "rawdata/#{category}/#{rfname}"
-
-  _, {size}? <- fs.stat fname
-  return done! if size?
-
   console.log "download #name to #{fname} ..."
-  writer = with fs.createWriteStream fname
-    ..on \error -> throw it
-    ..on \close -> 
-      <- setTimeout _, 1000ms
-      console.log \done fname
-      done!
-  console.log uri
-  request {method: \GET, uri} .pipe writer
+  save-remote uri, fname, done
+
+fetch-github-data = (category, set, done) ->
+  uri = set.url
+  _p = (url.parse set.url .path / \/)
+  project = "#{_p.1}-#{_p.2}"
+  rfname = path.basename set.url
+  fname = "rawdata/#{category}/github-#{project}-#{rfname}.json"
+  console.log "download github rawdata to #{fname}"
+  save-remote uri, fname, done
 
 export function grab-data(index , done)
   funcs = []
@@ -40,7 +51,12 @@ export function grab-data(index , done)
 
     for let set in sets
       funcs.push (done) ->
-        <- fetch-gov-data category, set
+        match set.url
+        | /data.gov.tw/ =>
+          <- fetch-gov-data category, set
+        | /githubusercontent/ =>
+          <- fetch-github-data category, set
+        | otherwise => console.log "can not find fecther of #{set.url}."
         done!
   err, res <- async.waterfall funcs
   done!
@@ -48,8 +64,8 @@ export function grab-data(index , done)
 export function parse-set-datagov(cnt)
   $ = cheerio.load cnt
   name = $ 'h1[class="title"]' .text!
-  uri = $ '#node_metadataset_full_group_data_type' 
-    .find 'div .field-item' 
-    .find \a 
+  uri = $ '#node_metadataset_full_group_data_type'
+    .find 'div .field-item'
+    .find \a
     .attr \href
   [name, uri]

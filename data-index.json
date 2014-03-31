@@ -4,5 +4,8 @@
 		{"url": "http://data.gov.tw/node/7620"},
 		{"url": "http://data.gov.tw/node/7437"},
 		{"url": "http://data.gov.tw/node/6119"}
-	]
+	],
+    "person": [
+        {"url": "https://raw.githubusercontent.com/g0v/twlyparser/master/data/mly-8.json"}
+    ]
 }
