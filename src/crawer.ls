@@ -36,7 +36,7 @@ fetch-github-data = (category, set, done) ->
   _p = (url.parse set.url .path / \/)
   project = "#{_p.1}-#{_p.2}"
   rfname = path.basename set.url
-  fname = "rawdata/#{category}/github-#{project}-#{rfname}.json"
+  fname = "rawdata/#{category}/github-#{project}-#{rfname}"
   console.log "download github rawdata to #{fname}"
   save-remote uri, fname, done
 
