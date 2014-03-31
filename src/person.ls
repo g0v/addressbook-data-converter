@@ -6,9 +6,10 @@
 # - 政黨身份
 
 popolized_mly_person = ->
-  transform_contact = ->
+  transform_contact = (contact_info) ->
+    return [] unless contact_info
     r = []
-    for unit_name, unit_info of it
+    for unit_name, unit_info of contact_info
       r.push do
         label: "#{unit_name}電話"
         type: "voice"
