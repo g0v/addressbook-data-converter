@@ -6,12 +6,28 @@
 # - 政黨身份
 
 popolized_mly_person = ->
-  do 
+  transform_contact = ->
+    r = []
+    for unit_name, unit_info of it
+      r.push do
+        label: "#{unit_name}電話"
+        type: "voice"
+        value: unit_info.phone
+      r.push do
+        label: "#{unit_name}地址"
+        type: "address"
+        value: unit_info.address
+      r.push do
+        label: "#{unit_name}傳真"
+        type: "fax"
+        value: unit_info.fax
+    r
+
+  do
     id: 0
     name: it.name
     other_names: []
     identifiers: []
-    email: null
     gender: null
     birth_date: null
     death_date: null
@@ -19,7 +35,7 @@ popolized_mly_person = ->
     summary: null
     biography: null
     national_identity: null
-    contact_details: []
+    contact_details: it.contact and transform_contact it.contact or []
     links: []
 
 popolized_mly_membership = ->

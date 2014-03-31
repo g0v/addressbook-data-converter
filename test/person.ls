@@ -10,7 +10,6 @@ expected_person = do
   name: "丁守中"
   other_names: []
   identifiers: []
-  email: null
   gender: null
   birth_date: null
   death_date: null
@@ -18,7 +17,38 @@ expected_person = do
   summary: null
   biography: null
   national_identity: null
-  contact_details: []
+  contact_details: [
+      {
+        "label": "國會研究室電話",
+        "type": "voice",
+        "value": "02-2358-6706"
+      },
+      {
+        "label": "國會研究室地址",
+        "type": "address",
+        "value": "10051臺北市中正區濟南路1段3-1號0707室"
+      },
+      {
+        "label": "國會研究室傳真",
+        "type": "fax",
+        "value": "02-2358-6710"
+      },
+      {
+        "label": "北投服務處電話",
+        "type": "voice",
+        "value": "02-2828-7789"
+      },
+      {
+        "label": "北投服務處地址",
+        "type": "address",
+        "value": "11262臺北市北投區承德路七段188巷2號1樓"
+      },
+      {
+        "label": "北投服務處傳真",
+        "type": "fax",
+        "value": "02-2828-6877"
+      }
+  ]
   links: []
 
 describe 'Person', ->
