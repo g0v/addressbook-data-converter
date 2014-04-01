@@ -24,6 +24,7 @@ describe 'Person', ->
     .. 'should contain elements follow popolo specs.', (done) ->
       o = require path.resolve 'test/testdata/person/github-g0v-twlyparser-mly-8.json'
       o.should.be.ok
-      err, person <- from_mly o
+      err, person, memberships <- from_mly o
       person.0.should.deep.eq expected_person
+      memberships.0.role.should.eq \立法委員
       done!
