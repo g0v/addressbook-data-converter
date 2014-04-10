@@ -64,8 +64,13 @@ export function grab-data(index , done)
 export function parse-set-datagov(cnt)
   $ = cheerio.load cnt
   name = $ 'h1[class="title"]' .text!
-  uri = $ '#node_metadataset_full_group_data_type'
+  e = $ '#node_metadataset_full_group_data_type'
     .find 'div .field-item'
     .find \a
-    .attr \href
-  [name, uri]
+  uri = e.attr \href
+  ext = match e.attr \class
+        | /json/ => \json
+        | /csv/ => \csv
+        | /xml/ => \xml
+        | _ => throw 'can not find extension.'
+  [name, uri, ext]
