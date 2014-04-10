@@ -16,7 +16,7 @@ save-remote = (uri, fname, done) ->
 fetch-gov-data = (category, set, done) ->
   err, res, body <- request set.url
   throw \err if err
-  [name, uri] = parse-set-datagov body
+  [name, uri, ext] = parse-set-datagov body
   nodeid = path.basename (url.parse set.url).path
 
   if set.real_url?
@@ -25,8 +25,7 @@ fetch-gov-data = (category, set, done) ->
   if set.output_file?
     fname = set.output_file
   else
-    ext = path.extname uri .toLowerCase!
-    rfname = "data-gov-node-#{nodeid}-source#{ext}"
+    rfname = "data-gov-node-#{nodeid}-source.#{ext}"
     fname = "rawdata/#{category}/#{rfname}"
   console.log "download #name to #{fname} ..."
   save-remote uri, fname, done
