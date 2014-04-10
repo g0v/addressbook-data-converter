@@ -1,11 +1,13 @@
 {
-	"organization": [
+    "organization": [
 		{"url": "http://data.gov.tw/node/7307"},
 		{"url": "http://data.gov.tw/node/7620"},
 		{"url": "http://data.gov.tw/node/7437"},
 		{"url": "http://data.gov.tw/node/6119"}
 	],
     "person": [
-        {"url": "https://raw.githubusercontent.com/g0v/twlyparser/master/data/mly-8.json"}
+        {"url": "https://raw.githubusercontent.com/g0v/twlyparser/master/data/mly-8.json"},
+	{"url": "http://data.gov.tw/node/7054"},
+	{"url": "http://data.gov.tw/node/7055"}
     ]
 }
