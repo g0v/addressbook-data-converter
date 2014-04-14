@@ -30,6 +30,7 @@ dependencies:
   async : \*
   mkdirp: \*
   time: \*
+  pgrest: \*
 devDependencies:
   mocha: \1.14.x
   supertest: \0.7.x

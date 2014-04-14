@@ -1,6 +1,7 @@
 require! fs
 should = (require \chai).should!
 expect = (require \chai).expect
+{mk-pgrest-fortest} = require \./testlib
 
 from_data_gov_7307 = (require \../).org! .from_data_gov_7307
 from_data_gov_6119 = (require \../).org! .from_data_gov_6119
@@ -68,4 +69,16 @@ describe 'Organization', ->
       orgs, count <- from_data_gov_7620 [], \test/testdata/organization/data-gov-node-7620-source.xml
       count.should.eq 134
       orgs.0.name.should.eq '內政部地政司'
+      done!
+  describe 'populating to database.', -> ``it``
+    beforeEach (done) ->
+      var plx
+      _plx <- mk-pgrest-fortest!
+      plx := _plx
+      plx.should.be.ok
+      <- plx.query """
+      DROP TABLE IF EXISTS organizations;
+      """
+      done!
+    .. 'should update parent_id.', (done) ->
       done!

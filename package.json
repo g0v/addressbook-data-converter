@@ -28,7 +28,8 @@
     "request": "*",
     "async": "*",
     "mkdirp": "*",
-    "time": "*"
+    "time": "*",
+    "pgrest": "*"
   },
   "devDependencies": {
     "mocha": "1.14.x",
