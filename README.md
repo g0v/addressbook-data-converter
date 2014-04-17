@@ -16,6 +16,14 @@ $ npm i
 $ lsc update-data-index.ls
 ```
 
+## Generate Final Data
+
+```
+$ ./process-org-data.ls
+$ ./populate-org-data.ls --db mydb
+$ ./populate-person-data.ls --db mydb
+```
+
 ## Test 
 
 ```
