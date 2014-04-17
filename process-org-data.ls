@@ -1,3 +1,4 @@
+#!/usr/bin/env lsc
 require! <[async fs]>
 utils = require './lib/utils'
 index = require \./data-index.json

@@ -1,3 +1,4 @@
+#!/usr/bin/env lsc
 require! <[async fs]>
 utils = require './lib/utils'
 require! \./lib/cli
