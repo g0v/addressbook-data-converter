@@ -10,6 +10,10 @@ taiwan-parties =
   * name: \綠黨
   * name: \勞動黨
   * name: \新黨
+missing-orgs =
+  * name: \臺南市議會
+  * name: \臺北市議會
+  * name: \臺中市議會
 
 new-acc = ->
   acc = {data:{}, count:0}

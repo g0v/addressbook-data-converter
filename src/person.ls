@@ -7,12 +7,16 @@
 # ```
 export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
+    #@FIXME: feadbak the pua to data.gov.tw.
+    orgname = record.orgname.replace '台', '臺'
     m = []
+    organization_id = acc.orgids[orgname]
+    console.log orgname unless organization_id
     m.push do
-      label: "#{record.orgname}#{record.posiname}#{name}"
+      label: "#{orgname}#{record.posiname}#{name}"
       role: record.posiname
       post_id: record.posiname
-      orgnization_id: record.orgname
+      orgnization_id: organization_id
       contact_details:
         * label: \辦公室地址
           type: \address
@@ -23,13 +27,13 @@ export function process_twgovdata_7054(acc, src, done)
       note: "#{record.eareaname}"
 
     if record.partymship and (record.partymship isnt \無政黨 and record.partymship isnt '')
-      organization_id = acc.orgids[record.partymship]
-      throw "can not find organization_id of #{record.partymship} in orgids" unless organization_id
+      party_id = acc.orgids[record.partymship]
+      throw "can not find organization_id of #{record.partymship} in orgids" unless party_id
       m.push do
         label: "#{record.partymship}黨員"
         role: "黨員"
         post_id: "黨員"
-        organization_id: organization_id
+        organization_id: party_id
     return m
 
   #@FIXME: fix the path is not consist in test case.
