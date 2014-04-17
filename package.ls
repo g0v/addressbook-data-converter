@@ -3,7 +3,7 @@ author:
   name: ['Chen Hsin-Yi']
   email: 'ossug.hychen@gmail.com'
 name: 'addressbook-data-converter'
-description: 'who is who?'
+description: 'To convert Taiwan government organization rawdata from multiple sources in popolo specfication.'
 version: '0.0.1'
 main: \lib/index.js
 repository:
@@ -15,7 +15,8 @@ scripts:
   """
   prepublish: """
     lsc -cj package.ls &&
-    lsc -bc -o lib src
+    lsc -cj config.ls &&
+    lsc -bdc -o lib src
   """
   # this is probably installing from git directly, no lib.  assuming dev
   postinstall: """
@@ -23,16 +24,17 @@ scripts:
   """
 engines: {node: '*'}
 dependencies:
-  optimist: \0.6.x  
-  csv: \*
-  cheerio: \*
-  request: \*
-  async : \*
-  mkdirp: \*
-  time: \*
+  optimist: \0.6.x 
+  csv: \0.3.x
+  cheerio: \0.13.x
+  request: \2.34.x
+  async : \0.7.x
+  mkdirp: \0.3.x
+  time: \0.10.x
   pgrest: \*
 devDependencies:
   mocha: \1.14.x
   supertest: \0.7.x
   chai: \1.8.x
   LiveScript: \1.2.x
+  groc: \0.6.x

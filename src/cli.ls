@@ -1,38 +1,13 @@
-# # Conveter
+require! <[optimist pgrest]>
 
-# An function that its name starts with `convert` will known as a convter in 
-# this project and could be used in a dispatch function. 
-# 
-# The converter simply processes only one data source (which usually located in `rawdata` 
-# directory) and generate converted data (which usually located in `output` directory).
-# 
-# The dispatch function is used to lookup correct convert to do the following 
-# data converting. 
-# 
-# [note] All convter acceppts 2 aurgements.
+export function plx(opts={+client}, cb)
+  conString = optimist.argv.db ? process.env.PGDATABASE
+  conString = "localhost/#conString" unless conString is // / //
+  conString = "tcp://#conString"     unless conString is // :/ //
 
-# ## Example
-# ``
-# $ addressbook-data-converter --input_file rawdata/central/orglist.CSV --output_file output/orglist.json
-# ``
-require! fs
+  pgrest .new conString, opts, cb
 
-parse_converter = ->
-  q = it / '.'
-  throw 'invalid query' if q.length != 2
-  q
-
-export function dispatch(q, fnname) 
-  [modname, fnname] = parse_converter q
-  pkg = require \./
-  throw "#modname is not a module." unless pkg[modname]?
-  module = pkg[modname]!
-  fn = module[fnname]
-  throw "#fnname is not a function." unless typeof fn is \function 
-  fn
-
-export function convert_data(name, acc, path, dest, done) 
-  result, count <- (dispatch name) acc, path
-  json = JSON.stringify result, null, 4
-  err <- fs.writeFile dest, json
-  done err, count
+export function shellrun(cmd, opts, cb)
+  require! shelljs
+  c = shelljs.exec cmd, opts, cb
+  c.stderr.on 'data' -> console.error it

@@ -9,5 +9,4 @@ load-index = (path, done) ->
 
 # main 
 index <- load-index \./data-index.json
-err <- grab-data index 
-if err then console.log err else console.log \done!
+<- grab-data index 

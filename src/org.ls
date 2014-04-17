@@ -1,33 +1,24 @@
 require! <[fs cheerio]>
 require! \./util
 
-# Orgnization
-ensured_record = (record) ->
-  throw 'name is empty' unless record.name
-  throw 'orgcode is empty' unless record.orgcode
-  record
 
-popololized_orglist_record = (record) ->
+
+popololized-record-twgovdata_7307 = (acc, record) --> 
   #@FIXME: workround.
   if record.orgcode == '機關代碼'
     return null
-  record = ensured_record record
-
   find_other_names = ->
       ret = []
       if record.dissolution_note is \是 and record.new_name?
         ret.push do
           name: record.new_name
           start_date: util.date_from_rocdate record.dissolution_date
-          end_date: null
       else if record.dissolution_note is not \是 and record.old_name?
         ret.push do
           name: record.old_name
-          start_date: null
-          end_date: null
       ret
 
-  do
+  acc.data[record.name] = do
     name: record.name
     other_names: find_other_names!
     identifiers: [
@@ -43,16 +34,23 @@ popololized_orglist_record = (record) ->
         * label: \機關電話
           type: \voice
           value: record.phone
-          source: null
         * label: \機關傳真
           type: \fax
           value: record.fax
-          source: null
     ]
-    links: []
+    links: []  
+    sources: 
+      * url: 'http://data.gov.tw/node/7307'
+  acc.count += 1
 
-# CSV -> Array
-export function from_data_gov_7307(acc, path, done)
+# ## Set Proccessor - data.gov.tw node 7307.
+# ```
+# @param acc {data::Object, meta::Object, count::Int} 
+# @param src String
+# @param done Function
+# @returns returned value of `done` function.
+# ```
+export function process_twgovdata_7307(acc, src, done)
   opts = do
     columns: do
       orgcode: \機關代碼
@@ -72,14 +70,50 @@ export function from_data_gov_7307(acc, path, done)
       new_start_date: \新機關生效日
       old_orgcode: \舊機關代碼
       old_name: \舊機關名稱
-  util.from_csv path, opts, popololized_orglist_record, done
+  _, count <- util.from_csv src, opts, popololized-record-twgovdata_7307 acc
+  done acc
 
-export function from_data_gov_6119(acc, path, done)
-  orgmap = {}
-  orgs = acc
-  root = ''
-  for org in orgs
-    orgmap[org.name] = org
+popololized-record-twgovdata_6119 = (acc, record) -->
+  return null if record.area == '地區'
+  if '(' in record.name_zh or '（' in record.name_zh
+    [_, name_zh, name_en_zh] = record.name_zh.match /(.*)\s*[（(](.*)[)）]/
+  else
+    name_zh = record.name_zh
+  o = do
+    name: name_zh
+    address: record.address
+    other_names: [
+      * name: record.name_en
+    ]
+    contact_details: [
+      * label: '電話'
+        type: 'voice'
+        value: record.phone
+      * label: '緊急聯絡電話'
+        type: 'voice'
+        value: record.ergency_call_zh
+      * label: '電子郵件'
+        type: 'email'
+        value: record.email
+      * label: '傳真'
+        type: 'fax'
+        value: record.fax
+    ]  
+  if acc.data[name_zh]?
+    acc.data[name_zh] <<< o
+  else
+    acc.data[o.name] = o
+  acc.count += 1
+  o
+
+# ## Set Proccessor - data.gov.tw node 6119.
+# ```
+# @param acc {data::Object, meta::Object, count::Int} 
+# @param src String
+# @param done Function
+# @returns returned value of `done` function.
+# ```
+export function process_twgovdata_6119(acc, src, done)
   opts = do
     columns: do
       area: \地區
@@ -104,49 +138,19 @@ export function from_data_gov_6119(acc, path, done)
       service_time: \領務服務時間
       post_unit: \所屬單位
       post_source: \消息來源
+  _, count <- util.from_csv src, opts, popololized-record-twgovdata_6119 acc
+  done acc
 
-  _cb = (record) ->
-    return null if record.area == '地區'
-    if '(' in record.name_zh or '（' in record.name_zh
-      [_, name_zh, name_en_zh] = record.name_zh.match /(.*)\s*[（(](.*)[)）]/
-    else
-      name_zh = record.name_zh
-
-    o = do
-      name: name_zh
-      address: record.address
-      other_names: [
-        * name: record.name_en
-          start_date:null
-          end_date: null
-      ]
-      contact_details: [
-        * label: '電話'
-          type: 'voice'
-          value: record.phone
-        * label: '緊急聯絡電話'
-          type: 'voice'
-          value: record.ergency_call_zh
-        * label: '電子郵件'
-          type: 'email'
-          value: record.email
-        * label: '傳真'
-          type: 'fax'
-          value: record.fax
-      ]
-      parent_id: null
-
-    if name_zh in orgmap
-      orgmap[name_zh] <<< o
-    else
-      orgmap[o.name] = o
-    o
-  <- util.from_csv path, opts, _cb
-  result = [e for _, e of orgmap]
-  done result, result.length
-
-export function from_data_gov_7437(acc, path, done)
+# ## Set Proccessor - data.gov.tw node 7437.
+# ```
+# @param acc {data::Object, meta::Object, count::Int} 
+# @param src String
+# @param done Function
+# @returns returned value of `done` function.
+# ```
+export function process_twgovdata_7437(acc, path, done)
   correct_name = ->
+    return '內政部戶政司' if it is \內政部戶政司戶政司
     badnames =
       \高雄市那瑪夏區
       \高雄市桃源區
@@ -163,17 +167,10 @@ export function from_data_gov_7437(acc, path, done)
       \金門縣金沙鎮
     if it in badnames then "#{it}戶政事務所" else it
 
-  orgmap = {}
-  orgs = acc
-
-  for org in orgs
-    orgmap[org.name] = org
-
   content = fs.readFileSync path, 'utf-8'
   content = content.replace /orgName/g, 'orgname'
-  $ = cheerio.load content, {xmlMode:true}
+  $ = cheerio.load content, {+xmlMode}
   orgs = $ 'orgs' .find 'org'
-
   get = (o, q) -> o.find q .text!
   orgs.each ->
     obj = do
@@ -189,40 +186,30 @@ export function from_data_gov_7437(acc, path, done)
       links: [
         * url: get @, 'website'
       ]
-    unless orgmap[obj.name]
-      orgmap[obj.name] = obj
+    unless acc.data[obj.name]?
+      acc.data[obj.name] = obj
     else
-      orgmap[obj.name] <<< obj
-  result = [e for _, e of orgmap]
-  done result, result.length
+      acc.data[obj.name] <<< obj
+    acc.count += 1
+  done acc
 
-export function from_data_gov_7620(acc, path, done)
-  orgmap = {}
-  orgs = acc
-
-  for org in orgs
-    orgmap[org.name] = org
-
-  content = fs.readFileSync path, 'utf-8'
-  $ = cheerio.load content, {xmlMode:true}
+export function process_twgovdata_7620(acc, src, done)
+  content = fs.readFileSync src, 'utf-8'
+  $ = cheerio.load content, {+xmlMode}
   orgs = $ 'channel' .find 'item'
   get = (o, q) -> o.find q .text!
   orgs.each ->
-    [address, tel, email, fax] = [1,2,3,4]
     obj = do
       name: get @, 'title1'
-      address: address
+      address: null
       other_names: []
-      contact_details: [
-        {label: '機關電話', 'type': 'voice', 'value': tel}
-        {label: '機關電郵', 'type': 'email', 'value': email}
-        {label: '機關傳真', 'type': 'fax', 'value': fax}
-      ]
+      #@FIXME: parse contact details of node 7620.
+      contact_details: []
       note: get @, 'description'
       links: []
-    unless orgmap[obj.name]
-      orgmap[obj.name] = obj
+    unless acc.data[obj.name]?
+      acc.data[obj.name] = obj
     else
-      orgmap[obj.name] <<< obj
-  result = [e for _, e of orgmap]
-  done result, result.length
+      acc.data[obj.name] <<< obj
+    acc.count += 1
+  done acc

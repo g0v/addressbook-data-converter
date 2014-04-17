@@ -1,6 +1,31 @@
+# # Data Fetching
+
+# ## Data Sources Configure
+# 
+# The fecther fetches rawdata from the remote sites which are defined
+# in `data-index.json`, which is automatically preoduced in `npm run prepublish`
+# step. You should modify `config.ls` instead of modifying `data-index.json`.
+
+# `data-index.ls` Syntax: 
+# ```
+# Category: [Set]
+# ```
+# * Cateogry: String, the category that sets belong to.
+# * Set: Object, the rawdata name, resource uri, etc.
+
+# ## Set Properties
+# A remote site which provides rawdata should indicate the follwoing 
+# properties:
+# * name: rawdata name.
+# * id: unique identifier used by provider.
+# * provider: data provider.
+# * url: set profile url that displays propoerties.
+# * ext: file extension. valid: (csv, xml, json)
+# * uri: real uri of the rawdata.
+# * update-freq: update frequency.
 require! <[cheerio request async url mkdirp fs path]>
 
-save-remote = (uri, fname, done) ->
+save-remote = (name, uri, fname, done) ->
   _, {size}? <- fs.stat fname
   return done! if size?
 
@@ -8,40 +33,14 @@ save-remote = (uri, fname, done) ->
     ..on \error -> throw it
     ..on \close ->
       <- setTimeout _, 1000ms
-      console.log \done fname
+      console.log "finished downloading #{name}: save file: #{fname}"
       done!
-  console.log uri
+  console.log "starting download #{name} ..."
   request {method: \GET, uri} .pipe writer
-
-fetch-gov-data = (category, set, done) ->
-  err, res, body <- request set.url
-  throw \err if err
-  [name, uri, ext] = parse-set-datagov body
-  nodeid = path.basename (url.parse set.url).path
-
-  if set.real_url?
-    uri = set.real_url
-
-  if set.output_file?
-    fname = set.output_file
-  else
-    rfname = "data-gov-node-#{nodeid}-source.#{ext}"
-    fname = "rawdata/#{category}/#{rfname}"
-  console.log "download #name to #{fname} ..."
-  save-remote uri, fname, done
-
-fetch-github-data = (category, set, done) ->
-  uri = set.url
-  _p = (url.parse set.url .path / \/)
-  project = "#{_p.1}-#{_p.2}"
-  rfname = path.basename set.url
-  fname = "rawdata/#{category}/github-#{project}-#{rfname}"
-  console.log "download github rawdata to #{fname}"
-  save-remote uri, fname, done
 
 export function grab-data(index , done)
   funcs = []
-  for category, sets of index =>
+  for let category, sets of index =>
     console.log "=> fetching #category"
     funcs.push (done) ->
       err <- mkdirp "rawdata/#{category}"
@@ -50,26 +49,48 @@ export function grab-data(index , done)
 
     for let set in sets
       funcs.push (done) ->
-        match set.url
-        | /data.gov.tw/ =>
-          <- fetch-gov-data category, set
-        | /githubusercontent/ =>
-          <- fetch-github-data category, set
-        | otherwise => console.log "can not find fecther of #{set.url}."
+        <- save-remote set.name, set.uri, set.output-file
         done!
   err, res <- async.waterfall funcs
   done!
 
-export function parse-set-datagov(cnt)
-  $ = cheerio.load cnt
-  name = $ 'h1[class="title"]' .text!
+export function parse-set-prop-twgovdata(html)
+  lookup-prop = (tbl, n) ->
+    trs = tbl.find 'tr' .nextAll! 
+    try
+      e = trs[n] 
+        .children 
+        .0 
+        .next 
+        .children 
+        .0 .children 
+        .0 .children 
+        .0 .children 
+        .0
+      e.data
+    #@FIXME: update frequncy parsing can not handle all cases.
+    catch error
+      return "不定期"
+
+  prop = do
+    name: null
+    uri: null
+    ext: null
+    update-freq: null
+
+  $ = cheerio.load html 
+  prop.name = $ 'h1[class="title"]' .text!
   e = $ '#node_metadataset_full_group_data_type'
     .find 'div .field-item'
     .find \a
-  uri = e.attr \href
-  ext = match e.attr \class
+  prop.uri = e.attr \href
+  prop.ext = match e.attr \class
         | /json/ => \json
         | /csv/ => \csv
         | /xml/ => \xml
-        | _ => throw 'can not find extension.'
-  [name, uri, ext]
+        | _ => throw 'can not find extension. dbg: #it'
+  prop_tbl = $ 'table[class="field-group-format group_table"]'
+  prop.update-freq = lookup-prop prop_tbl, 5
+  for k,v of prop
+    throw "prop #{k} is empty." unless v
+  return prop

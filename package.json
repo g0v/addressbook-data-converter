@@ -6,7 +6,7 @@
     "email": "ossug.hychen@gmail.com"
   },
   "name": "addressbook-data-converter",
-  "description": "who is who?",
+  "description": "To convert Taiwan government organization rawdata from multiple sources in popolo specfication.",
   "version": "0.0.1",
   "main": "lib/index.js",
   "repository": {
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "prepublish": "lsc -cj package.ls &&\nlsc -bc -o lib src",
+    "prepublish": "lsc -cj package.ls &&\nlsc -cj config.ls &&\nlsc -bdc -o lib src",
     "postinstall": "if [ ! -e ./lib ]; then npm i LiveScript; lsc -bc -o lib src; fi"
   },
   "engines": {
@@ -23,18 +23,19 @@
   },
   "dependencies": {
     "optimist": "0.6.x",
-    "csv": "*",
-    "cheerio": "*",
-    "request": "*",
-    "async": "*",
-    "mkdirp": "*",
-    "time": "*",
+    "csv": "0.3.x",
+    "cheerio": "0.13.x",
+    "request": "2.34.x",
+    "async": "0.7.x",
+    "mkdirp": "0.3.x",
+    "time": "0.10.x",
     "pgrest": "*"
   },
   "devDependencies": {
     "mocha": "1.14.x",
     "supertest": "0.7.x",
     "chai": "1.8.x",
-    "LiveScript": "1.2.x"
+    "LiveScript": "1.2.x",
+    "groc": "0.6.x"
   }
 }
