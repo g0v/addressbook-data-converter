@@ -27,6 +27,7 @@ $ npm test
 ```
 $ pip install Pygments
 $ npm i groc
+$ ./node_modules/groc/.bin/groc
 ```
 
 The documents will be in the gh-pages branch.
