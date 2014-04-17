@@ -1,3 +1,4 @@
+#!/usr/bin/env lsc
 require! <[request async fs url path]>
 {parse-set-prop-twgovdata} = require \./lib/crawer
 cfg = require \./config.json
