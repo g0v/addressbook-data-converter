@@ -14,10 +14,10 @@ export function process_twgovdata_7054(acc, src, done)
       contact_details:
         * label: \辦公室地址
           type: \address
-          value: record.officeaddress
+          value: record.officeadress
         * label: \辦公室電話
           type: \voice
-          value: record.officephone
+          value: record.officetelphone
       note: "#{record.eareaname}"
 
     if record.partymship and (record.partymship isnt \無政黨 and record.partymship isnt '')
