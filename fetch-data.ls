@@ -1,3 +1,4 @@
+#!/usr/bin/env lsc
 grab-data = (require \./lib) .crawer! .grab-data
 
 load-index = (path, done) ->
