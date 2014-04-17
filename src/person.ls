@@ -1,10 +1,3 @@
-# ## Set Proccessor - data.gov.tw node 7054.
-# ```
-# @param acc {data::Object, meta::Object, count::Int, orgids:Object}
-# @param src String
-# @param done Function
-# @returns returned value of `done` function.
-# ```
 export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
     #@FIXME: feadbak the pua to data.gov.tw.
@@ -54,10 +47,4 @@ export function process_twgovdata_7054(acc, src, done)
     acc.count +=1
   done acc
 
-# ## Set Proccessor - data.gov.tw node 7055.
-# ```
-# @param acc {data::Object, meta::Object, count::Int, orgids:Object}
-# @param src String
-# @param done Function
-# @returns returned value of `done` function.
 exports.process_twgovdata_7055 = process_twgovdata_7054

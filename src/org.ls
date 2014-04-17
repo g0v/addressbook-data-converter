@@ -43,13 +43,6 @@ popololized-record-twgovdata_7307 = (acc, record) -->
       * url: 'http://data.gov.tw/node/7307'
   acc.count += 1
 
-# ## Set Proccessor - data.gov.tw node 7307.
-# ```
-# @param acc {data::Object, meta::Object, count::Int} 
-# @param src String
-# @param done Function
-# @returns returned value of `done` function.
-# ```
 export function process_twgovdata_7307(acc, src, done)
   opts = do
     columns: do
@@ -106,13 +99,6 @@ popololized-record-twgovdata_6119 = (acc, record) -->
   acc.count += 1
   o
 
-# ## Set Proccessor - data.gov.tw node 6119.
-# ```
-# @param acc {data::Object, meta::Object, count::Int} 
-# @param src String
-# @param done Function
-# @returns returned value of `done` function.
-# ```
 export function process_twgovdata_6119(acc, src, done)
   opts = do
     columns: do
@@ -141,13 +127,6 @@ export function process_twgovdata_6119(acc, src, done)
   _, count <- util.from_csv src, opts, popololized-record-twgovdata_6119 acc
   done acc
 
-# ## Set Proccessor - data.gov.tw node 7437.
-# ```
-# @param acc {data::Object, meta::Object, count::Int} 
-# @param src String
-# @param done Function
-# @returns returned value of `done` function.
-# ```
 export function process_twgovdata_7437(acc, path, done)
   correct_name = ->
     return '內政部戶政司' if it is \內政部戶政司戶政司
