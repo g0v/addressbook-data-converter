@@ -24,7 +24,7 @@ export function process_twgovdata_7054(acc, src, done)
 
     if record.partymship and (record.partymship isnt \無政黨 and record.partymship isnt '')
       organization_id = acc.orgids[record.partymship]
-      throw 'can not find organization_id in orgids' unless organization_id
+      throw "can not find organization_id of #{record.partymship} in orgids" unless organization_id
       m.push do
         label: "#{record.partymship}黨員"
         role: "黨員"
@@ -48,3 +48,11 @@ export function process_twgovdata_7054(acc, src, done)
       memberships: find-memeberships name, record
     acc.count +=1
   done acc
+
+# ## Set Proccessor - data.gov.tw node 7055.
+# ```
+# @param acc {data::Object, meta::Object, count::Int, orgids:Object}
+# @param src String
+# @param done Function
+# @returns returned value of `done` function.
+exports.process_twgovdata_7055 = process_twgovdata_7054
