@@ -32,7 +32,8 @@ export function process_twgovdata_7054(acc, src, done)
         organization_id: organization_id
     return m
 
-  data = require require.resolve src
+  #@FIXME: fix the path is not consist in test case.
+  data = require require.resolve (src is /rawdata/ and "../#{src}" or src)
   for record in data
     name = record.idname.replace "　", ""
     acc.data.push do
