@@ -1,3 +1,4 @@
+# # Utilities
 require! time
 require! csv
 require! url
@@ -18,10 +19,10 @@ export function from_csv(path, opts, transform_cb, done)
     .transform (record, index, callback) ->
       process.nextTick -> callback null, transform_cb record
     .on \error, -> console.log it.message
-    .to.array done 
+    .to.array done
 
 export function guess-processor(category, set)
-  basename = path.basename (url.parse set.url .path) 
+  basename = path.basename (url.parse set.url .path)
   modname = match category
     | /organization/ => \org
     | /person/ => \person
@@ -33,7 +34,7 @@ export function guess-processor(category, set)
     pkg = require "./#{modname}"
     throw "#modname is not a module." unless pkg?
     fn = pkg[fnname]
-    throw "#fnname is not a function." unless typeof fn is \function 
+    throw "#fnname is not a function." unless typeof fn is \function
     fn
   catch
-    return null 
+    return null

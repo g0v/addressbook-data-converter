@@ -1,9 +1,8 @@
+# # Organization Processor
 require! <[fs cheerio]>
 require! \./util
 
-
-
-popololized-record-twgovdata_7307 = (acc, record) --> 
+popololized-record-twgovdata_7307 = (acc, record) -->
   #@FIXME: workround.
   if record.orgcode == '機關代碼'
     return null
@@ -38,8 +37,8 @@ popololized-record-twgovdata_7307 = (acc, record) -->
           type: \fax
           value: record.fax
     ]
-    links: []  
-    sources: 
+    links: []
+    sources:
       * url: 'http://data.gov.tw/node/7307'
   acc.count += 1
 
@@ -91,7 +90,7 @@ popololized-record-twgovdata_6119 = (acc, record) -->
       * label: '傳真'
         type: 'fax'
         value: record.fax
-    ]  
+    ]
   if acc.data[name_zh]?
     acc.data[name_zh] <<< o
   else

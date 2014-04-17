@@ -1,3 +1,4 @@
+# # Command Line Tool
 require! <[optimist pgrest]>
 
 export function plx(opts={+client}, cb)
