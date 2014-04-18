@@ -41,3 +41,15 @@ CREATE TABLE IF NOT EXISTS memberships (
     contact_details json,
     links json
 );
+
+CREATE TABLE IF NOT EXISTS posts (
+    id serial PRIMARY KEY,
+    label text,
+    role text,
+    person_id integer,
+    organization_id integer,
+    post_id integer,
+    start_date text,
+    end_date text,
+    contact_details json,
+    links json
