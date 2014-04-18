@@ -53,3 +53,4 @@ CREATE TABLE IF NOT EXISTS posts (
     end_date text,
     contact_details json,
     links json
+);
