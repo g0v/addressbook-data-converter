@@ -9,7 +9,7 @@ export function process_twgovdata_7054(acc, src, done)
     m.push do
       label: "#{orgname}#{record.posiname}#{name}"
       role: record.posiname
-      post_id: record.posiname
+      post_id: "#{orgname}#{record.posiname}"
       orgnization_id: organization_id
       contact_details:
         * label: \辦公室地址
@@ -24,9 +24,9 @@ export function process_twgovdata_7054(acc, src, done)
       party_id = acc.orgids[record.partymship]
       throw "can not find organization_id of #{record.partymship} in orgids" unless party_id
       m.push do
-        label: "#{record.partymship}黨員"
+        label: "#{record.partymship}黨員#{name}"
         role: "黨員"
-        post_id: "黨員"
+        post_id: "#{record.partymship}黨員"
         organization_id: party_id
     return m
 
