@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS person (
     image text,
     summary text,
     biography text,
+    national_identity: text,
     contact_details json,
     links json,
     memberships json
