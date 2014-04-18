@@ -22,7 +22,7 @@ script:
   - "TESTDBNAME=test npm run test"
 
 notifications:
-  irc: "irc.freenode.org#pgrest"
+  irc: "irc.freenode.org#kuansim"
 
 language: node_js
 
