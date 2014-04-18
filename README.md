@@ -18,11 +18,16 @@ $ lsc update-data-index.ls
 
 ## Generate Final Data
 
+The database name for building is `mydb` by default 
+and you don't need to create it manually. The `make boot`
+command will do it.
+
 ```
-$ ./process-org-data.ls
-$ ./populate-org-data.ls --db mydb
-$ ./populate-person-data.ls --db mydb
+$ make boot
+$ make build
 ```
+
+After building, an dumped sqlfile can be find in `output/addressbook.sql`.
 
 ## Test 
 
