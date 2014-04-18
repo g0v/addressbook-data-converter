@@ -1,6 +1,6 @@
 # # Organization Processor
 require! <[fs cheerio]>
-require! \./util
+require! \./utils
 
 popololized-record-twgovdata_7307 = (acc, record) -->
   #@FIXME: workround.
@@ -11,7 +11,7 @@ popololized-record-twgovdata_7307 = (acc, record) -->
       if record.dissolution_note is \是 and record.new_name?
         ret.push do
           name: record.new_name
-          start_date: util.date_from_rocdate record.dissolution_date
+          start_date: utils.date_from_rocdate record.dissolution_date
       else if record.dissolution_note is not \是 and record.old_name?
         ret.push do
           name: record.old_name
@@ -26,8 +26,8 @@ popololized-record-twgovdata_7307 = (acc, record) -->
     ]
     classification: record.classification
     parent_id: record.parent_orgcode
-    founding_date: util.date_from_rocdate record.founding_date
-    dissolution_date: util.date_from_rocdate record.dissolution_date
+    founding_date: utils.date_from_rocdate record.founding_date
+    dissolution_date: utils.date_from_rocdate record.dissolution_date
     image: null
     contact_details: [
         * label: \機關電話
@@ -62,7 +62,7 @@ export function process_twgovdata_7307(acc, src, done)
       new_start_date: \新機關生效日
       old_orgcode: \舊機關代碼
       old_name: \舊機關名稱
-  _, count <- util.from_csv src, opts, popololized-record-twgovdata_7307 acc
+  _, count <- utils.from_csv src, opts, popololized-record-twgovdata_7307 acc
   done acc
 
 popololized-record-twgovdata_6119 = (acc, record) -->
@@ -123,7 +123,7 @@ export function process_twgovdata_6119(acc, src, done)
       service_time: \領務服務時間
       post_unit: \所屬單位
       post_source: \消息來源
-  _, count <- util.from_csv src, opts, popololized-record-twgovdata_6119 acc
+  _, count <- utils.from_csv src, opts, popololized-record-twgovdata_6119 acc
   done acc
 
 export function process_twgovdata_7437(acc, path, done)
