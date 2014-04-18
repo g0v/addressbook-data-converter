@@ -80,6 +80,17 @@
             "outputFile": "rawdata/person/source-twgovdata-7056.json"
         },
         {
+            "url": "http://data.gov.tw/node/7057",
+            "name": "直轄市長",
+            "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0400000&type=JSON&nid=7057",
+            "ext": "json",
+            "updateFreq": "不定期",
+            "category": "person",
+            "provider": "http://data.gov.tw",
+            "id": "7057",
+            "outputFile": "rawdata/person/source-twgovdata-7057.json"
+        },
+        {
             "url": "http://data.gov.tw/node/7058",
             "name": "縣市長",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0500000&type=JSON&nid=7058",
@@ -100,6 +111,28 @@
             "provider": "http://data.gov.tw",
             "id": "7059",
             "outputFile": "rawdata/person/source-twgovdata-7059.json"
+        },
+        {
+            "url": "http://data.gov.tw/node/7060",
+            "name": "區長",
+            "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand3_json.jsp%3Felectkind%3D0800000&type=JSON&nid=7060",
+            "ext": "json",
+            "updateFreq": "不定期",
+            "category": "person",
+            "provider": "http://data.gov.tw",
+            "id": "7060",
+            "outputFile": "rawdata/person/source-twgovdata-7060.json"
+        },
+        {
+            "url": "http://data.gov.tw/node/7061",
+            "name": "村里長",
+            "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0700000&type=JSON&nid=7061",
+            "ext": "json",
+            "updateFreq": "不定期",
+            "category": "person",
+            "provider": "http://data.gov.tw",
+            "id": "7061",
+            "outputFile": "rawdata/person/source-twgovdata-7061.json"
         }
     ]
 }
