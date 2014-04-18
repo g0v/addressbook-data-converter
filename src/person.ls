@@ -1,10 +1,14 @@
 # # Person Processor
 utils = require \./utils
-municipality = [\臺北市, \新北市, \臺中市, \臺南市, \高雄市]
+origin_municipality = [\臺北市, \高雄市]
+new_municipality = [\新北市, \臺中市, \臺南市]
 
 #@FIXME: feadbak the pua to data.gov.tw.
 guess-twcomitte-session = (orgname, year) ->
-  if orgname in municipality
+  city = orgname.replace \議會, ''
+  if city in origin_municipality
+    [\第五屆, (utils.date \2012, \12, \25), (utils.date \2014, \12, \25)]
+  else if city in new_municipality
     [\第一屆, (utils.date \2012, \12, \25), (utils.date \2014, \12, \25)]
   else
     [\第十七屆, (utils.date \2009, \12, 20), (utils.date \2014, \12, \20)]
@@ -13,7 +17,7 @@ export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
     orgname = record.orgname.replace '台', '臺'
     [session, start_date, end_date] = guess-twcomitte-session orgname, record.electname
-    posiname = "#{orgname}#{session}#{record.posiname}"
+    posiname = "#{session}#{record.posiname}"
     organization_id = acc.orgids[orgname]
     console.log orgname unless organization_id
     m = []
