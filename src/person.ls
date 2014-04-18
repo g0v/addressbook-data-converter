@@ -1,16 +1,29 @@
 # # Person Processor
+utils = require \./utils
+municipality = [\臺北市, \新北市, \臺中市, \臺南市, \高雄市]
+
+#@FIXME: feadbak the pua to data.gov.tw.
+guess-twcomitte-session = (orgname, year) ->
+  if orgname in municipality
+    [\第一屆, (utils.date \2012, \12, \25), (utils.date \2014, \12, \25)]
+  else
+    [\第十七屆, (utils.date \2009, \12, 20), (utils.date \2014, \12, \20)]
+
 export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
-    #@FIXME: feadbak the pua to data.gov.tw.
     orgname = record.orgname.replace '台', '臺'
-    m = []
+    [session, start_date, end_date] = guess-twcomitte-session orgname, record.electname
+    posiname = "#{orgname}#{session}#{record.posiname}"
     organization_id = acc.orgids[orgname]
     console.log orgname unless organization_id
+    m = []
     m.push do
-      label: "#{orgname}#{record.posiname}#{name}"
+      label: "#{orgname}#{posiname}#{name}"
       role: record.posiname
-      post_id: "#{orgname}#{record.posiname}"
+      post_id: "#{orgname}#{posiname}"
       orgnization_id: organization_id
+      start_date: start_date,
+      end_date: end_date
       contact_details:
         * label: \辦公室地址
           type: \address

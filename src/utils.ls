@@ -4,6 +4,9 @@ require! csv
 require! url
 require! path
 
+export function date(y, m, d)
+  new time.Date y, m, d, 'Asia/Taipei' .toString!
+
 export function parse_roc_date(d)
   [_, y, m, d] = d.match /^(\d\d\d?)(\d\d)(\d\d)/
   [+y + 1911, +m , +d]
