@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS memberships (
     role text,
     person_id integer,
     organization_id integer,
-    post_id integer,
+    post_id text,
     start_date text,
     end_date text,
     contact_details json,
