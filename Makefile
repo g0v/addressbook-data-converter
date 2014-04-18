@@ -9,3 +9,7 @@ build:
 	./process-person-data.ls --db ${DB}
 	./populate-person-data.ls --db ${DB}
 	pg_dump ${DB} > output/addressbook.sql
+rebuild: 
+	psql -c "drop database ${DB};"
+	make boot
+	make build
