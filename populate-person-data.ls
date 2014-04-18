@@ -9,7 +9,7 @@ update-entries = (data, record_info, next) ->
     f = (done) ->
       console.log "Inserting #{record_info entry}"
       <- plx.query "select pgrest_insert($1)",
-        [collection: \person, $: entry <<< parent_id: 0]
+        [collection: \person, $: entry]
       done!
   err, res <- async.series funcs
   next!
