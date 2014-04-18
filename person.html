@@ -1,40 +1,68 @@
-<!DOCTYPE html><html lang="en"><head><title>person</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="person"><meta name="groc-project-path" content="src/person.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/person.ls">src/person.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="person">Person</h1>
+<!DOCTYPE html><html lang="en"><head><title>person</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="person"><meta name="groc-project-path" content="src/person.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/person.ls">src/person.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="person-processor">Person Processor</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nv">utils = </span><span class="nx">require</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">utils</span>
+<span class="nv">origin_municipality = </span><span class="p">[</span><span class="err">\臺北市</span><span class="p">,</span> <span class="err">\高雄市</span><span class="p">]</span>
+<span class="nv">new_municipality = </span><span class="p">[</span><span class="err">\新北市</span><span class="p">,</span> <span class="err">\臺中市</span><span class="p">,</span> <span class="err">\臺南市</span><span class="p">]</span>
 
-<h2 id="">立法委員</h2>
+<span class="c1">#@FIXME: feadbak the pua to data.gov.tw.</span>
+<span class="nv">guess-twcomitte-session = </span><span class="nf">(year) -&gt;</span>
+  <span class="nx">match</span> <span class="nx">year</span>
+  <span class="o">|</span> <span class="sr">/098/</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2009</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\20</span><span class="p">),</span> <span class="p">(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2014</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\20</span><span class="p">)]</span>
+  <span class="o">|</span> <span class="sr">/099/</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2010</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\25</span><span class="p">),</span> <span class="p">(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2014</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\25</span><span class="p">)]</span>
+  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="p">[]</span>
 
-<h3 id="">需要處理的身份</h3>
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7054</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nv">find-memeberships = </span><span class="nf">(name, record) -&gt;</span>
+    <span class="c1">#@FIXME: feadback to upstream.</span>
+    <span class="nv">orgname = </span><span class="nx">record</span><span class="p">.</span><span class="nx">orgname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&#39;台&#39;</span><span class="p">,</span> <span class="s">&#39;臺&#39;</span>
+    <span class="nv">orgname = </span><span class="nx">orgname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&#39;連江縣政府&#39;</span><span class="p">,</span> <span class="s">&#39;福建省連江縣政府&#39;</span>
+    <span class="p">[</span><span class="nx">start_date</span><span class="p">,</span> <span class="nx">end_date</span><span class="p">]</span> <span class="o">=</span> <span class="nx">guess-twcomitte-session</span> <span class="nx">record</span><span class="p">.</span><span class="nx">electname</span>
+    <span class="nv">posiname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="nv">organization_id = </span><span class="nx">acc</span><span class="p">.</span><span class="nx">orgids</span><span class="p">[</span><span class="nx">orgname</span><span class="p">]</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">orgname</span> <span class="k">unless</span> <span class="nx">organization_id</span>
+    <span class="nv">m = </span><span class="p">[]</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+      <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}#{</span><span class="nx">posiname</span><span class="si">}#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
+      <span class="nv">role: </span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span>
+      <span class="nv">post_id: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}#{</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
+      <span class="nv">orgnization_id: </span><span class="nx">organization_id</span>
+      <span class="nv">start_date: </span><span class="nx">start_date</span><span class="p">,</span>
+      <span class="nv">end_date: </span><span class="nx">end_date</span>
+      <span class="nv">contact_details:</span>
+        <span class="o">*</span> <span class="nv">label: </span><span class="err">\辦公室地址</span>
+          <span class="nv">type: </span><span class="s">\address</span>
+          <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">officeadress</span>
+        <span class="o">*</span> <span class="nv">label: </span><span class="err">\辦公室電話</span>
+          <span class="nv">type: </span><span class="s">\voice</span>
+          <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">officetelphone</span>
+      <span class="nv">note: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">eareaname</span><span class="si">}</span><span class="s">&quot;</span>
 
-<ul>
-<li>第N屆立法委員</li>
-<li>第N屆立法院 ＸＸ委員會委員</li>
-<li>政黨身份</li>
-</ul></div></div><div class="code"><div class="wrapper"><span class="nv">popolized_mly_person = </span><span class="nf">-&gt;</span>
-  <span class="nx">do</span> 
-    <span class="nv">id: </span><span class="kc">null</span>
-    <span class="nv">name: </span><span class="nx">it</span><span class="p">.</span><span class="nx">name</span>
-    <span class="nv">other_names: </span><span class="p">[]</span>
-    <span class="nv">identifiers: </span><span class="p">[]</span>
-    <span class="nv">email: </span><span class="kc">null</span>
-    <span class="nv">gender: </span><span class="kc">null</span>
-    <span class="nv">birth_date: </span><span class="kc">null</span>
-    <span class="nv">death_date: </span><span class="kc">null</span>
-    <span class="nv">image: </span><span class="nx">it</span><span class="p">.</span><span class="nx">avatar</span>
-    <span class="nv">summary: </span><span class="kc">null</span>
-    <span class="nv">biography: </span><span class="kc">null</span>
-    <span class="nv">national_identity: </span><span class="kc">null</span>
-    <span class="nv">contact_details: </span><span class="p">[]</span>
-    <span class="nv">links: </span><span class="p">[]</span>
+    <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">and</span> <span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">isnt</span> <span class="err">\無政黨</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">isnt</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+      <span class="nv">party_id = </span><span class="nx">acc</span><span class="p">.</span><span class="nx">orgids</span><span class="p">[</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="p">]</span>
+      <span class="k">throw</span> <span class="s">&quot;can not find organization_id of </span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="si">}</span><span class="s"> in orgids&quot;</span> <span class="k">unless</span> <span class="nx">party_id</span>
+      <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+        <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="si">}</span><span class="s">黨員</span><span class="si">#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
+        <span class="nv">role: </span><span class="s">&quot;黨員&quot;</span>
+        <span class="nv">post_id: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="si">}</span><span class="s">黨員&quot;</span>
+        <span class="nv">organization_id: </span><span class="nx">party_id</span>
+    <span class="k">return</span> <span class="nx">m</span>
 
-<span class="nv">popolized_mly_membership = </span><span class="nf">-&gt;</span>
+  <span class="c1">#@FIXME: fix the path is not consist in test case.</span>
+  <span class="nv">data = </span><span class="nx">require</span> <span class="nx">require</span><span class="p">.</span><span class="nx">resolve</span> <span class="p">(</span><span class="nx">src</span> <span class="o">is</span> <span class="sr">/rawdata/</span> <span class="o">and</span> <span class="s">&quot;../</span><span class="si">#{</span><span class="nx">src</span><span class="si">}</span><span class="s">&quot;</span> <span class="o">or</span> <span class="nx">src</span><span class="p">)</span>
+  <span class="k">for</span> <span class="nx">record</span> <span class="k">in</span> <span class="nx">data</span>
+    <span class="nv">name = </span><span class="nx">record</span><span class="p">.</span><span class="nx">idname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&quot;　&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span>
+    <span class="nx">acc</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+      <span class="nv">name: </span><span class="nx">name</span>
+      <span class="nv">gender: </span><span class="nx">match</span> <span class="nx">record</span><span class="p">.</span><span class="nx">sex</span>
+              <span class="o">|</span> <span class="sr">/男/</span> <span class="o">=&gt;</span> <span class="s">&#39;male&#39;</span>
+              <span class="o">|</span> <span class="sr">/女/</span> <span class="o">=&gt;</span> <span class="s">&#39;female&#39;</span>
+              <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="s">&#39;unknown&#39;</span>
+      <span class="nv">image: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
+      <span class="nv">summary: </span><span class="kc">null</span>
+      <span class="nv">biography: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">education</span><span class="si">}</span><span class="s">\n</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">profession</span><span class="si">}</span><span class="s">&quot;</span>
+      <span class="nv">national_identify: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
+      <span class="nv">memberships: </span><span class="nx">find-memeberships</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">record</span>
+    <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span><span class="mi">1</span>
+  <span class="nx">done</span> <span class="nx">acc</span>
 
-<span class="nv">popolized_mly_org = </span><span class="nf">-&gt;</span>
-
-<span class="nx">export</span> <span class="nx">function</span> <span class="nx">from_mly</span><span class="p">(</span><span class="nx">json</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
-  <span class="nv">person = </span><span class="p">[]</span>
-  <span class="nv">memberships = </span><span class="p">[]</span>
-  <span class="nv">orgs = </span><span class="p">[]</span>
-  <span class="k">for</span> <span class="nx">record</span> <span class="k">in</span> <span class="nx">json</span>
-    <span class="nx">person</span><span class="p">.</span><span class="nx">push</span> <span class="nx">popolized_mly_person</span> <span class="nx">record</span>
-    <span class="nx">memberships</span><span class="p">.</span><span class="nx">push</span> <span class="nx">popolized_mly_membership</span> <span class="nx">record</span>
-    <span class="nx">orgs</span><span class="p">.</span><span class="nx">push</span> <span class="nx">popolized_mly_org</span> <span class="nx">record</span>
-  <span class="nx">done</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nx">person</span><span class="p">,</span> <span class="nx">memberships</span><span class="p">]</span></div></div></div></div></body></html>
+<span class="nv">exports.process_twgovdata_7055 = </span><span class="nx">process_twgovdata_7054</span>
+<span class="nv">exports.process_twgovdata_7057 = </span><span class="nx">process_twgovdata_7054</span>
+<span class="nv">exports.process_twgovdata_7058 = </span><span class="nx">process_twgovdata_7054</span></div></div></div></div></body></html>

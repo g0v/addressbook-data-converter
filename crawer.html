@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><title>crawer</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="crawer"><meta name="groc-project-path" content="src/crawer.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/crawer.ls">src/crawer.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="data-fetching">Data Fetching</h1></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="data-sources-configure">Data Sources Configure</h2>
+
+<p>The fecther fetches rawdata from the remote sites which are defined
+in <code>data-index.json</code>, which is automatically preoduced in <code>npm run prepublish</code>
+step. You should modify <code>config.ls</code> instead of modifying <code>data-index.json</code>.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p><code>data-index.ls</code> Syntax: </p>
+
+<pre><code>Category: [Set]
+</code></pre>
+
+<ul>
+<li>Cateogry: String, the category that sets belong to.</li>
+<li>Set: Object, the rawdata name, resource uri, etc.</li>
+</ul></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="set-properties">Set Properties</h2>
+
+<p>A remote site which provides rawdata should indicate the follwoing 
+properties:
+* name: rawdata name.
+* id: unique identifier used by provider.
+* provider: data provider.
+* url: set profile url that displays propoerties.
+* ext: file extension. valid: (csv, xml, json)
+* uri: real uri of the rawdata.
+* update-freq: update frequency.</p></div></div><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="s">&lt;[cheerio request async url mkdirp fs path]&gt;</span>
+
+<span class="nv">save-remote = </span><span class="nf">(name, uri, fname, done) -&gt;</span>
+  <span class="nf">_, {size}? &lt;-</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">stat</span> <span class="nx">fname</span>
+  <span class="k">return</span> <span class="nx">done</span><span class="o">!</span> <span class="k">if</span> <span class="nx">size</span><span class="o">?</span>
+
+  <span class="nv">writer = </span><span class="nx">with</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span> <span class="nx">fname</span>
+    <span class="p">..</span><span class="nx">on</span> <span class="s">\error</span> <span class="nf">-&gt;</span> <span class="k">throw</span> <span class="nx">it</span>
+    <span class="p">..</span><span class="nx">on</span> <span class="s">\close</span> <span class="nf">-&gt;</span>
+      <span class="nf">&lt;-</span> <span class="nx">setTimeout</span> <span class="nx">_</span><span class="p">,</span> <span class="mi">1000ms</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;finished downloading </span><span class="si">#{</span><span class="nx">name</span><span class="si">}</span><span class="s">: save file: </span><span class="si">#{</span><span class="nx">fname</span><span class="si">}</span><span class="s">&quot;</span>
+      <span class="nx">done</span><span class="o">!</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;starting download </span><span class="si">#{</span><span class="nx">name</span><span class="si">}</span><span class="s"> ...&quot;</span>
+  <span class="nx">request</span> <span class="p">{</span><span class="nv">method: </span><span class="s">\GET</span><span class="p">,</span> <span class="nx">uri</span><span class="p">}</span> <span class="p">.</span><span class="nx">pipe</span> <span class="nx">writer</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">grab-data</span><span class="p">(</span><span class="nx">index</span> <span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nv">funcs = </span><span class="p">[]</span>
+  <span class="k">for</span> <span class="nx">let</span> <span class="nx">category</span><span class="p">,</span> <span class="nx">sets</span> <span class="k">of</span> <span class="nx">index</span> <span class="o">=&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;=&gt; fetching #category&quot;</span>
+    <span class="nx">funcs</span><span class="p">.</span><span class="nx">push</span> <span class="nf">(done) -&gt;</span>
+      <span class="nf">err &lt;-</span> <span class="nx">mkdirp</span> <span class="s">&quot;rawdata/</span><span class="si">#{</span><span class="nx">category</span><span class="si">}</span><span class="s">&quot;</span>
+      <span class="k">throw</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
+      <span class="nx">done</span><span class="o">!</span>
+
+    <span class="k">for</span> <span class="nx">let</span> <span class="nx">set</span> <span class="k">in</span> <span class="nx">sets</span>
+      <span class="nx">funcs</span><span class="p">.</span><span class="nx">push</span> <span class="nf">(done) -&gt;</span>
+        <span class="nf">&lt;-</span> <span class="nx">save-remote</span> <span class="nx">set</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">set</span><span class="p">.</span><span class="nx">uri</span><span class="p">,</span> <span class="nx">set</span><span class="p">.</span><span class="nx">output-file</span>
+        <span class="nx">done</span><span class="o">!</span>
+  <span class="nf">err, res &lt;-</span> <span class="nx">async</span><span class="p">.</span><span class="nx">waterfall</span> <span class="nx">funcs</span>
+  <span class="nx">done</span><span class="o">!</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">parse-set-prop-twgovdata</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span>
+  <span class="nv">lookup-prop = </span><span class="nf">(tbl, n) -&gt;</span>
+    <span class="nv">trs = </span><span class="nx">tbl</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;tr&#39;</span> <span class="p">.</span><span class="nx">nextAll</span><span class="o">!</span> 
+    <span class="k">try</span>
+      <span class="nv">e = </span><span class="nx">trs</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> 
+        <span class="p">.</span><span class="nx">children</span> 
+        <span class="p">.</span><span class="mi">0</span> 
+        <span class="p">.</span><span class="nx">next</span> 
+        <span class="p">.</span><span class="nx">children</span> 
+        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span> 
+        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span> 
+        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span> 
+        <span class="p">.</span><span class="mi">0</span>
+      <span class="nx">e</span><span class="p">.</span><span class="nx">data</span>
+    <span class="c1">#@FIXME: update frequncy parsing can not handle all cases.</span>
+    <span class="k">catch</span> <span class="nx">error</span>
+      <span class="k">return</span> <span class="s">&quot;不定期&quot;</span>
+
+  <span class="nv">prop = </span><span class="nx">do</span>
+    <span class="nv">name: </span><span class="kc">null</span>
+    <span class="nv">uri: </span><span class="kc">null</span>
+    <span class="nv">ext: </span><span class="kc">null</span>
+    <span class="nv">update-freq: </span><span class="kc">null</span>
+
+  <span class="nv">$ = </span><span class="nx">cheerio</span><span class="p">.</span><span class="nx">load</span> <span class="nx">html</span> 
+  <span class="nv">prop.name = </span><span class="nx">$</span> <span class="s">&#39;h1[class=&quot;title&quot;]&#39;</span> <span class="p">.</span><span class="nx">text</span><span class="o">!</span>
+  <span class="nv">e = </span><span class="nx">$</span> <span class="s">&#39;#node_metadataset_full_group_data_type&#39;</span>
+    <span class="p">.</span><span class="nx">find</span> <span class="s">&#39;div .field-item&#39;</span>
+    <span class="p">.</span><span class="nx">find</span> <span class="s">\a</span>
+  <span class="nv">prop.uri = </span><span class="nx">e</span><span class="p">.</span><span class="nx">attr</span> <span class="s">\href</span>
+  <span class="nv">prop.ext = </span><span class="nx">match</span> <span class="nx">e</span><span class="p">.</span><span class="nx">attr</span> <span class="s">\class</span>
+        <span class="o">|</span> <span class="sr">/json/</span> <span class="o">=&gt;</span> <span class="s">\json</span>
+        <span class="o">|</span> <span class="sr">/csv/</span> <span class="o">=&gt;</span> <span class="s">\csv</span>
+        <span class="o">|</span> <span class="sr">/xml/</span> <span class="o">=&gt;</span> <span class="s">\xml</span>
+        <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="k">throw</span> <span class="s">&#39;can not find extension. dbg: #it&#39;</span>
+  <span class="nv">prop_tbl = </span><span class="nx">$</span> <span class="s">&#39;table[class=&quot;field-group-format group_table&quot;]&#39;</span>
+  <span class="nv">prop.update-freq = </span><span class="nx">lookup-prop</span> <span class="nx">prop_tbl</span><span class="p">,</span> <span class="mi">5</span>
+  <span class="k">for</span> <span class="nx">k</span><span class="p">,</span><span class="nx">v</span> <span class="k">of</span> <span class="nx">prop</span>
+    <span class="k">throw</span> <span class="s">&quot;prop </span><span class="si">#{</span><span class="nx">k</span><span class="si">}</span><span class="s"> is empty.&quot;</span> <span class="k">unless</span> <span class="nx">v</span>
+  <span class="k">return</span> <span class="nx">prop</span></div></div></div></div></body></html>

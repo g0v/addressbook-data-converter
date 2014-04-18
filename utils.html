@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><title>utils</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="utils"><meta name="groc-project-path" content="src/utils.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/utils.ls">src/utils.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="utilities">Utilities</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="nx">time</span>
+<span class="nx">require</span><span class="o">!</span> <span class="nx">csv</span>
+<span class="nx">require</span><span class="o">!</span> <span class="nx">url</span>
+<span class="nx">require</span><span class="o">!</span> <span class="nx">path</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">date</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">d</span><span class="p">)</span>
+  <span class="k">new</span> <span class="nx">time</span><span class="p">.</span><span class="nb">Date</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="s">&#39;Asia/Taipei&#39;</span> <span class="p">.</span><span class="nx">toString</span><span class="o">!</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">parse_roc_date</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+  <span class="p">[</span><span class="nx">_</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">d</span><span class="p">]</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">match</span> <span class="sr">/^(\d\d\d?)(\d\d)(\d\d)/</span>
+  <span class="p">[</span><span class="o">+</span><span class="nx">y</span> <span class="o">+</span> <span class="mi">1911</span><span class="p">,</span> <span class="o">+</span><span class="nx">m</span> <span class="p">,</span> <span class="o">+</span><span class="nx">d</span><span class="p">]</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">date_from_rocdate</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">null</span> <span class="k">unless</span> <span class="nx">d</span>
+  <span class="nx">date</span> <span class="p">...(</span><span class="nx">parse_roc_date</span> <span class="nx">d</span><span class="p">)</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">from_csv</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">transform_cb</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nx">csv</span><span class="o">!</span>
+    <span class="p">.</span><span class="nx">from</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">opts</span>
+    <span class="p">.</span><span class="nx">transform</span> <span class="nf">(record, index, callback) -&gt;</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span> <span class="nf">-&gt;</span> <span class="nx">callback</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">transform_cb</span> <span class="nx">record</span>
+    <span class="p">.</span><span class="nx">on</span> <span class="s">\error</span><span class="p">,</span> <span class="nf">-&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">it</span><span class="p">.</span><span class="nx">message</span>
+    <span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">array</span> <span class="nx">done</span>
+
+<span class="nx">export</span> <span class="nx">function</span> <span class="nx">guess-processor</span><span class="p">(</span><span class="nx">category</span><span class="p">,</span> <span class="nx">set</span><span class="p">)</span>
+  <span class="nv">basename = </span><span class="nx">path</span><span class="p">.</span><span class="nx">basename</span> <span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">parse</span> <span class="nx">set</span><span class="p">.</span><span class="nx">url</span> <span class="p">.</span><span class="nx">path</span><span class="p">)</span>
+  <span class="nv">modname = </span><span class="nx">match</span> <span class="nx">category</span>
+    <span class="o">|</span> <span class="sr">/organization/</span> <span class="o">=&gt;</span> <span class="s">\org</span>
+    <span class="o">|</span> <span class="sr">/person/</span> <span class="o">=&gt;</span> <span class="s">\person</span>
+    <span class="o">|</span> <span class="nx">otherwise</span> <span class="o">=&gt;</span> <span class="k">throw</span> <span class="s">&quot;can not find module name.&quot;</span>
+  <span class="nv">fnname = </span><span class="nx">match</span> <span class="nx">set</span><span class="p">.</span><span class="nx">url</span>
+    <span class="o">|</span> <span class="sr">/data.gov.tw/</span> <span class="o">=&gt;</span> <span class="s">&quot;process_twgovdata_</span><span class="si">#{</span><span class="nx">basename</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="o">|</span> <span class="nx">otherwise</span> <span class="o">=&gt;</span> <span class="k">throw</span> <span class="s">&quot;can not guess set name&quot;</span>
+  <span class="k">try</span>
+    <span class="nv">pkg = </span><span class="nx">require</span> <span class="s">&quot;./</span><span class="si">#{</span><span class="nx">modname</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="k">throw</span> <span class="s">&quot;#modname is not a module.&quot;</span> <span class="k">unless</span> <span class="nx">pkg</span><span class="o">?</span>
+    <span class="nv">fn = </span><span class="nx">pkg</span><span class="p">[</span><span class="nx">fnname</span><span class="p">]</span>
+    <span class="k">throw</span> <span class="s">&quot;#fnname is not a function.&quot;</span> <span class="k">unless</span> <span class="k">typeof</span> <span class="nx">fn</span> <span class="o">is</span> <span class="s">\function</span>
+    <span class="nx">fn</span>
+  <span class="k">catch</span>
+    <span class="k">return</span> <span class="kc">null</span></div></div></div></div></body></html>
