@@ -26,8 +26,7 @@ CREATE TABLE IF NOT EXISTS person (
     biography text,
     national_identity text,
     contact_details json,
-    links json,
-    memberships json
+    links json
 );
 
 CREATE TABLE IF NOT EXISTS memberships (
