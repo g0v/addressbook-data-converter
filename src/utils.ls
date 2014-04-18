@@ -13,8 +13,7 @@ export function parse_roc_date(d)
 
 export function date_from_rocdate(d)
   return null unless d
-  [y, m, d] = parse_roc_date d
-  new time.Date y, m, d, 'Asia/Taipei' .toString!
+  date ...(parse_roc_date d)
 
 export function from_csv(path, opts, transform_cb, done)
   csv!
