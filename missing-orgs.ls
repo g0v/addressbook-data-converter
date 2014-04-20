@@ -1,6 +1,7 @@
 #!/usr/bin/env lsc
 require! optimist
 require! \./lib/cli
+require! \./lib/org
 {input} = optimist.argv
 
 orgids = {}
@@ -12,7 +13,7 @@ for v in res
 data = require require.resolve "./#{input}"
 o = []
 for e in data
-  orgname = e.orgname.replace '台', '臺'
+  orgname = org.normalized-name e.orgname
   unless orgids[orgname]?
     o.push do
       name: orgname
