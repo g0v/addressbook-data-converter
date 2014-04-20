@@ -12,10 +12,11 @@ for v in res
 
 data = require require.resolve "./#{input}"
 o = []
+used = []
 for e in data
   orgname = org.normalized-name e.orgname
   unless orgids[orgname]?
-    o.push do
-      name: orgname
-console.log JSON.stringify o, null, 4
+    if orgname not in o
+      o.push orgname
+console.log JSON.stringify [{name:e} for e in o], null, 4
 plx.end!
