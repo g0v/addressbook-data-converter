@@ -13,7 +13,7 @@ guess-twcomitte-session = (year) ->
 export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
     #@FIXME: feadback to upstream.
-    orgname = record.orgname.replace '台', '臺'
+    orgname = record.orgname.replace /台/g, '臺'
     orgname = orgname.replace '連江縣政府', '福建省連江縣政府'
     [start_date, end_date] = guess-twcomitte-session record.electname
     posiname = "#{record.posiname}"
@@ -67,3 +67,4 @@ export function process_twgovdata_7054(acc, src, done)
 exports.process_twgovdata_7055 = process_twgovdata_7054
 exports.process_twgovdata_7057 = process_twgovdata_7054
 exports.process_twgovdata_7058 = process_twgovdata_7054
+exports.process_twgovdata_7059 = process_twgovdata_7054
