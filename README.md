@@ -29,6 +29,8 @@ $ make boot
 $ make build
 ```
 
+NOTED: if your pg module got some errors, try `npm rebuild pg` 
+ 
 After building, an dumped sqlfile can be find in `output/addressbook.sql`.
 
 ## Test 
