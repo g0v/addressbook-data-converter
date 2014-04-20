@@ -1,5 +1,6 @@
 DB=mydb
 boot:
+	dropdb --if-exists ${DB}
 	createdb ${DB}
 	./node_modules/pgrest/./bin/pgrest --boot --db ${DB}
 	psql ${DB} < addressbook-tpl.sql
