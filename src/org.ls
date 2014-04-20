@@ -2,23 +2,46 @@
 require! <[fs cheerio]>
 require! \./utils
 
+export function normalized-name(orgname)
+  throw "orgname is required." unless orgname
+  orgname .=replace /台/g, '臺'
+  orgname .=replace /^連江縣/, '福建省連江縣政府'
+  # twgovdata 7437
+  return '內政部戶政司' if orgname is \內政部戶政司戶政司
+  badnames =
+    \高雄市那瑪夏區
+    \高雄市桃源區
+    \高雄市甲仙區
+    \高雄市旗山區
+    \花蓮縣秀林鄉
+    \花蓮縣瑞穗鄉
+    \花蓮縣光復鄉
+    \花蓮縣玉里鎮
+    \桃園縣楊梅市
+    \金門縣烏坵鄉
+    \金門縣烈嶼鄉
+    \金門縣金寧鄉
+    \金門縣金沙鎮
+  if orgname in badnames then "#{orgname}戶政事務所" else orgname
+
 popololized-record-twgovdata_7307 = (acc, record) -->
   #@FIXME: workround.
   if record.orgcode == '機關代碼'
     return null
   find_other_names = ->
       ret = []
-      if record.dissolution_note is \是 and record.new_name?
+      if record.dissolution_note is \是 and record.new_name isnt ''
         ret.push do
-          name: record.new_name
+          name: normalized-name record.new_name
           start_date: utils.date_from_rocdate record.dissolution_date
-      else if record.dissolution_note is not \是 and record.old_name?
+      else if record.dissolution_note is not \是 and record.old_name isnt ''
         ret.push do
-          name: record.old_name
+          name: normalized-name record.old_name
       ret
 
-  acc.data[record.name] = do
-    name: record.name
+  orgname = normalized-name record.name
+  acc.data[orgname] = do
+    name: orgname
     other_names: find_other_names!
     identifiers: [
         * identifier: record.orgcode
@@ -127,24 +150,6 @@ export function process_twgovdata_6119(acc, src, done)
   done acc
 
 export function process_twgovdata_7437(acc, path, done)
-  correct_name = ->
-    return '內政部戶政司' if it is \內政部戶政司戶政司
-    badnames =
-      \高雄市那瑪夏區
-      \高雄市桃源區
-      \高雄市甲仙區
-      \高雄市旗山區
-      \花蓮縣秀林鄉
-      \花蓮縣瑞穗鄉
-      \花蓮縣光復鄉
-      \花蓮縣玉里鎮
-      \桃園縣楊梅市
-      \金門縣烏坵鄉
-      \金門縣烈嶼鄉
-      \金門縣金寧鄉
-      \金門縣金沙鎮
-    if it in badnames then "#{it}戶政事務所" else it
-
   content = fs.readFileSync path, 'utf-8'
   content = content.replace /orgName/g, 'orgname'
   $ = cheerio.load content, {+xmlMode}
@@ -152,7 +157,7 @@ export function process_twgovdata_7437(acc, path, done)
   get = (o, q) -> o.find q .text!
   orgs.each ->
     obj = do
-      name: correct_name (get @, 'orgname')
+      name: normalized-name(get @, 'orgname')
       address: get @, 'address'
       other_names: []
       contact_details: [
