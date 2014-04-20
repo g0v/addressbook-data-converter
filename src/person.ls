@@ -1,5 +1,6 @@
 # # Person Processor
 utils = require \./utils
+org = require \./org
 origin_municipality = [\臺北市, \高雄市]
 new_municipality = [\新北市, \臺中市, \臺南市]
 
@@ -12,9 +13,7 @@ guess-twcomitte-session = (year) ->
 
 export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
-    #@FIXME: feadback to upstream.
-    orgname = record.orgname.replace /台/g, '臺'
-    orgname = orgname.replace '連江縣政府', '福建省連江縣政府'
+    orgname = org.normalized-name record.orgname
     [start_date, end_date] = guess-twcomitte-session record.electname
     posiname = "#{record.posiname}"
     organization_id = acc.orgids[orgname]
