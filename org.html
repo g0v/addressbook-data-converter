@@ -1,5 +1,29 @@
 <!DOCTYPE html><html lang="en"><head><title>org</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="org"><meta name="groc-project-path" content="src/org.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/org.ls">src/org.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="organization-processor">Organization Processor</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="s">&lt;[fs cheerio]&gt;</span>
-<span class="nx">require</span><span class="o">!</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">util</span>
+<span class="nx">require</span><span class="o">!</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">utils</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="normalize-orgnization-name">Normalize orgnization name.</h3>
+
+<pre><code>- @param orgname String organization name.
+- @returns String normalized organization name.
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">normalized-name</span><span class="p">(</span><span class="nx">orgname</span><span class="p">)</span>
+  <span class="k">throw</span> <span class="s">&quot;orgname is required.&quot;</span> <span class="k">unless</span> <span class="nx">orgname</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/台/g</span><span class="p">,</span> <span class="s">&#39;臺&#39;</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/^連江縣/</span><span class="p">,</span> <span class="s">&#39;福建省連江縣&#39;</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/鄉民代表會/</span><span class="p">,</span> <span class="s">&#39;鄉鄉民代表會&#39;</span>
+  <span class="k">return</span> <span class="s">&#39;內政部戶政司&#39;</span> <span class="k">if</span> <span class="nx">orgname</span> <span class="o">is</span> <span class="err">\內政部戶政司戶政司</span>
+  <span class="nv">badnames =</span>
+    <span class="err">\高雄市那瑪夏區</span>
+    <span class="err">\高雄市桃源區</span>
+    <span class="err">\高雄市甲仙區</span>
+    <span class="err">\高雄市旗山區</span>
+    <span class="err">\花蓮縣秀林鄉</span>
+    <span class="err">\花蓮縣瑞穗鄉</span>
+    <span class="err">\花蓮縣光復鄉</span>
+    <span class="err">\花蓮縣玉里鎮</span>
+    <span class="err">\桃園縣楊梅市</span>
+    <span class="err">\金門縣烏坵鄉</span>
+    <span class="err">\金門縣烈嶼鄉</span>
+    <span class="err">\金門縣金寧鄉</span>
+    <span class="err">\金門縣金沙鎮</span>
+  <span class="k">if</span> <span class="nx">orgname</span> <span class="k">in</span> <span class="nx">badnames</span> <span class="k">then</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}</span><span class="s">戶政事務所&quot;</span> <span class="k">else</span> <span class="nx">orgname</span>
 
 <span class="nv">popololized-record-twgovdata_7307 = </span><span class="nf">(acc, record) --&gt;</span>
   <span class="c1">#@FIXME: workround.</span>
@@ -7,17 +31,18 @@
     <span class="k">return</span> <span class="kc">null</span>
   <span class="nv">find_other_names = </span><span class="nf">-&gt;</span>
       <span class="nv">ret = </span><span class="p">[]</span>
-      <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="err">\是</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">new_name</span><span class="o">?</span>
+      <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="err">\是</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">new_name</span> <span class="o">isnt</span> <span class="s">&#39;&#39;</span>
         <span class="nx">ret</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
-          <span class="nv">name: </span><span class="nx">record</span><span class="p">.</span><span class="nx">new_name</span>
-          <span class="nv">start_date: </span><span class="nx">util</span><span class="p">.</span><span class="nx">date_from_rocdate</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_date</span>
-      <span class="k">else</span> <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="o">not</span> <span class="err">\是</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">old_name</span><span class="o">?</span>
+          <span class="nv">name: </span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">new_name</span>
+          <span class="nv">start_date: </span><span class="nx">utils</span><span class="p">.</span><span class="nx">date_from_rocdate</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_date</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_note</span> <span class="o">is</span> <span class="o">not</span> <span class="err">\是</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">old_name</span> <span class="o">isnt</span> <span class="s">&#39;&#39;</span>
         <span class="nx">ret</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
-          <span class="nv">name: </span><span class="nx">record</span><span class="p">.</span><span class="nx">old_name</span>
+          <span class="nv">name: </span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">old_name</span>
       <span class="nx">ret</span>
 
-  <span class="nx">acc</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">record</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">do</span>
-    <span class="nv">name: </span><span class="nx">record</span><span class="p">.</span><span class="nx">name</span>
+  <span class="nv">orgname = </span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">name</span>
+  <span class="nx">acc</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">orgname</span><span class="p">]</span> <span class="o">=</span> <span class="nx">do</span>
+    <span class="nv">name: </span><span class="nx">orgname</span>
     <span class="nv">other_names: </span><span class="nx">find_other_names</span><span class="o">!</span>
     <span class="nv">identifiers: </span><span class="p">[</span>
         <span class="o">*</span> <span class="nv">identifier: </span><span class="nx">record</span><span class="p">.</span><span class="nx">orgcode</span>
@@ -25,8 +50,8 @@
     <span class="p">]</span>
     <span class="nv">classification: </span><span class="nx">record</span><span class="p">.</span><span class="nx">classification</span>
     <span class="nv">parent_id: </span><span class="nx">record</span><span class="p">.</span><span class="nx">parent_orgcode</span>
-    <span class="nv">founding_date: </span><span class="nx">util</span><span class="p">.</span><span class="nx">date_from_rocdate</span> <span class="nx">record</span><span class="p">.</span><span class="nx">founding_date</span>
-    <span class="nv">dissolution_date: </span><span class="nx">util</span><span class="p">.</span><span class="nx">date_from_rocdate</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_date</span>
+    <span class="nv">founding_date: </span><span class="nx">utils</span><span class="p">.</span><span class="nx">date_from_rocdate</span> <span class="nx">record</span><span class="p">.</span><span class="nx">founding_date</span>
+    <span class="nv">dissolution_date: </span><span class="nx">utils</span><span class="p">.</span><span class="nx">date_from_rocdate</span> <span class="nx">record</span><span class="p">.</span><span class="nx">dissolution_date</span>
     <span class="nv">image: </span><span class="kc">null</span>
     <span class="nv">contact_details: </span><span class="p">[</span>
         <span class="o">*</span> <span class="nv">label: </span><span class="err">\機關電話</span>
@@ -39,9 +64,13 @@
     <span class="nv">links: </span><span class="p">[]</span>
     <span class="nv">sources:</span>
       <span class="o">*</span> <span class="nv">url: </span><span class="s">&#39;http://data.gov.tw/node/7307&#39;</span>
-  <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">行政院中央機關及地方機關代碼 Porcessor</h3>
 
-<span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7307</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+<pre><code>- @param acc {data:{$orgname:$org}}, count:Int}
+- @param src String
+- @param done Function
+- @returns same as acc
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7307</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
   <span class="nv">opts = </span><span class="nx">do</span>
     <span class="nv">columns: </span><span class="nx">do</span>
       <span class="nv">orgcode: </span><span class="err">\機關代碼</span>
@@ -61,7 +90,7 @@
       <span class="nv">new_start_date: </span><span class="err">\新機關生效日</span>
       <span class="nv">old_orgcode: </span><span class="err">\舊機關代碼</span>
       <span class="nv">old_name: </span><span class="err">\舊機關名稱</span>
-  <span class="nf">_, count &lt;-</span> <span class="nx">util</span><span class="p">.</span><span class="nx">from_csv</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">popololized-record-twgovdata_7307</span> <span class="nx">acc</span>
+  <span class="nf">_, count &lt;-</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">from_csv</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">popololized-record-twgovdata_7307</span> <span class="nx">acc</span>
   <span class="nx">done</span> <span class="nx">acc</span>
 
 <span class="nv">popololized-record-twgovdata_6119 = </span><span class="nf">(acc, record) --&gt;</span>
@@ -95,9 +124,13 @@
   <span class="k">else</span>
     <span class="nx">acc</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">o</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">o</span>
   <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
-  <span class="nx">o</span>
+  <span class="nx">o</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">駐外館通訊錄 Porcessor</h3>
 
-<span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_6119</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+<pre><code>- @param acc {data:{$orgname:$org}}, count:Int}
+- @param src String
+- @param done Function
+- @returns same as acc
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_6119</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
   <span class="nv">opts = </span><span class="nx">do</span>
     <span class="nv">columns: </span><span class="nx">do</span>
       <span class="nv">area: </span><span class="err">\地區</span>
@@ -122,28 +155,14 @@
       <span class="nv">service_time: </span><span class="err">\領務服務時間</span>
       <span class="nv">post_unit: </span><span class="err">\所屬單位</span>
       <span class="nv">post_source: </span><span class="err">\消息來源</span>
-  <span class="nf">_, count &lt;-</span> <span class="nx">util</span><span class="p">.</span><span class="nx">from_csv</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">popololized-record-twgovdata_6119</span> <span class="nx">acc</span>
-  <span class="nx">done</span> <span class="nx">acc</span>
+  <span class="nf">_, count &lt;-</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">from_csv</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">popololized-record-twgovdata_6119</span> <span class="nx">acc</span>
+  <span class="nx">done</span> <span class="nx">acc</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">戶政機關通訊 Porcessor</h3>
 
-<span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7437</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
-  <span class="nv">correct_name = </span><span class="nf">-&gt;</span>
-    <span class="k">return</span> <span class="s">&#39;內政部戶政司&#39;</span> <span class="k">if</span> <span class="nx">it</span> <span class="o">is</span> <span class="err">\內政部戶政司戶政司</span>
-    <span class="nv">badnames =</span>
-      <span class="err">\高雄市那瑪夏區</span>
-      <span class="err">\高雄市桃源區</span>
-      <span class="err">\高雄市甲仙區</span>
-      <span class="err">\高雄市旗山區</span>
-      <span class="err">\花蓮縣秀林鄉</span>
-      <span class="err">\花蓮縣瑞穗鄉</span>
-      <span class="err">\花蓮縣光復鄉</span>
-      <span class="err">\花蓮縣玉里鎮</span>
-      <span class="err">\桃園縣楊梅市</span>
-      <span class="err">\金門縣烏坵鄉</span>
-      <span class="err">\金門縣烈嶼鄉</span>
-      <span class="err">\金門縣金寧鄉</span>
-      <span class="err">\金門縣金沙鎮</span>
-    <span class="k">if</span> <span class="nx">it</span> <span class="k">in</span> <span class="nx">badnames</span> <span class="k">then</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">it</span><span class="si">}</span><span class="s">戶政事務所&quot;</span> <span class="k">else</span> <span class="nx">it</span>
-
+<pre><code>- @param acc {data:{$orgname:$org}}, count:Int}
+- @param src String file path
+- @param done Function
+- @returns same as acc
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7437</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
   <span class="nv">content = </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span> <span class="nx">path</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span>
   <span class="nv">content = </span><span class="nx">content</span><span class="p">.</span><span class="nx">replace</span> <span class="sr">/orgName/g</span><span class="p">,</span> <span class="s">&#39;orgname&#39;</span>
   <span class="nv">$ = </span><span class="nx">cheerio</span><span class="p">.</span><span class="nx">load</span> <span class="nx">content</span><span class="p">,</span> <span class="p">{</span><span class="o">+</span><span class="nx">xmlMode</span><span class="p">}</span>
@@ -151,7 +170,7 @@
   <span class="nv">get = </span><span class="nf">(o, q) -&gt;</span> <span class="nx">o</span><span class="p">.</span><span class="nx">find</span> <span class="nx">q</span> <span class="p">.</span><span class="nx">text</span><span class="o">!</span>
   <span class="nx">orgs</span><span class="p">.</span><span class="nx">each</span> <span class="nf">-&gt;</span>
     <span class="nv">obj = </span><span class="nx">do</span>
-      <span class="nv">name: </span><span class="nx">correct_name</span> <span class="p">(</span><span class="nx">get</span> <span class="nx">@</span><span class="p">,</span> <span class="s">&#39;orgname&#39;</span><span class="p">)</span>
+      <span class="nv">name: </span><span class="nx">normalized-name</span><span class="p">(</span><span class="nx">get</span> <span class="nx">@</span><span class="p">,</span> <span class="s">&#39;orgname&#39;</span><span class="p">)</span>
       <span class="nv">address: </span><span class="nx">get</span> <span class="nx">@</span><span class="p">,</span> <span class="s">&#39;address&#39;</span>
       <span class="nv">other_names: </span><span class="p">[]</span>
       <span class="nv">contact_details: </span><span class="p">[</span>
@@ -168,9 +187,13 @@
     <span class="k">else</span>
       <span class="nx">acc</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">&lt;&lt;&lt;</span> <span class="nx">obj</span>
     <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
-  <span class="nx">done</span> <span class="nx">acc</span>
+  <span class="nx">done</span> <span class="nx">acc</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">地政事務所通訊 Porcessor</h3>
 
-<span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7620</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+<pre><code>- @param acc {data:{$orgname:$org}}, count:Int}
+- @param src String
+- @param done Function
+- @returns same as acc
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7620</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
   <span class="nv">content = </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span> <span class="nx">src</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span>
   <span class="nv">$ = </span><span class="nx">cheerio</span><span class="p">.</span><span class="nx">load</span> <span class="nx">content</span><span class="p">,</span> <span class="p">{</span><span class="o">+</span><span class="nx">xmlMode</span><span class="p">}</span>
   <span class="nv">orgs = </span><span class="nx">$</span> <span class="s">&#39;channel&#39;</span> <span class="p">.</span><span class="nx">find</span> <span class="s">&#39;item&#39;</span>

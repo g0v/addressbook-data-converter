@@ -1,19 +1,21 @@
 <!DOCTYPE html><html lang="en"><head><title>person</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="person"><meta name="groc-project-path" content="src/person.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/person.ls">src/person.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="person-processor">Person Processor</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nv">utils = </span><span class="nx">require</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">utils</span>
+<span class="nv">org = </span><span class="nx">require</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">org</span>
 <span class="nv">origin_municipality = </span><span class="p">[</span><span class="err">\臺北市</span><span class="p">,</span> <span class="err">\高雄市</span><span class="p">]</span>
 <span class="nv">new_municipality = </span><span class="p">[</span><span class="err">\新北市</span><span class="p">,</span> <span class="err">\臺中市</span><span class="p">,</span> <span class="err">\臺南市</span><span class="p">]</span>
 
-<span class="c1">#@FIXME: feadbak the pua to data.gov.tw.</span>
 <span class="nv">guess-twcomitte-session = </span><span class="nf">(year) -&gt;</span>
   <span class="nx">match</span> <span class="nx">year</span>
   <span class="o">|</span> <span class="sr">/098/</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2009</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\20</span><span class="p">),</span> <span class="p">(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2014</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\20</span><span class="p">)]</span>
   <span class="o">|</span> <span class="sr">/099/</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2010</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\25</span><span class="p">),</span> <span class="p">(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2014</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\25</span><span class="p">)]</span>
-  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="p">[]</span>
+  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="p">[]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市議員 Porcessor</h3>
 
-<span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7054</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+<pre><code>- @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
+- @param src String file path
+- @param done Function
+- @returns same as acc
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7054</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
   <span class="nv">find-memeberships = </span><span class="nf">(name, record) -&gt;</span>
-    <span class="c1">#@FIXME: feadback to upstream.</span>
-    <span class="nv">orgname = </span><span class="nx">record</span><span class="p">.</span><span class="nx">orgname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&#39;台&#39;</span><span class="p">,</span> <span class="s">&#39;臺&#39;</span>
-    <span class="nv">orgname = </span><span class="nx">orgname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&#39;連江縣政府&#39;</span><span class="p">,</span> <span class="s">&#39;福建省連江縣政府&#39;</span>
+    <span class="nv">orgname = </span><span class="nx">org</span><span class="p">.</span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgname</span>
     <span class="p">[</span><span class="nx">start_date</span><span class="p">,</span> <span class="nx">end_date</span><span class="p">]</span> <span class="o">=</span> <span class="nx">guess-twcomitte-session</span> <span class="nx">record</span><span class="p">.</span><span class="nx">electname</span>
     <span class="nv">posiname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
     <span class="nv">organization_id = </span><span class="nx">acc</span><span class="p">.</span><span class="nx">orgids</span><span class="p">[</span><span class="nx">orgname</span><span class="p">]</span>
@@ -61,8 +63,16 @@
       <span class="nv">national_identify: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
       <span class="nv">memberships: </span><span class="nx">find-memeberships</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">record</span>
     <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span><span class="mi">1</span>
-  <span class="nx">done</span> <span class="nx">acc</span>
+  <span class="nx">done</span> <span class="nx">acc</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市議員 Porcessor</h3>
 
-<span class="nv">exports.process_twgovdata_7055 = </span><span class="nx">process_twgovdata_7054</span>
-<span class="nv">exports.process_twgovdata_7057 = </span><span class="nx">process_twgovdata_7054</span>
-<span class="nv">exports.process_twgovdata_7058 = </span><span class="nx">process_twgovdata_7054</span></div></div></div></div></body></html>
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7055 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">直轄市市長 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7057 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市市長 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7058 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">鄉鎮市長 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7059 = </span><span class="nx">process_twgovdata_7054</span></div></div></div></div></body></html>

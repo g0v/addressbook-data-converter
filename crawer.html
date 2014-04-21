@@ -2,7 +2,7 @@
 
 <p>The fecther fetches rawdata from the remote sites which are defined
 in <code>data-index.json</code>, which is automatically preoduced in <code>npm run prepublish</code>
-step. You should modify <code>config.ls</code> instead of modifying <code>data-index.json</code>.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p><code>data-index.ls</code> Syntax: </p>
+step. You should modify <code>config.ls</code> instead of modifying <code>data-index.json</code>.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p><code>data-index.ls</code> Syntax:</p>
 
 <pre><code>Category: [Set]
 </code></pre>
@@ -12,15 +12,21 @@ step. You should modify <code>config.ls</code> instead of modifying <code>data-i
 <li>Set: Object, the rawdata name, resource uri, etc.</li>
 </ul></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="set-properties">Set Properties</h2>
 
-<p>A remote site which provides rawdata should indicate the follwoing 
-properties:
-* name: rawdata name.
-* id: unique identifier used by provider.
-* provider: data provider.
-* url: set profile url that displays propoerties.
-* ext: file extension. valid: (csv, xml, json)
-* uri: real uri of the rawdata.
-* update-freq: update frequency.</p></div></div><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="s">&lt;[cheerio request async url mkdirp fs path]&gt;</span>
+<p>A remote site which provides rawdata should provide necessary
+information that a crawler can know how to find real uri of the
+rawdata, how often a crawler should re-fetch the data, etc.</p>
+
+<h3 id="porpertie-definitions">Porpertie Definitions</h3>
+
+<ul>
+<li>name: rawdata name.</li>
+<li>id: unique identifier used by provider.</li>
+<li>provider: data provider.</li>
+<li>url: set profile url that displays propoerties.</li>
+<li>ext: file extension. valid: (csv, xml, json)</li>
+<li>uri: real uri of the rawdata.</li>
+<li>update-freq: update frequency.</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="s">&lt;[cheerio request async url mkdirp fs path]&gt;</span>
 
 <span class="nv">save-remote = </span><span class="nf">(name, uri, fname, done) -&gt;</span>
   <span class="nf">_, {size}? &lt;-</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">stat</span> <span class="nx">fname</span>
@@ -53,16 +59,16 @@ properties:
 
 <span class="nx">export</span> <span class="nx">function</span> <span class="nx">parse-set-prop-twgovdata</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span>
   <span class="nv">lookup-prop = </span><span class="nf">(tbl, n) -&gt;</span>
-    <span class="nv">trs = </span><span class="nx">tbl</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;tr&#39;</span> <span class="p">.</span><span class="nx">nextAll</span><span class="o">!</span> 
+    <span class="nv">trs = </span><span class="nx">tbl</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;tr&#39;</span> <span class="p">.</span><span class="nx">nextAll</span><span class="o">!</span>
     <span class="k">try</span>
-      <span class="nv">e = </span><span class="nx">trs</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> 
-        <span class="p">.</span><span class="nx">children</span> 
-        <span class="p">.</span><span class="mi">0</span> 
-        <span class="p">.</span><span class="nx">next</span> 
-        <span class="p">.</span><span class="nx">children</span> 
-        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span> 
-        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span> 
-        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span> 
+      <span class="nv">e = </span><span class="nx">trs</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span>
+        <span class="p">.</span><span class="nx">children</span>
+        <span class="p">.</span><span class="mi">0</span>
+        <span class="p">.</span><span class="nx">next</span>
+        <span class="p">.</span><span class="nx">children</span>
+        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span>
+        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span>
+        <span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nx">children</span>
         <span class="p">.</span><span class="mi">0</span>
       <span class="nx">e</span><span class="p">.</span><span class="nx">data</span>
     <span class="c1">#@FIXME: update frequncy parsing can not handle all cases.</span>
@@ -75,7 +81,7 @@ properties:
     <span class="nv">ext: </span><span class="kc">null</span>
     <span class="nv">update-freq: </span><span class="kc">null</span>
 
-  <span class="nv">$ = </span><span class="nx">cheerio</span><span class="p">.</span><span class="nx">load</span> <span class="nx">html</span> 
+  <span class="nv">$ = </span><span class="nx">cheerio</span><span class="p">.</span><span class="nx">load</span> <span class="nx">html</span>
   <span class="nv">prop.name = </span><span class="nx">$</span> <span class="s">&#39;h1[class=&quot;title&quot;]&#39;</span> <span class="p">.</span><span class="nx">text</span><span class="o">!</span>
   <span class="nv">e = </span><span class="nx">$</span> <span class="s">&#39;#node_metadataset_full_group_data_type&#39;</span>
     <span class="p">.</span><span class="nx">find</span> <span class="s">&#39;div .field-item&#39;</span>

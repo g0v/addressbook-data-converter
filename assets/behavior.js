@@ -59,6 +59,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
+                "title": "Re-Generate Final Data",
+                "slug": "re-generate-final-data"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
                 "title": "Test",
                 "slug": "test"
               },
@@ -69,14 +77,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "level": 2,
                 "title": "Build Documents",
                 "slug": "build-documents"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Reference",
-                "slug": "reference"
               },
               "depth": 2
             }
@@ -114,6 +114,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 2,
+            "title": "Re-Generate Final Data",
+            "slug": "re-generate-final-data"
+          },
+          "depth": 2
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 2,
             "title": "Test",
             "slug": "test"
           },
@@ -124,14 +132,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "level": 2,
             "title": "Build Documents",
             "slug": "build-documents"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "Reference",
-            "slug": "reference"
           },
           "depth": 2
         }
@@ -180,6 +180,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 2,
+            "title": "Re-Generate Final Data",
+            "slug": "re-generate-final-data"
+          },
+          "depth": 2
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 2,
             "title": "Test",
             "slug": "test"
           },
@@ -190,14 +198,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "level": 2,
             "title": "Build Documents",
             "slug": "build-documents"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "Reference",
-            "slug": "reference"
           },
           "depth": 2
         }
@@ -273,7 +273,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Set Properties",
                 "slug": "set-properties"
               },
-              "depth": 2
+              "depth": 2,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Porpertie Definitions",
+                    "slug": "porpertie-definitions"
+                  },
+                  "depth": 3
+                }
+              ]
             }
           ]
         },
@@ -296,7 +307,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Set Properties",
             "slug": "set-properties"
           },
-          "depth": 2
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Porpertie Definitions",
+                "slug": "porpertie-definitions"
+              },
+              "depth": 3
+            }
+          ]
         }
       ]
     }, {
@@ -323,12 +345,97 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "slug": "organization-processor",
             "isFileHeader": true
           },
-          "depth": 1
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Normalize orgnization name.",
+                "slug": "normalize-orgnization-name"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "行政院中央機關及地方機關代碼 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "駐外館通訊錄 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "戶政機關通訊 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "地政事務所通訊 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }
+          ]
         },
         "title": "Organization Processor"
       },
       "depth": 1,
-      "outline": []
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Normalize orgnization name.",
+            "slug": "normalize-orgnization-name"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "行政院中央機關及地方機關代碼 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "駐外館通訊錄 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "戶政機關通訊 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "地政事務所通訊 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }
+      ]
     }, {
       "type": "file",
       "data": {
@@ -353,12 +460,97 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "slug": "person-processor",
             "isFileHeader": true
           },
-          "depth": 1
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "縣市議員 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "縣市議員 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "直轄市市長 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "縣市市長 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "鄉鎮市長 Porcessor",
+                "slug": "-porcessor"
+              },
+              "depth": 3
+            }
+          ]
         },
         "title": "Person Processor"
       },
       "depth": 1,
-      "outline": []
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "縣市議員 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "縣市議員 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "直轄市市長 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "縣市市長 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "鄉鎮市長 Porcessor",
+            "slug": "-porcessor"
+          },
+          "depth": 3
+        }
+      ]
     }, {
       "type": "file",
       "data": {
