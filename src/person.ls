@@ -4,13 +4,19 @@ org = require \./org
 origin_municipality = [\臺北市, \高雄市]
 new_municipality = [\新北市, \臺中市, \臺南市]
 
-#@FIXME: feadbak the pua to data.gov.tw.
 guess-twcomitte-session = (year) ->
   match year
   | /098/ => [(utils.date \2009, \10, \20), (utils.date \2014, \10, \20)]
   | /099/ => [(utils.date \2010, \10, \25), (utils.date \2014, \10, \25)]
   | _ => []
 
+# ### 縣市議員 Porcessor
+# ```
+# - @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
+# - @param src String file path
+# - @param done Function
+# - @returns same as acc
+# ```
 export function process_twgovdata_7054(acc, src, done)
   find-memeberships = (name, record) ->
     orgname = org.normalized-name record.orgname
@@ -63,7 +69,23 @@ export function process_twgovdata_7054(acc, src, done)
     acc.count +=1
   done acc
 
+# ### 縣市議員 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
 exports.process_twgovdata_7055 = process_twgovdata_7054
+# ### 直轄市市長 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
 exports.process_twgovdata_7057 = process_twgovdata_7054
+# ### 縣市市長 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
 exports.process_twgovdata_7058 = process_twgovdata_7054
+# ### 鄉鎮市長 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
 exports.process_twgovdata_7059 = process_twgovdata_7054

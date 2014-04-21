@@ -1,12 +1,12 @@
 # # Data Fetching
 
 # ## Data Sources Configure
-# 
+#
 # The fecther fetches rawdata from the remote sites which are defined
 # in `data-index.json`, which is automatically preoduced in `npm run prepublish`
 # step. You should modify `config.ls` instead of modifying `data-index.json`.
 
-# `data-index.ls` Syntax: 
+# `data-index.ls` Syntax:
 # ```
 # Category: [Set]
 # ```
@@ -14,15 +14,18 @@
 # * Set: Object, the rawdata name, resource uri, etc.
 
 # ## Set Properties
-# A remote site which provides rawdata should indicate the follwoing 
-# properties:
-# * name: rawdata name.
-# * id: unique identifier used by provider.
-# * provider: data provider.
-# * url: set profile url that displays propoerties.
-# * ext: file extension. valid: (csv, xml, json)
-# * uri: real uri of the rawdata.
-# * update-freq: update frequency.
+# A remote site which provides rawdata should provide necessary
+# information that a crawler can know how to find real uri of the
+# rawdata, how often a crawler should re-fetch the data, etc.
+#
+# ### Porpertie Definitions
+# - name: rawdata name.
+# - id: unique identifier used by provider.
+# - provider: data provider.
+# - url: set profile url that displays propoerties.
+# - ext: file extension. valid: (csv, xml, json)
+# - uri: real uri of the rawdata.
+# - update-freq: update frequency.
 require! <[cheerio request async url mkdirp fs path]>
 
 save-remote = (name, uri, fname, done) ->
@@ -56,16 +59,16 @@ export function grab-data(index , done)
 
 export function parse-set-prop-twgovdata(html)
   lookup-prop = (tbl, n) ->
-    trs = tbl.find 'tr' .nextAll! 
+    trs = tbl.find 'tr' .nextAll!
     try
-      e = trs[n] 
-        .children 
-        .0 
-        .next 
-        .children 
-        .0 .children 
-        .0 .children 
-        .0 .children 
+      e = trs[n]
+        .children
+        .0
+        .next
+        .children
+        .0 .children
+        .0 .children
+        .0 .children
         .0
       e.data
     #@FIXME: update frequncy parsing can not handle all cases.
@@ -78,7 +81,7 @@ export function parse-set-prop-twgovdata(html)
     ext: null
     update-freq: null
 
-  $ = cheerio.load html 
+  $ = cheerio.load html
   prop.name = $ 'h1[class="title"]' .text!
   e = $ '#node_metadataset_full_group_data_type'
     .find 'div .field-item'

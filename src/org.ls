@@ -2,12 +2,16 @@
 require! <[fs cheerio]>
 require! \./utils
 
+# ### Normalize orgnization name.
+# ```
+# - @param orgname String organization name.
+# - @returns String normalized organization name.
+# ```
 export function normalized-name(orgname)
   throw "orgname is required." unless orgname
   orgname .=replace /台/g, '臺'
   orgname .=replace /^連江縣/, '福建省連江縣'
   orgname .=replace /鄉民代表會/, '鄉鄉民代表會'
-  # twgovdata 7437
   return '內政部戶政司' if orgname is \內政部戶政司戶政司
   badnames =
     \高雄市那瑪夏區
@@ -66,6 +70,13 @@ popololized-record-twgovdata_7307 = (acc, record) -->
       * url: 'http://data.gov.tw/node/7307'
   acc.count += 1
 
+# ### 行政院中央機關及地方機關代碼 Porcessor
+# ```
+# - @param acc {data:{$orgname:$org}}, count:Int}
+# - @param src String
+# - @param done Function
+# - @returns same as acc
+# ```
 export function process_twgovdata_7307(acc, src, done)
   opts = do
     columns: do
@@ -122,6 +133,13 @@ popololized-record-twgovdata_6119 = (acc, record) -->
   acc.count += 1
   o
 
+# ### 駐外館通訊錄 Porcessor
+# ```
+# - @param acc {data:{$orgname:$org}}, count:Int}
+# - @param src String
+# - @param done Function
+# - @returns same as acc
+# ```
 export function process_twgovdata_6119(acc, src, done)
   opts = do
     columns: do
@@ -150,6 +168,14 @@ export function process_twgovdata_6119(acc, src, done)
   _, count <- utils.from_csv src, opts, popololized-record-twgovdata_6119 acc
   done acc
 
+
+# ### 戶政機關通訊 Porcessor
+# ```
+# - @param acc {data:{$orgname:$org}}, count:Int}
+# - @param src String file path
+# - @param done Function
+# - @returns same as acc
+# ```
 export function process_twgovdata_7437(acc, path, done)
   content = fs.readFileSync path, 'utf-8'
   content = content.replace /orgName/g, 'orgname'
@@ -177,6 +203,13 @@ export function process_twgovdata_7437(acc, path, done)
     acc.count += 1
   done acc
 
+# ### 地政事務所通訊 Porcessor
+# ```
+# - @param acc {data:{$orgname:$org}}, count:Int}
+# - @param src String
+# - @param done Function
+# - @returns same as acc
+# ```
 export function process_twgovdata_7620(acc, src, done)
   content = fs.readFileSync src, 'utf-8'
   $ = cheerio.load content, {+xmlMode}

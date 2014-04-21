@@ -14,13 +14,15 @@ $ npm i
 
 ## Update Source Properties
 
+You should run this command after adding new rawdata source in `config.ls`.
+
 ```
 $ lsc update-data-index.ls
 ```
 
 ## Generate Final Data
 
-The database name for building is `mydb` by default 
+The database name for building is `mydb` by default
 and you don't need to create it manually. The `make boot`
 command will do it.
 
@@ -29,11 +31,17 @@ $ make boot
 $ make build
 ```
 
-NOTED: if your pg module got some errors, try `npm rebuild pg` 
- 
+## Re-Generate Final Data
+
+```
+$ make rebuild
+```
+
+NOTED: if your pg module got some errors, try `npm rebuild pg`
+
 After building, an dumped sqlfile can be find in `output/addressbook.sql`.
 
-## Test 
+## Test
 
 ```
 $ npm test
@@ -48,6 +56,3 @@ $ ./node_modules/groc/.bin/groc
 ```
 
 The documents will be in the gh-pages branch.
-
-## Reference
-- []
