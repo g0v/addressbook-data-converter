@@ -3,6 +3,7 @@ expect = (require \chai).expect
 person = (require \../lib/person)
 
 orgids = do
+  "臺北市松山區公所": 1
   "中國國民黨":1
   "民主進步黨": 2
   "勞動黨": 3
@@ -60,4 +61,10 @@ describe 'Person Converter', ->
       acc.data.0.memberships.1.role.should.eq '黨員'
       acc.data.0.memberships.1.organization_id.should.eq 1
       acc.count.should.eq 304
+      done!
+  describe 'processing data.gov.tw node 7061.', -> ``it``
+    .. 'should follow popolo specs.', (done) ->
+      acc = {data: [], count: 0, orgids: orgids}
+      acc <- person.process_twgovdata_7061 acc, \../test/testdata/person/source-twgovdata-7061.json
+      acc.data.0.memberships.0.label.should.be.eq "臺北市松山區莊敬里里長劉美鳳"
       done!

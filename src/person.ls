@@ -11,16 +11,23 @@ guess-twcomitte-session = (year) ->
   | _ => []
 
 find-memeberships = (orgids, name, record) ->
-  orgname = org.normalized-name record.orgname
+  if record.orgname?
+    orgname = org.normalized-name record.orgname
+    posiname = "#{orgname}#{record.posiname}"
+  else
+    cityname = org.normalized-name record.cityname
+    townname = org.normalized-name record.townname
+    villname = org.normalized-name record.villname
+    orgname = "#{cityname}#{townname}公所"
+    posiname = "#{cityname}#{townname}#{villname}#{record.posiname}"
   [start_date, end_date] = guess-twcomitte-session record.electname
-  posiname = "#{record.posiname}"
   organization_id = orgids[orgname]
-  console.log orgname unless organization_id
+  throw "orgname #{orgname} is missing." unless organization_id
   m = []
   m.push do
-    label: "#{orgname}#{posiname}#{name}"
+    label: "#{posiname}#{name}"
     role: record.posiname
-    post_id: "#{orgname}#{posiname}"
+    post_id: posiname
     orgnization_id: organization_id
     start_date: start_date,
     end_date: end_date
@@ -105,3 +112,8 @@ exports.process_twgovdata_7059 = process_twgovdata_7054
 # - @alias `process_twgovdata_7054`
 # ```
 exports.process_twgovdata_7060 = process_twgovdata_7054
+# ### 村里長 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
+exports.process_twgovdata_7061 = process_twgovdata_7054
