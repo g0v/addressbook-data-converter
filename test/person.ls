@@ -68,3 +68,9 @@ describe 'Person Converter', ->
       acc <- person.process_twgovdata_7061 acc, \../test/testdata/person/source-twgovdata-7061.json
       acc.data.0.memberships.0.label.should.be.eq "臺北市松山區莊敬里里長劉美鳳"
       done!
+  describe 'processing data.gov.tw node 7062.', -> ``it``
+    .. 'should follow popolo specs.', (done) ->
+      acc = {data: [], count: 0, orgids: orgids}
+      acc <- person.process_twgovdata_7062 acc, \../test/testdata/person/source-twgovdata-7062.json
+      acc.data.0.memberships.0.label.should.be.eq "臺北市松山區莊敬里里幹事詹雅菁"
+      done!
