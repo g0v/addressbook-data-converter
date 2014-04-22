@@ -57,6 +57,12 @@ popolized-record = (orgids, record) ->
     national_identify: record.photograph
     memberships: find-memeberships orgids, name, record
 
+travel-data = (acc, data, done) ->
+  for record in data
+    acc.data.push popolized-record acc.orgids, record
+    acc.count +=1
+  done acc
+
 # ### 縣市議員 Porcessor
 # ```
 # - @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
@@ -67,10 +73,7 @@ popolized-record = (orgids, record) ->
 export function process_twgovdata_7054(acc, src, done)
   #@FIXME: fix the path is not consist in test case.
   data = require require.resolve (src is /rawdata/ and "../#{src}" or src)
-  for record in data
-    acc.data.push popolized-record acc.orgids, record
-    acc.count +=1
-  done acc
+  travel-data acc , data, done
 
 # ### 縣市議員 Porcessor
 # ```
