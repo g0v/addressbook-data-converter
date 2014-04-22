@@ -8,6 +8,12 @@ describe 'Utilities', ->
       processor = utils.guess-processor \organization, {url:"https://data.gov.tw/node/7307"}
       processor.name.should.eq \process_twgovdata_7307
       done!
+    .. 'should find corressponding processor if the data is a native file.', (done) ->
+      set = {url: "file://../test/testdata/organization/native-twparties.json"}
+      processor = utils.guess-processor \organization, set
+      processor.name.should.eq \process_nativedata
+      acc <- processor {data:{}, count:0}, set.url
+      done!
     .. 'should return null if processor is not found.', (done) ->
       processor = utils.guess-processor \organization, {url: "https://data.gov.tw/node/9999"}
       expect processor .to.be.not.k

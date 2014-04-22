@@ -23,7 +23,16 @@ export function from_csv(path, opts, transform_cb, done)
     .on \error, -> console.log it.message
     .to.array done
 
+export function process_nativedata(acc, src, done)
+  throw "acc is not valid" unless acc.data? or acc.count?
+  path = src.replace "file:\/\/", ''
+  data = require require.resolve path
+  acc.count += [e for e in data].length
+  acc.data <<< data
+  done acc
+
 export function guess-processor(category, set)
+  return process_nativedata if set.url is /file:\/\//
   basename = path.basename (url.parse set.url .path)
   modname = match category
     | /organization/ => \org

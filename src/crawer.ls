@@ -51,9 +51,13 @@ export function grab-data(index , done)
       done!
 
     for let set in sets
-      funcs.push (done) ->
-        <- save-remote set.name, set.uri, set.output-file
-        done!
+      # skip if the data is native.
+      if (set.url.indexOf 'file://') == 0
+        console.log "skip because #{set.name} is native"
+      else
+        funcs.push (done) ->
+          <- save-remote set.name, set.uri, set.output-file
+          done!
   err, res <- async.waterfall funcs
   done!
 
