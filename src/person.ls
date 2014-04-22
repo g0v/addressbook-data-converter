@@ -43,6 +43,20 @@ find-memeberships = (orgids, name, record) ->
       organization_id: party_id
   return m
 
+popolized-record = (orgids, record) ->
+  name = record.idname.replace "　", ""
+  do
+    name: name
+    gender: match record.sex
+            | /男/ => 'male'
+            | /女/ => 'female'
+            | _ => 'unknown'
+    image: record.photograph
+    summary: null
+    biography: "#{record.education}\n#{record.profession}"
+    national_identify: record.photograph
+    memberships: find-memeberships orgids, name, record
+
 # ### 縣市議員 Porcessor
 # ```
 # - @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
@@ -54,18 +68,7 @@ export function process_twgovdata_7054(acc, src, done)
   #@FIXME: fix the path is not consist in test case.
   data = require require.resolve (src is /rawdata/ and "../#{src}" or src)
   for record in data
-    name = record.idname.replace "　", ""
-    acc.data.push do
-      name: name
-      gender: match record.sex
-              | /男/ => 'male'
-              | /女/ => 'female'
-              | _ => 'unknown'
-      image: record.photograph
-      summary: null
-      biography: "#{record.education}\n#{record.profession}"
-      national_identify: record.photograph
-      memberships: find-memeberships acc.orgids, name, record
+    acc.data.push popolized-record acc.orgids, record
     acc.count +=1
   done acc
 
