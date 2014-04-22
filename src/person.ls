@@ -22,23 +22,29 @@ find-memeberships = (orgids, name, record) ->
     posiname = "#{cityname}#{townname}#{villname}#{record.posiname}"
   [start_date, end_date] = guess-twcomitte-session record.electname
   organization_id = orgids[orgname]
-  throw "orgname #{orgname} is missing." unless organization_id
+  throw "orgname #{orgname}} is missing." unless organization_id
   m = []
-  m.push do
+  newrecord = do
     label: "#{posiname}#{name}"
     role: record.posiname
     post_id: posiname
     orgnization_id: organization_id
     start_date: start_date,
     end_date: end_date
-    contact_details:
+    contact_details: []
+  if record.officeadress
+    newrecord.contact_details.push do
       * label: \辦公室地址
         type: \address
         value: record.officeadress
+  if record.officetelphone
+    newrecord.contact_details.push do
       * label: \辦公室電話
         type: \voice
         value: record.officetelphone
-    note: "#{record.eareaname}"
+  if record.eareaname
+    newrecord.note: "#{record.eareaname}"
+  m.push newrecord
 
   if record.partymship and (record.partymship isnt \無政黨 and record.partymship isnt '')
     party_id = orgids[record.partymship]
