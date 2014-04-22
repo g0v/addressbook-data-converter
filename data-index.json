@@ -143,17 +143,6 @@
             "provider": "http://data.gov.tw",
             "id": "7061",
             "outputFile": "rawdata/person/source-twgovdata-7061.json"
-        },
-        {
-            "url": "http://data.gov.tw/node/7062",
-            "category": "person",
-            "name": "村里幹事",
-            "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand4_json.jsp%3Felectkind%3D0900000&type=JSON&nid=7062",
-            "ext": "json",
-            "updateFreq": "不定期",
-            "provider": "http://data.gov.tw",
-            "id": "7062",
-            "outputFile": "rawdata/person/source-twgovdata-7062.json"
         }
     ]
 }

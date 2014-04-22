@@ -29,4 +29,4 @@ sources: do
     # 村里長
     * url: \http://data.gov.tw/node/7061
     # 村里幹事
-    * url: \http://data.gov.tw/node/7062
+    # * url: \http://data.gov.tw/node/7062
