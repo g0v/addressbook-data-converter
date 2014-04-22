@@ -117,4 +117,8 @@ exports.process_twgovdata_7060 = process_twgovdata_7054
 # - @alias `process_twgovdata_7054`
 # ```
 exports.process_twgovdata_7061 = process_twgovdata_7054
+# ### 村里幹事 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
 exports.process_twgovdata_7062 = process_twgovdata_7054
