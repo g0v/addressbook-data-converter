@@ -74,6 +74,11 @@ export function process_twgovdata_7054(acc, src, done)
 # - @alias `process_twgovdata_7054`
 # ```
 exports.process_twgovdata_7055 = process_twgovdata_7054
+# ### 鄉鎮市民代表 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
+exports.process_twgovdata_7056 = process_twgovdata_7054
 # ### 直轄市市長 Porcessor
 # ```
 # - @alias `process_twgovdata_7054`
