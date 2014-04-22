@@ -11,7 +11,7 @@ export function normalized-name(orgname)
   throw "orgname is required." unless orgname
   orgname .=replace /台/g, '臺'
   orgname .=replace /^連江縣/, '福建省連江縣'
-  orgname .=replace /鄉民代表會/, '鄉鄉民代表會'
+  orgname .=replace /鄉鄉民代表會/, '鄉民代表會'
   return '內政部戶政司' if orgname is \內政部戶政司戶政司
   badnames =
     \高雄市那瑪夏區
