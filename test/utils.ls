@@ -12,7 +12,7 @@ describe 'Utilities', ->
       set = {url: "file://../test/testdata/organization/native-twparties.json"}
       processor = utils.guess-processor \organization, set
       processor.name.should.eq \process_nativedata
-      acc <- processor {data:{}, count:0}, set.url
+      acc <- processor {data:{}, count:0}, \../test/testdata/organization/native-twparties.json
       done!
     .. 'should return null if processor is not found.', (done) ->
       processor = utils.guess-processor \organization, {url: "https://data.gov.tw/node/9999"}

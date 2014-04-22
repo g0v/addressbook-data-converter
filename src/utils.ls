@@ -25,8 +25,7 @@ export function from_csv(path, opts, transform_cb, done)
 
 export function process_nativedata(acc, src, done)
   throw "acc is not valid" unless acc.data? or acc.count?
-  path = src.replace "file:\/\/", ''
-  data = require require.resolve path
+  data = require require.resolve src
   acc.count += [e for e in data].length
   acc.data <<< data
   done acc
