@@ -2,6 +2,10 @@
   "sources": {
     "organization": [
       {
+        "url": "file://./rawdata/organization/native-twparties.json",
+        "name": "政黨"
+      },
+      {
         "url": "http://data.gov.tw/node/7307"
       },
       {

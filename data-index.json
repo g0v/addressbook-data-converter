@@ -1,45 +1,55 @@
 {
     "organization": [
         {
+            "url": "file://./rawdata/organization/native-twparties.json",
+            "name": "政黨",
+            "category": "organization",
+            "uri": "file://./rawdata/organization/native-twparties.json",
+            "outputFile": "./rawdata/organization/native-twparties.json",
+            "provider": "native",
+            "ext": "json",
+            "id": "native-twparties.json"
+        },
+        {
             "url": "http://data.gov.tw/node/7307",
+            "category": "organization",
             "name": "行政院所屬中央及地方機關代碼",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fsvrorg.dgpa.gov.tw%2Fcpacode%2Ffile%2Forglist.CSV&type=CSV&nid=7307",
             "ext": "csv",
             "updateFreq": "每日",
-            "category": "organization",
             "provider": "http://data.gov.tw",
             "id": "7307",
             "outputFile": "rawdata/organization/source-twgovdata-7307.csv"
         },
         {
             "url": "http://data.gov.tw/node/7620",
+            "category": "organization",
             "name": "地政機關通訊錄",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fwww.land.moi.gov.tw%2Fwallpaper%2Frss%2Flandgov.xml&type=XML&nid=7620",
             "ext": "xml",
             "updateFreq": "政府資料開放平臺資料使用規範",
-            "category": "organization",
             "provider": "http://data.gov.tw",
             "id": "7620",
             "outputFile": "rawdata/organization/source-twgovdata-7620.xml"
         },
         {
             "url": "http://data.gov.tw/node/7437",
+            "category": "organization",
             "name": "戶政機關通訊",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=https%3A%2F%2Fwww.ris.gov.tw%2FAS2%2Finfocenter%2Forg.xml&type=XML&nid=7437",
             "ext": "xml",
             "updateFreq": "不定期",
-            "category": "organization",
             "provider": "http://data.gov.tw",
             "id": "7437",
             "outputFile": "rawdata/organization/source-twgovdata-7437.xml"
         },
         {
             "url": "http://data.gov.tw/node/6119",
+            "category": "organization",
             "name": "駐外館處通訊錄",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fmultilingual.mofa.gov.tw%2Fweb%2Fweb_UTF-8%2FOpenData%2FOverseasOffice.csv&type=CSV&nid=6119",
             "ext": "csv",
             "updateFreq": "不定期",
-            "category": "organization",
             "provider": "http://data.gov.tw",
             "id": "6119",
             "outputFile": "rawdata/organization/source-twgovdata-6119.csv"
@@ -48,99 +58,99 @@
     "person": [
         {
             "url": "http://data.gov.tw/node/7054",
+            "category": "person",
             "name": "縣市議員",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand_json.jsp%3Felectkind%3D0200000&type=JSON&nid=7054",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7054",
             "outputFile": "rawdata/person/source-twgovdata-7054.json"
         },
         {
             "url": "http://data.gov.tw/node/7055",
+            "category": "person",
             "name": "直轄市議員",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand_json.jsp%3Felectkind%3D0100000&type=JSON&nid=7055",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7055",
             "outputFile": "rawdata/person/source-twgovdata-7055.json"
         },
         {
             "url": "http://data.gov.tw/node/7056",
+            "category": "person",
             "name": "鄉鎮市民代表",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand_json.jsp%3Felectkind%3D0300000&type=JSON&nid=7056",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7056",
             "outputFile": "rawdata/person/source-twgovdata-7056.json"
         },
         {
             "url": "http://data.gov.tw/node/7057",
+            "category": "person",
             "name": "直轄市長",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0400000&type=JSON&nid=7057",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7057",
             "outputFile": "rawdata/person/source-twgovdata-7057.json"
         },
         {
             "url": "http://data.gov.tw/node/7058",
+            "category": "person",
             "name": "縣市長",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0500000&type=JSON&nid=7058",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7058",
             "outputFile": "rawdata/person/source-twgovdata-7058.json"
         },
         {
             "url": "http://data.gov.tw/node/7059",
+            "category": "person",
             "name": "鄉鎮市長",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0600000&type=JSON&nid=7059",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7059",
             "outputFile": "rawdata/person/source-twgovdata-7059.json"
         },
         {
             "url": "http://data.gov.tw/node/7060",
+            "category": "person",
             "name": "區長",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand3_json.jsp%3Felectkind%3D0800000&type=JSON&nid=7060",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7060",
             "outputFile": "rawdata/person/source-twgovdata-7060.json"
         },
         {
             "url": "http://data.gov.tw/node/7061",
+            "category": "person",
             "name": "村里長",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand2_json.jsp%3Felectkind%3D0700000&type=JSON&nid=7061",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7061",
             "outputFile": "rawdata/person/source-twgovdata-7061.json"
         },
         {
             "url": "http://data.gov.tw/node/7062",
+            "category": "person",
             "name": "村里幹事",
             "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=http%3A%2F%2Fcand.moi.gov.tw%2Fof%2Fap%2Fcand4_json.jsp%3Felectkind%3D0900000&type=JSON&nid=7062",
             "ext": "json",
             "updateFreq": "不定期",
-            "category": "person",
             "provider": "http://data.gov.tw",
             "id": "7062",
             "outputFile": "rawdata/person/source-twgovdata-7062.json"
