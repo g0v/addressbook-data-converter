@@ -94,3 +94,8 @@ exports.process_twgovdata_7058 = process_twgovdata_7054
 # - @alias `process_twgovdata_7054`
 # ```
 exports.process_twgovdata_7059 = process_twgovdata_7054
+# ### 區長 Porcessor
+# ```
+# - @alias `process_twgovdata_7054`
+# ```
+exports.process_twgovdata_7060 = process_twgovdata_7054
