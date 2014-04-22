@@ -30,3 +30,5 @@ sources: do
     * url: \http://data.gov.tw/node/7061
     # 村里幹事
     # * url: \http://data.gov.tw/node/7062
+    # 第八屆立委
+    * url: \https://raw.githubusercontent.com/g0v/twlyparser/master/data/mly-8.json
