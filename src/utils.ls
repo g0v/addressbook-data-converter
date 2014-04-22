@@ -1,4 +1,5 @@
 # # Utilities
+require! fs
 require! time
 require! csv
 require! url
@@ -25,7 +26,7 @@ export function from_csv(path, opts, transform_cb, done)
 
 export function process_nativedata(acc, src, done)
   throw "acc is not valid" unless acc.data? or acc.count?
-  data = require require.resolve src
+  data = JSON.parse (fs.readFileSync src, \utf-8)
   acc.count += [e for e in data].length
   acc.data <<< data
   done acc
