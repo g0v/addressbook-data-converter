@@ -5,6 +5,13 @@ org = require \./org
 origin_municipality = [\臺北市, \高雄市]
 new_municipality = [\新北市, \臺中市, \臺南市]
 
+normalized-gender = (gender) ->
+  throw "gender is missing." unless gender
+  match gender
+  | /男/ => \male
+  | /女/ => \female
+  | _ => \unknown
+
 guess-twcomitte-session = (year) ->
   match year
   | /098/ => [(utils.date \2009, \10, \20), (utils.date \2014, \10, \20)]
@@ -61,10 +68,7 @@ popolized-twgovdata7054-record = (orgids, record) ->
   name = record.idname.replace "　", ""
   do
     name: name
-    gender: match record.sex
-            | /男/ => 'male'
-            | /女/ => 'female'
-            | _ => 'unknown'
+    gender: normalized-gender record.sex
     image: record.photograph
     summary: null
     biography: "#{record.education}\n#{record.profession}"
