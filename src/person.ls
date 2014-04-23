@@ -145,6 +145,49 @@ exports.process_twgovdata_7061 = process_twgovdata_7054
 # ```
 exports.process_twgovdata_7062 = process_twgovdata_7054
 
+find-github-mly-memberships = (orgids, name, record) ->
+  m = []
+  partyname = partycode record.caucus
+  organization_id = orgids["立法院"]
+  throw "orgids does not has 立法院" unless organization_id
+  newrecord = do
+    label: "第#{record.ad}屆立法委員#{name}"
+    role: "立法委員"
+    posiname: "立法院立法委員"
+    organization_id: orgids["立法院"]
+    start_date: record.term_start
+    links: [{note:l, url:v} for l,v of record.links]
+    #@FIXME: committees data is not in popolo form.
+    committees: record.committees
+    contact_details: []
+  #Lygislactor who quit does not has contact details.
+  if record.contacts
+    for r in record.contacts
+      for k,v of r
+        if k is \name
+          continue
+        type = k is \phone and \voice or k
+        typename = switch type
+                  | \voice => \電話
+                  | \fax => \傳真
+                  | \address => \地址
+        newrecord.contact_details.push do
+                                  label: "#{r.name}#{typename}"
+                                  type: type
+                                  value: v
+  #@FIXME: poplo spec does not define terminate reason and replacement relationship.
+  if record.term_end and record.term_end
+    [y,mm,d] =(record.term_end.date / \-)
+    newrecord.end_date = utils.date y,mm,d
+  if record.remark
+    newrecord.note = record.remark
+  m.push newrecord
+
+  #Some Lygislactor does not belongs any party.
+  if partyname
+    m.push new-party-record orgids, name, partyname
+  m
+
 popolized-github-mly-record = (orgids, record) ->
   newrecord = do
     name: record.name
@@ -154,6 +197,7 @@ popolized-github-mly-record = (orgids, record) ->
     national_identify: record.i
     summary: ''
     biography: ''
+    memberships: find-github-mly-memberships orgids, record.name, record
   if record.education
     newrecord.biography += record.education.join "\n"
   if record.experience

@@ -41,6 +41,7 @@ orgids = do
   "臺中市議會": 8
   "臺南市議會": 8
   "高雄市議會": 8
+  "立法院": 9
 describe 'Person Converter', ->
   describe 'processing data.gov.tw node 7054.', -> ``it``
     .. 'should follow popolo specs.', (done) ->
@@ -81,4 +82,6 @@ describe 'Person Converter', ->
       acc.count.should.eq 118
       acc.data.0.name.should.eq \王金平
       acc.data.0.gender.should.eq \male
+      acc.data.0.memberships.0.role.should.eq \立法委員
+      acc.data.0.memberships.0.links.length.should.eq 1
       done!
