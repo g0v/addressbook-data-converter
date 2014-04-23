@@ -194,7 +194,7 @@ popolized-github-mly-record = (orgids, record) ->
     image: record.image
     gender: normalized-gender record.gender
     # use ly.gov.tw ID as national_identify.
-    national_identify: record.i
+    national_identify: record.id
     summary: ''
     biography: ''
     memberships: find-github-mly-memberships orgids, record.name, record
