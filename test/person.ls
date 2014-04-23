@@ -45,7 +45,7 @@ describe 'Person Converter', ->
   describe 'processing data.gov.tw node 7054.', -> ``it``
     .. 'should follow popolo specs.', (done) ->
       acc = {data: [], count: 0, orgids: orgids}
-      acc <- person.process_twgovdata_7054 acc, \../test/testdata/person/source-twgovdata-7054.json
+      acc <- person.process_twgovdata_7054 acc, \./test/testdata/person/source-twgovdata-7054.json
       acc.data.0.name.should.eq '張建榮'
       acc.data.0.memberships.0.role.should.eq '議長'
       acc.data.0.memberships.1.role.should.eq '黨員'
@@ -55,7 +55,7 @@ describe 'Person Converter', ->
   describe 'processing data.gov.tw node 7055.', -> ``it``
     .. 'should follow popolo specs.', (done) ->
       acc = {data: [], count: 0, orgids: orgids}
-      acc <- person.process_twgovdata_7055 acc, \../test/testdata/person/source-twgovdata-7055.json
+      acc <- person.process_twgovdata_7055 acc, \./test/testdata/person/source-twgovdata-7055.json
       acc.data.0.name.should.eq '吳碧珠'
       acc.data.0.memberships.0.role.should.eq '議長'
       acc.data.0.memberships.1.role.should.eq '黨員'
@@ -65,12 +65,12 @@ describe 'Person Converter', ->
   describe 'processing data.gov.tw node 7061.', -> ``it``
     .. 'should follow popolo specs.', (done) ->
       acc = {data: [], count: 0, orgids: orgids}
-      acc <- person.process_twgovdata_7061 acc, \../test/testdata/person/source-twgovdata-7061.json
+      acc <- person.process_twgovdata_7061 acc, \./test/testdata/person/source-twgovdata-7061.json
       acc.data.0.memberships.0.label.should.be.eq "臺北市松山區莊敬里里長劉美鳳"
       done!
   describe 'processing data.gov.tw node 7062.', -> ``it``
     .. 'should follow popolo specs.', (done) ->
       acc = {data: [], count: 0, orgids: orgids}
-      acc <- person.process_twgovdata_7062 acc, \../test/testdata/person/source-twgovdata-7062.json
+      acc <- person.process_twgovdata_7062 acc, \./test/testdata/person/source-twgovdata-7062.json
       acc.data.0.memberships.0.label.should.be.eq "臺北市松山區莊敬里里幹事詹雅菁"
       done!

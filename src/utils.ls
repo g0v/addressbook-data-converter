@@ -49,3 +49,9 @@ export function guess-processor(category, set)
     fn
   catch
     return null
+
+export function travel-data(acc, data, transform_cb, done)
+  for record in data
+    acc.data.push transform_cb acc.orgids, record
+    acc.count +=1
+  done acc

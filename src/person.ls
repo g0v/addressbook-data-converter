@@ -1,4 +1,5 @@
 # # Person Processor
+require! fs
 utils = require \./utils
 org = require \./org
 origin_municipality = [\臺北市, \高雄市]
@@ -70,12 +71,6 @@ popolized-twgovdata7054-record = (orgids, record) ->
     national_identify: record.photograph
     memberships: find-twgovdata7054-memeberships orgids, name, record
 
-travel-data = (acc, data, done) ->
-  for record in data
-    acc.data.push popolized-twgovdata7054-record acc.orgids, record
-    acc.count +=1
-  done acc
-
 # ### 縣市議員 Porcessor
 # ```
 # - @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
@@ -84,9 +79,8 @@ travel-data = (acc, data, done) ->
 # - @returns same as acc
 # ```
 export function process_twgovdata_7054(acc, src, done)
-  #@FIXME: fix the path is not consist in test case.
-  data = require require.resolve (src is /rawdata/ and "../#{src}" or src)
-  travel-data acc , data, done
+  data = JSON.parse fs.readFileSync src, 'utf-8'
+  utils.travel-data acc, data, popolized-twgovdata7054-record, done
 
 # ### 縣市議員 Porcessor
 # ```
