@@ -5,6 +5,30 @@ org = require \./org
 origin_municipality = [\臺北市, \高雄市]
 new_municipality = [\新北市, \臺中市, \臺南市]
 
+partycode = (code) ->
+  match code
+  | \KMT => \中國國民黨
+  | \DPP => \民主進步黨
+  | \TSU => \台灣團結聯盟
+  | \NSU => \無黨團結聯盟
+  | \PFP => \親民黨
+  | \NP => \新黨
+  | \TIP => \建國黨
+  | \CPU => \超黨派問政聯盟
+  | \DU => \民主聯盟
+  | \NNA => \新國家陣線
+  | _ => null
+
+new-party-record = (orgids, name, partyname) ->
+  posiname = "#{partyname}黨員"
+  party_id = orgids[partyname]
+  throw "can not find corresponding id of #{partyname}" unless party_id
+  do
+    label: "#{posiname}#{name}"
+    role: \黨員
+    post_id: posiname
+    organization_id: party_id
+
 normalized-gender = (gender) ->
   throw "gender is missing." unless gender
   match gender
@@ -55,13 +79,7 @@ find-twgovdata7054-memeberships = (orgids, name, record) ->
   m.push newrecord
 
   if record.partymship and (record.partymship isnt \無政黨 and record.partymship isnt '')
-    party_id = orgids[record.partymship]
-    throw "can not find organization_id of #{record.partymship} in orgids" unless party_id
-    m.push do
-      label: "#{record.partymship}黨員#{name}"
-      role: "黨員"
-      post_id: "#{record.partymship}黨員"
-      organization_id: party_id
+    m.push new-party-record orgids, name, record.partymship
   return m
 
 popolized-twgovdata7054-record = (orgids, record) ->
