@@ -15,24 +15,29 @@ for category, sets of cfg.sources
       set.category = category
       if parsed_url.protocol == 'file:'
         set.uri = set.url
-        set.output-file = set.url.replace "file://"
+        set.output-file = set.url.replace "file://", ''
         set.provider = 'native'
         data-index[category].push set
         done!
       else if parsed_url.protocol in ['http:', 'https:']
         match set.url
         | /data.gov.tw/ =>
-            provider_name = 'twgovdata'
-            err, res, body <- request set.url
-            throw "err" if err
-            set <<< parse-set-prop-twgovdata body
+          provider_name = 'twgovdata'
+          err, res, body <- request set.url
+          throw "err" if err
+          set <<< parse-set-prop-twgovdata body
+          set.provider = "#{parsed_url.protocol}//#{parsed_url.host}"
+          set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
+          data-index[category].push set
+          done!
         | /github/ =>
           provider_name = 'github'
+          set.provider = "#{parsed_url.protocol}//#{parsed_url.host}"
+          set.uri = set.url
+          set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
+          data-index[category].push set
+          done!
         | _ => throw "unsupported provider"
-        set.provider = "#{parsed_url.protocol}//#{parsed_url.host}"
-        set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
-        data-index[category].push set
-        done!
       else
         throw "#{set.name}: unsupported protocol"
 console.log "starting update data-index.json..."
