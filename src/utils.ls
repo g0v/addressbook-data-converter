@@ -32,22 +32,26 @@ export function process_nativedata(acc, src, done)
   done acc
 
 export function guess-processor(category, set)
-  return process_nativedata if set.url is /file:\/\//
   basename = path.basename (url.parse set.url .path)
+  return process_nativedata if basename is /^native/
   modname = match category
     | /organization/ => \org
     | /person/ => \person
     | otherwise => throw "can not find module name."
-  fnname = match set.url
-    | /data.gov.tw/ => "process_twgovdata_#{basename}"
-    | otherwise => throw "can not guess set name"
+  if set.processor
+    fnname = set.processor
+  else
+    fnname = match set.url
+      | /data.gov.tw/ => "process_twgovdata_#{basename}"
+      | otherwise => throw "can not guess set name"
   try
     pkg = require "./#{modname}"
     throw "#modname is not a module." unless pkg?
     fn = pkg[fnname]
     throw "#fnname is not a function." unless typeof fn is \function
     fn
-  catch
+  catch err
+    #@FIXME: should output debug message
     return null
 
 export function travel-data(acc, data, transform_cb, done)
