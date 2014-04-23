@@ -74,3 +74,11 @@ describe 'Person Converter', ->
       acc <- person.process_twgovdata_7062 acc, \./test/testdata/person/source-twgovdata-7062.json
       acc.data.0.memberships.0.label.should.be.eq "臺北市松山區莊敬里里幹事詹雅菁"
       done!
+  describe 'processing github mly.', -> ``it``
+    .. 'should follow popolo specs.', (done) ->
+      acc = {data: [], count: 0, orgids: orgids}
+      acc <- person.process_github_mly acc, \./test/testdata/person/source-github-mly-8.json
+      acc.count.should.eq 118
+      acc.data.0.name.should.eq \王金平
+      acc.data.0.gender.should.eq \male
+      done!
