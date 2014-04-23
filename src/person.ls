@@ -10,7 +10,7 @@ guess-twcomitte-session = (year) ->
   | /099/ => [(utils.date \2010, \10, \25), (utils.date \2014, \10, \25)]
   | _ => []
 
-find-memeberships = (orgids, name, record) ->
+find-twgovdata7054-memeberships = (orgids, name, record) ->
   if record.orgname?
     orgname = org.normalized-name record.orgname
     posiname = "#{orgname}#{record.posiname}"
@@ -56,7 +56,7 @@ find-memeberships = (orgids, name, record) ->
       organization_id: party_id
   return m
 
-popolized-record = (orgids, record) ->
+popolized-twgovdata7054-record = (orgids, record) ->
   name = record.idname.replace "　", ""
   do
     name: name
@@ -68,11 +68,11 @@ popolized-record = (orgids, record) ->
     summary: null
     biography: "#{record.education}\n#{record.profession}"
     national_identify: record.photograph
-    memberships: find-memeberships orgids, name, record
+    memberships: find-twgovdata7054-memeberships orgids, name, record
 
 travel-data = (acc, data, done) ->
   for record in data
-    acc.data.push popolized-record acc.orgids, record
+    acc.data.push popolized-twgovdata7054-record acc.orgids, record
     acc.count +=1
   done acc
 
