@@ -33,3 +33,4 @@ sources: do
     # 第八屆立委
     * url: \https://raw.githubusercontent.com/g0v/twlyparser/master/data/mly-8.json
       name: \第八屆立委
+      processor: \process_github_mly
