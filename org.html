@@ -7,7 +7,10 @@
   <span class="k">throw</span> <span class="s">&quot;orgname is required.&quot;</span> <span class="k">unless</span> <span class="nx">orgname</span>
   <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/台/g</span><span class="p">,</span> <span class="s">&#39;臺&#39;</span>
   <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/^連江縣/</span><span class="p">,</span> <span class="s">&#39;福建省連江縣&#39;</span>
-  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/鄉民代表會/</span><span class="p">,</span> <span class="s">&#39;鄉鄉民代表會&#39;</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/鄉鄉民代表會/</span><span class="p">,</span> <span class="s">&#39;鄉民代表會&#39;</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/區區公所/</span><span class="p">,</span> <span class="s">&#39;區公所&#39;</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/鎮鎮公所/</span><span class="p">,</span> <span class="s">&#39;鎮公所&#39;</span>
+  <span class="nx">orgname</span> <span class="p">.</span><span class="o">=</span><span class="nx">replace</span> <span class="sr">/鄉鄉公所/</span><span class="p">,</span> <span class="s">&#39;鄉公所&#39;</span>
   <span class="k">return</span> <span class="s">&#39;內政部戶政司&#39;</span> <span class="k">if</span> <span class="nx">orgname</span> <span class="o">is</span> <span class="err">\內政部戶政司戶政司</span>
   <span class="nv">badnames =</span>
     <span class="err">\高雄市那瑪夏區</span>

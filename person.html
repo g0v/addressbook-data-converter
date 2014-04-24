@@ -1,72 +1,110 @@
-<!DOCTYPE html><html lang="en"><head><title>person</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="person"><meta name="groc-project-path" content="src/person.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/person.ls">src/person.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="person-processor">Person Processor</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nv">utils = </span><span class="nx">require</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">utils</span>
+<!DOCTYPE html><html lang="en"><head><title>person</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="person"><meta name="groc-project-path" content="src/person.ls"><meta name="groc-github-url" content="https://github.com/hychen/addressbook-data-converter"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/hychen/addressbook-data-converter/blob/master/src/person.ls">src/person.ls</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="person-processor">Person Processor</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nx">require</span><span class="o">!</span> <span class="nx">fs</span>
+<span class="nv">utils = </span><span class="nx">require</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">utils</span>
 <span class="nv">org = </span><span class="nx">require</span> <span class="err">\</span><span class="p">.</span><span class="o">/</span><span class="nx">org</span>
 <span class="nv">origin_municipality = </span><span class="p">[</span><span class="err">\臺北市</span><span class="p">,</span> <span class="err">\高雄市</span><span class="p">]</span>
 <span class="nv">new_municipality = </span><span class="p">[</span><span class="err">\新北市</span><span class="p">,</span> <span class="err">\臺中市</span><span class="p">,</span> <span class="err">\臺南市</span><span class="p">]</span>
+
+<span class="nv">partycode = </span><span class="nf">(code) -&gt;</span>
+  <span class="nx">match</span> <span class="nx">code</span>
+  <span class="o">|</span> <span class="s">\KMT</span> <span class="o">=&gt;</span> <span class="err">\中國國民黨</span>
+  <span class="o">|</span> <span class="s">\DPP</span> <span class="o">=&gt;</span> <span class="err">\民主進步黨</span>
+  <span class="o">|</span> <span class="s">\TSU</span> <span class="o">=&gt;</span> <span class="err">\台灣團結聯盟</span>
+  <span class="o">|</span> <span class="s">\NSU</span> <span class="o">=&gt;</span> <span class="err">\無黨團結聯盟</span>
+  <span class="o">|</span> <span class="s">\PFP</span> <span class="o">=&gt;</span> <span class="err">\親民黨</span>
+  <span class="o">|</span> <span class="s">\NP</span> <span class="o">=&gt;</span> <span class="err">\新黨</span>
+  <span class="o">|</span> <span class="s">\TIP</span> <span class="o">=&gt;</span> <span class="err">\建國黨</span>
+  <span class="o">|</span> <span class="s">\CPU</span> <span class="o">=&gt;</span> <span class="err">\超黨派問政聯盟</span>
+  <span class="o">|</span> <span class="s">\DU</span> <span class="o">=&gt;</span> <span class="err">\民主聯盟</span>
+  <span class="o">|</span> <span class="s">\NNA</span> <span class="o">=&gt;</span> <span class="err">\新國家陣線</span>
+  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="kc">null</span>
+
+<span class="k">new</span><span class="o">-</span><span class="nv">party-record = </span><span class="nf">(orgids, name, partyname) -&gt;</span>
+  <span class="nv">posiname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">partyname</span><span class="si">}</span><span class="s">黨員&quot;</span>
+  <span class="nv">party_id = </span><span class="nx">orgids</span><span class="p">[</span><span class="nx">partyname</span><span class="p">]</span>
+  <span class="k">throw</span> <span class="s">&quot;can not find corresponding id of </span><span class="si">#{</span><span class="nx">partyname</span><span class="si">}</span><span class="s">&quot;</span> <span class="k">unless</span> <span class="nx">party_id</span>
+  <span class="nx">do</span>
+    <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">posiname</span><span class="si">}#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="nv">role: </span><span class="err">\黨員</span>
+    <span class="nv">post_id: </span><span class="nx">posiname</span>
+    <span class="nv">organization_id: </span><span class="nx">party_id</span>
+
+<span class="nv">normalized-gender = </span><span class="nf">(gender) -&gt;</span>
+  <span class="k">throw</span> <span class="s">&quot;gender is missing.&quot;</span> <span class="k">unless</span> <span class="nx">gender</span>
+  <span class="nx">match</span> <span class="nx">gender</span>
+  <span class="o">|</span> <span class="sr">/男/</span> <span class="o">=&gt;</span> <span class="s">\male</span>
+  <span class="o">|</span> <span class="sr">/女/</span> <span class="o">=&gt;</span> <span class="s">\female</span>
+  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="s">\unknown</span>
 
 <span class="nv">guess-twcomitte-session = </span><span class="nf">(year) -&gt;</span>
   <span class="nx">match</span> <span class="nx">year</span>
   <span class="o">|</span> <span class="sr">/098/</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2009</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\20</span><span class="p">),</span> <span class="p">(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2014</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\20</span><span class="p">)]</span>
   <span class="o">|</span> <span class="sr">/099/</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2010</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\25</span><span class="p">),</span> <span class="p">(</span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="s">\2014</span><span class="p">,</span> <span class="s">\10</span><span class="p">,</span> <span class="s">\25</span><span class="p">)]</span>
-  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="p">[]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市議員 Porcessor</h3>
+  <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="p">[]</span>
+
+<span class="nv">find-twgovdata7054-memeberships = </span><span class="nf">(orgids, name, record) -&gt;</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgname</span><span class="o">?</span>
+    <span class="nv">orgname = </span><span class="nx">org</span><span class="p">.</span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgname</span>
+    <span class="nv">posiname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="k">else</span>
+    <span class="nv">cityname = </span><span class="nx">org</span><span class="p">.</span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">cityname</span>
+    <span class="nv">townname = </span><span class="nx">org</span><span class="p">.</span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">townname</span>
+    <span class="nv">villname = </span><span class="nx">org</span><span class="p">.</span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">villname</span>
+    <span class="nv">orgname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">cityname</span><span class="si">}#{</span><span class="nx">townname</span><span class="si">}</span><span class="s">公所&quot;</span>
+    <span class="nv">posiname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">cityname</span><span class="si">}#{</span><span class="nx">townname</span><span class="si">}#{</span><span class="nx">villname</span><span class="si">}#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="p">[</span><span class="nx">start_date</span><span class="p">,</span> <span class="nx">end_date</span><span class="p">]</span> <span class="o">=</span> <span class="nx">guess-twcomitte-session</span> <span class="nx">record</span><span class="p">.</span><span class="nx">electname</span>
+  <span class="nv">organization_id = </span><span class="nx">orgids</span><span class="p">[</span><span class="nx">orgname</span><span class="p">]</span>
+  <span class="k">throw</span> <span class="s">&quot;orgname </span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}</span><span class="s">} is missing.&quot;</span> <span class="k">unless</span> <span class="nx">organization_id</span>
+  <span class="nv">m = </span><span class="p">[]</span>
+  <span class="nv">newrecord = </span><span class="nx">do</span>
+    <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">posiname</span><span class="si">}#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="nv">role: </span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span>
+    <span class="nv">post_id: </span><span class="nx">posiname</span>
+    <span class="nv">orgnization_id: </span><span class="nx">organization_id</span>
+    <span class="nv">start_date: </span><span class="nx">start_date</span><span class="p">,</span>
+    <span class="nv">end_date: </span><span class="nx">end_date</span>
+    <span class="nv">contact_details: </span><span class="p">[]</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">officeadress</span>
+    <span class="nx">newrecord</span><span class="p">.</span><span class="nx">contact_details</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+      <span class="o">*</span> <span class="nv">label: </span><span class="err">\辦公室地址</span>
+        <span class="nv">type: </span><span class="s">\address</span>
+        <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">officeadress</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">officetelphone</span>
+    <span class="nx">newrecord</span><span class="p">.</span><span class="nx">contact_details</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+      <span class="o">*</span> <span class="nv">label: </span><span class="err">\辦公室電話</span>
+        <span class="nv">type: </span><span class="s">\voice</span>
+        <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">officetelphone</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">eareaname</span>
+    <span class="nv">newrecord.note: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">eareaname</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="nx">newrecord</span>
+
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">and</span> <span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">isnt</span> <span class="err">\無政黨</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">isnt</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="k">new</span><span class="o">-</span><span class="nx">party-record</span> <span class="nx">orgids</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span>
+  <span class="k">return</span> <span class="nx">m</span>
+
+<span class="nv">popolized-twgovdata7054-record = </span><span class="nf">(orgids, record) -&gt;</span>
+  <span class="nv">name = </span><span class="nx">record</span><span class="p">.</span><span class="nx">idname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&quot;　&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span>
+  <span class="nx">do</span>
+    <span class="nv">name: </span><span class="nx">name</span>
+    <span class="nv">gender: </span><span class="nx">normalized-gender</span> <span class="nx">record</span><span class="p">.</span><span class="nx">sex</span>
+    <span class="nv">image: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
+    <span class="nv">summary: </span><span class="kc">null</span>
+    <span class="nv">biography: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">education</span><span class="si">}</span><span class="s">\n</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">profession</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="nv">national_identify: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
+    <span class="nv">memberships: </span><span class="nx">find-twgovdata7054-memeberships</span> <span class="nx">orgids</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">record</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市議員 Porcessor</h3>
 
 <pre><code>- @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
 - @param src String file path
 - @param done Function
 - @returns same as acc
 </code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_twgovdata_7054</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
-  <span class="nv">find-memeberships = </span><span class="nf">(name, record) -&gt;</span>
-    <span class="nv">orgname = </span><span class="nx">org</span><span class="p">.</span><span class="nx">normalized-name</span> <span class="nx">record</span><span class="p">.</span><span class="nx">orgname</span>
-    <span class="p">[</span><span class="nx">start_date</span><span class="p">,</span> <span class="nx">end_date</span><span class="p">]</span> <span class="o">=</span> <span class="nx">guess-twcomitte-session</span> <span class="nx">record</span><span class="p">.</span><span class="nx">electname</span>
-    <span class="nv">posiname = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
-    <span class="nv">organization_id = </span><span class="nx">acc</span><span class="p">.</span><span class="nx">orgids</span><span class="p">[</span><span class="nx">orgname</span><span class="p">]</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">orgname</span> <span class="k">unless</span> <span class="nx">organization_id</span>
-    <span class="nv">m = </span><span class="p">[]</span>
-    <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
-      <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}#{</span><span class="nx">posiname</span><span class="si">}#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
-      <span class="nv">role: </span><span class="nx">record</span><span class="p">.</span><span class="nx">posiname</span>
-      <span class="nv">post_id: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">orgname</span><span class="si">}#{</span><span class="nx">posiname</span><span class="si">}</span><span class="s">&quot;</span>
-      <span class="nv">orgnization_id: </span><span class="nx">organization_id</span>
-      <span class="nv">start_date: </span><span class="nx">start_date</span><span class="p">,</span>
-      <span class="nv">end_date: </span><span class="nx">end_date</span>
-      <span class="nv">contact_details:</span>
-        <span class="o">*</span> <span class="nv">label: </span><span class="err">\辦公室地址</span>
-          <span class="nv">type: </span><span class="s">\address</span>
-          <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">officeadress</span>
-        <span class="o">*</span> <span class="nv">label: </span><span class="err">\辦公室電話</span>
-          <span class="nv">type: </span><span class="s">\voice</span>
-          <span class="nv">value: </span><span class="nx">record</span><span class="p">.</span><span class="nx">officetelphone</span>
-      <span class="nv">note: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">eareaname</span><span class="si">}</span><span class="s">&quot;</span>
-
-    <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">and</span> <span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">isnt</span> <span class="err">\無政黨</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span> <span class="o">isnt</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-      <span class="nv">party_id = </span><span class="nx">acc</span><span class="p">.</span><span class="nx">orgids</span><span class="p">[</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="p">]</span>
-      <span class="k">throw</span> <span class="s">&quot;can not find organization_id of </span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="si">}</span><span class="s"> in orgids&quot;</span> <span class="k">unless</span> <span class="nx">party_id</span>
-      <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
-        <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="si">}</span><span class="s">黨員</span><span class="si">#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
-        <span class="nv">role: </span><span class="s">&quot;黨員&quot;</span>
-        <span class="nv">post_id: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">partymship</span><span class="si">}</span><span class="s">黨員&quot;</span>
-        <span class="nv">organization_id: </span><span class="nx">party_id</span>
-    <span class="k">return</span> <span class="nx">m</span>
-
-  <span class="c1">#@FIXME: fix the path is not consist in test case.</span>
-  <span class="nv">data = </span><span class="nx">require</span> <span class="nx">require</span><span class="p">.</span><span class="nx">resolve</span> <span class="p">(</span><span class="nx">src</span> <span class="o">is</span> <span class="sr">/rawdata/</span> <span class="o">and</span> <span class="s">&quot;../</span><span class="si">#{</span><span class="nx">src</span><span class="si">}</span><span class="s">&quot;</span> <span class="o">or</span> <span class="nx">src</span><span class="p">)</span>
-  <span class="k">for</span> <span class="nx">record</span> <span class="k">in</span> <span class="nx">data</span>
-    <span class="nv">name = </span><span class="nx">record</span><span class="p">.</span><span class="nx">idname</span><span class="p">.</span><span class="nx">replace</span> <span class="s">&quot;　&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span>
-    <span class="nx">acc</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
-      <span class="nv">name: </span><span class="nx">name</span>
-      <span class="nv">gender: </span><span class="nx">match</span> <span class="nx">record</span><span class="p">.</span><span class="nx">sex</span>
-              <span class="o">|</span> <span class="sr">/男/</span> <span class="o">=&gt;</span> <span class="s">&#39;male&#39;</span>
-              <span class="o">|</span> <span class="sr">/女/</span> <span class="o">=&gt;</span> <span class="s">&#39;female&#39;</span>
-              <span class="o">|</span> <span class="nx">_</span> <span class="o">=&gt;</span> <span class="s">&#39;unknown&#39;</span>
-      <span class="nv">image: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
-      <span class="nv">summary: </span><span class="kc">null</span>
-      <span class="nv">biography: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">education</span><span class="si">}</span><span class="s">\n</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">profession</span><span class="si">}</span><span class="s">&quot;</span>
-      <span class="nv">national_identify: </span><span class="nx">record</span><span class="p">.</span><span class="nx">photograph</span>
-      <span class="nv">memberships: </span><span class="nx">find-memeberships</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">record</span>
-    <span class="nx">acc</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span><span class="mi">1</span>
-  <span class="nx">done</span> <span class="nx">acc</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市議員 Porcessor</h3>
+  <span class="nv">data = </span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span> <span class="nx">src</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span>
+  <span class="nx">utils</span><span class="p">.</span><span class="nx">travel-data</span> <span class="nx">acc</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">popolized-twgovdata7054-record</span><span class="p">,</span> <span class="nx">done</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市議員 Porcessor</h3>
 
 <pre><code>- @alias `process_twgovdata_7054`
-</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7055 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">直轄市市長 Porcessor</h3>
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7055 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">鄉鎮市民代表 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7056 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">直轄市市長 Porcessor</h3>
 
 <pre><code>- @alias `process_twgovdata_7054`
 </code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7057 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">縣市市長 Porcessor</h3>
@@ -75,4 +113,78 @@
 </code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7058 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">鄉鎮市長 Porcessor</h3>
 
 <pre><code>- @alias `process_twgovdata_7054`
-</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7059 = </span><span class="nx">process_twgovdata_7054</span></div></div></div></div></body></html>
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7059 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">區長 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7060 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">村里長 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7061 = </span><span class="nx">process_twgovdata_7054</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">村里幹事 Porcessor</h3>
+
+<pre><code>- @alias `process_twgovdata_7054`
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nv">exports.process_twgovdata_7062 = </span><span class="nx">process_twgovdata_7054</span>
+
+<span class="nv">find-github-mly-memberships = </span><span class="nf">(orgids, name, record) -&gt;</span>
+  <span class="nv">m = </span><span class="p">[]</span>
+  <span class="nv">partyname = </span><span class="nx">partycode</span> <span class="nx">record</span><span class="p">.</span><span class="nx">caucus</span>
+  <span class="nv">organization_id = </span><span class="nx">orgids</span><span class="p">[</span><span class="s">&quot;立法院&quot;</span><span class="p">]</span>
+  <span class="k">throw</span> <span class="s">&quot;orgids does not has 立法院&quot;</span> <span class="k">unless</span> <span class="nx">organization_id</span>
+  <span class="nv">newrecord = </span><span class="nx">do</span>
+    <span class="nv">label: </span><span class="s">&quot;第</span><span class="si">#{</span><span class="nx">record</span><span class="p">.</span><span class="nx">ad</span><span class="si">}</span><span class="s">屆立法委員</span><span class="si">#{</span><span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="nv">role: </span><span class="s">&quot;立法委員&quot;</span>
+    <span class="nv">posiname: </span><span class="s">&quot;立法院立法委員&quot;</span>
+    <span class="nv">organization_id: </span><span class="nx">orgids</span><span class="p">[</span><span class="s">&quot;立法院&quot;</span><span class="p">]</span>
+    <span class="nv">start_date: </span><span class="nx">record</span><span class="p">.</span><span class="nx">term_start</span>
+    <span class="nv">links: </span><span class="p">[{</span><span class="nx">note</span><span class="o">:</span><span class="nx">l</span><span class="p">,</span> <span class="nx">url</span><span class="o">:</span><span class="nx">v</span><span class="p">}</span> <span class="k">for</span> <span class="nx">l</span><span class="p">,</span><span class="nx">v</span> <span class="k">of</span> <span class="nx">record</span><span class="p">.</span><span class="nx">links</span><span class="p">]</span>
+    <span class="c1">#@FIXME: committees data is not in popolo form.</span>
+    <span class="nv">committees: </span><span class="nx">record</span><span class="p">.</span><span class="nx">committees</span>
+    <span class="nv">contact_details: </span><span class="p">[]</span>
+  <span class="c1">#Lygislactor who quit does not has contact details.</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">contacts</span>
+    <span class="k">for</span> <span class="nx">r</span> <span class="k">in</span> <span class="nx">record</span><span class="p">.</span><span class="nx">contacts</span>
+      <span class="k">for</span> <span class="nx">k</span><span class="p">,</span><span class="nx">v</span> <span class="k">of</span> <span class="nx">r</span>
+        <span class="k">if</span> <span class="nx">k</span> <span class="o">is</span> <span class="s">\name</span>
+          <span class="k">continue</span>
+        <span class="nv">type = </span><span class="nx">k</span> <span class="o">is</span> <span class="s">\phone</span> <span class="o">and</span> <span class="s">\voice</span> <span class="o">or</span> <span class="nx">k</span>
+        <span class="nv">typename = </span><span class="k">switch</span> <span class="nx">type</span>
+                  <span class="o">|</span> <span class="s">\voice</span> <span class="o">=&gt;</span> <span class="err">\電話</span>
+                  <span class="o">|</span> <span class="s">\fax</span> <span class="o">=&gt;</span> <span class="err">\傳真</span>
+                  <span class="o">|</span> <span class="s">\address</span> <span class="o">=&gt;</span> <span class="err">\地址</span>
+        <span class="nx">newrecord</span><span class="p">.</span><span class="nx">contact_details</span><span class="p">.</span><span class="nx">push</span> <span class="nx">do</span>
+                                  <span class="nv">label: </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="si">}#{</span><span class="nx">typename</span><span class="si">}</span><span class="s">&quot;</span>
+                                  <span class="nv">type: </span><span class="nx">type</span>
+                                  <span class="nv">value: </span><span class="nx">v</span>
+  <span class="c1">#@FIXME: poplo spec does not define terminate reason and replacement relationship.</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">term_end</span> <span class="o">and</span> <span class="nx">record</span><span class="p">.</span><span class="nx">term_end</span>
+    <span class="p">[</span><span class="nx">y</span><span class="p">,</span><span class="nx">mm</span><span class="p">,</span><span class="nx">d</span><span class="p">]</span> <span class="o">=</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">term_end</span><span class="p">.</span><span class="nx">date</span> <span class="o">/</span> <span class="s">\-</span><span class="p">)</span>
+    <span class="nv">newrecord.end_date = </span><span class="nx">utils</span><span class="p">.</span><span class="nx">date</span> <span class="nx">y</span><span class="p">,</span><span class="nx">mm</span><span class="p">,</span><span class="nx">d</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">remark</span>
+    <span class="nv">newrecord.note = </span><span class="nx">record</span><span class="p">.</span><span class="nx">remark</span>
+  <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="nx">newrecord</span>
+
+  <span class="c1">#Some Lygislactor does not belongs any party.</span>
+  <span class="k">if</span> <span class="nx">partyname</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">push</span> <span class="k">new</span><span class="o">-</span><span class="nx">party-record</span> <span class="nx">orgids</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">partyname</span>
+  <span class="nx">m</span>
+
+<span class="nv">popolized-github-mly-record = </span><span class="nf">(orgids, record) -&gt;</span>
+  <span class="nv">newrecord = </span><span class="nx">do</span>
+    <span class="nv">name: </span><span class="nx">record</span><span class="p">.</span><span class="nx">name</span>
+    <span class="nv">image: </span><span class="nx">record</span><span class="p">.</span><span class="nx">image</span>
+    <span class="nv">gender: </span><span class="nx">normalized-gender</span> <span class="nx">record</span><span class="p">.</span><span class="nx">gender</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>use ly.gov.tw ID as national_identify.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">national_identify: </span><span class="nx">record</span><span class="p">.</span><span class="nx">id</span>
+    <span class="nv">summary: </span><span class="s">&#39;&#39;</span>
+    <span class="nv">biography: </span><span class="s">&#39;&#39;</span>
+    <span class="nv">memberships: </span><span class="nx">find-github-mly-memberships</span> <span class="nx">orgids</span><span class="p">,</span> <span class="nx">record</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">record</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">education</span>
+    <span class="nx">newrecord</span><span class="p">.</span><span class="nx">biography</span> <span class="o">+=</span> <span class="nx">record</span><span class="p">.</span><span class="nx">education</span><span class="p">.</span><span class="nx">join</span> <span class="s">&quot;\n&quot;</span>
+  <span class="k">if</span> <span class="nx">record</span><span class="p">.</span><span class="nx">experience</span>
+    <span class="nx">newrecord</span><span class="p">.</span><span class="nx">biography</span> <span class="o">+=</span> <span class="nx">record</span><span class="p">.</span><span class="nx">experience</span><span class="p">.</span><span class="nx">join</span> <span class="s">&quot;\n&quot;</span>
+  <span class="k">return</span> <span class="nx">newrecord</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="-porcessor">立委 Porcessor</h3>
+
+<pre><code>- @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
+- @param src String file path
+- @param done Function
+- @returns same as acc
+</code></pre></div></div><div class="code"><div class="wrapper"><span class="nx">export</span> <span class="nx">function</span> <span class="nx">process_github_mly</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span>
+  <span class="nv">data = </span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span> <span class="nx">src</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span>
+  <span class="nx">utils</span><span class="p">.</span><span class="nx">travel-data</span> <span class="nx">acc</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">popolized-github-mly-record</span><span class="p">,</span> <span class="nx">done</span></div></div></div></div></body></html>
