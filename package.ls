@@ -4,7 +4,7 @@ author:
   email: 'ossug.hychen@gmail.com'
 name: 'addressbook-data-converter'
 description: 'To convert Taiwan government organization rawdata from multiple sources in popolo specfication.'
-version: '0.0.1'
+version: '0.0.2'
 main: \lib/index.js
 repository:
   type: 'git'
