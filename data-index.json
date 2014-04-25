@@ -33,6 +33,17 @@
             "outputFile": "rawdata/organization/source-twgovdata-7620.xml"
         },
         {
+            "url": "http://data.gov.tw/node/7437",
+            "ext": "xml",
+            "id": "7437",
+            "category": "organization",
+            "name": "戶政機關通訊",
+            "uri": "http://data.gov.tw/iisi/logaccess?dataUrl=https%3A%2F%2Fwww.ris.gov.tw%2FAS2%2Finfocenter%2Forg.xml&type=XML&nid=7437",
+            "updateFreq": "不定期",
+            "provider": "http://data.gov.tw",
+            "outputFile": "rawdata/organization/source-twgovdata-7437.xml"
+        },
+        {
             "url": "http://data.gov.tw/node/6119",
             "ext": "csv",
             "id": "6119",
@@ -137,12 +148,12 @@
             "url": "https://raw.githubusercontent.com/g0v/twly_crawler/master/data(pretty_format)/merged.json",
             "name": "立委",
             "processor": "process_github_mly",
+            "outputFile": "output/person/source-github-mly.json",
             "ext": "json",
             "id": "merged",
             "category": "person",
             "provider": "https://raw.githubusercontent.com",
-            "uri": "https://raw.githubusercontent.com/g0v/twly_crawler/master/data(pretty_format)/merged.json",
-            "outputFile": "rawdata/person/source-github-merged.json"
+            "uri": "https://raw.githubusercontent.com/g0v/twly_crawler/master/data(pretty_format)/merged.json"
         }
     ]
 }

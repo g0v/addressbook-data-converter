@@ -31,6 +31,8 @@ sources: do
     # 村里幹事
     # * url: \http://data.gov.tw/node/7062
     # 立委
+    # ref: format deifinition (https://g0v.hackpad.com/vIjKnuA5jYA)
     * url: 'https://raw.githubusercontent.com/g0v/twly_crawler/master/data(pretty_format)/merged.json'
       name: \立委
       processor: \process_github_mly
+      output-file: \output/person/source-github-mly.json
