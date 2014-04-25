@@ -145,6 +145,36 @@ exports.process_twgovdata_7061 = process_twgovdata_7054
 # ```
 exports.process_twgovdata_7062 = process_twgovdata_7054
 
+# ### 立委 Porcessor
+# To process lygislactor informations which are produced by [twlycralwer]https://github.com/g0v/twly_crawler()
+# project.
+#
+# ```
+# - @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
+# - @param src String file path
+# - @param done Function
+# - @returns same as acc
+# ```
+export function process_github_mly(acc, src, done)
+  data = JSON.parse fs.readFileSync src, 'utf-8'
+  utils.travel-data acc, data, popolized-github-mly-record, done
+
+popolized-github-mly-record = (orgids, record) ->
+  newrecord = do
+    name: record.name
+    image: record.image
+    gender: normalized-gender record.gender
+    # use ly.gov.tw ID as national_identify.
+    national_identify: record.id
+    summary: ''
+    biography: ''
+    memberships: find-github-mly-memberships orgids, record.name, record
+  if record.education
+    newrecord.biography += record.education.join "\n"
+  if record.experience
+    newrecord.biography += record.experience.join "\n"
+  return newrecord
+
 find-github-mly-memberships = (orgids, name, record) ->
   m = []
   partyname = partycode record.caucus
@@ -187,30 +217,3 @@ find-github-mly-memberships = (orgids, name, record) ->
   if partyname
     m.push new-party-record orgids, name, partyname
   m
-
-popolized-github-mly-record = (orgids, record) ->
-  newrecord = do
-    name: record.name
-    image: record.image
-    gender: normalized-gender record.gender
-    # use ly.gov.tw ID as national_identify.
-    national_identify: record.id
-    summary: ''
-    biography: ''
-    memberships: find-github-mly-memberships orgids, record.name, record
-  if record.education
-    newrecord.biography += record.education.join "\n"
-  if record.experience
-    newrecord.biography += record.experience.join "\n"
-  return newrecord
-
-# ### 立委 Porcessor
-# ```
-# - @param acc {data:{$orgname:$org}}, count:Int, orgids:{$orgname:$orgid}}
-# - @param src String file path
-# - @param done Function
-# - @returns same as acc
-# ```
-export function process_github_mly(acc, src, done)
-  data = JSON.parse fs.readFileSync src, 'utf-8'
-  utils.travel-data acc, data, popolized-github-mly-record, done
