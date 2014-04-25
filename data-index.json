@@ -148,7 +148,7 @@
             "url": "https://raw.githubusercontent.com/g0v/twly_crawler/master/data(pretty_format)/merged.json",
             "name": "立委",
             "processor": "process_github_mly",
-            "outputFile": "output/person/source-github-mly.json",
+            "outputFile": "rawdata/person/source-github-mly.json",
             "ext": "json",
             "id": "merged",
             "category": "person",

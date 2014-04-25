@@ -5,6 +5,13 @@ person = (require \../lib/person)
 orgids = do
   "臺北市松山區公所": 1
   "中國國民黨":1
+  "中國青年黨": 1
+  "中國民主社會黨": 1
+  "建國黨": 2
+  "民主聯盟": 2
+  "全國民主非政黨聯盟" : 2
+  "台灣吾黨" : 2
+  "無黨團結聯盟" : 2
   "民主進步黨": 2
   "勞動黨": 3
   "台灣團結聯盟": 4
@@ -78,10 +85,9 @@ describe 'Person Converter', ->
   describe 'processing github mly.', -> ``it``
     .. 'should follow popolo specs.', (done) ->
       acc = {data: [], count: 0, orgids: orgids}
-      acc <- person.process_github_mly acc, \./test/testdata/person/source-github-mly-8.json
-      acc.count.should.eq 118
-      acc.data.0.name.should.eq \王金平
-      acc.data.0.gender.should.eq \male
-      acc.data.0.memberships.0.role.should.eq \立法委員
-      acc.data.0.memberships.0.links.length.should.eq 1
+      acc <- person.process_github_mly acc, \./test/testdata/person/source-github-mly.json
+      acc.count.should.eq 1728
+      acc.data.0.biography.should.not.eq ''
+      acc.data.0.name.should.eq \卜少夫
+      acc.data.0.memberships.length.should.eq 2
       done!
