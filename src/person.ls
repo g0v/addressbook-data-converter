@@ -168,7 +168,7 @@ popolized-github-twlycrawler-mly-record = (orgids, record) ->
   newrecord = do
     name: record.name
     image: record.image and record.image or null
-    gender: record.gender and normalized-gender last_term.gender or \unknown
+    gender: last_term.gender and normalized-gender last_term.gender or \unknown
     summary: ''
     biography: ''
     memberships: []
