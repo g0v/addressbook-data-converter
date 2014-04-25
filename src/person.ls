@@ -157,63 +157,67 @@ exports.process_twgovdata_7062 = process_twgovdata_7054
 # ```
 export function process_github_mly(acc, src, done)
   data = JSON.parse fs.readFileSync src, 'utf-8'
-  utils.travel-data acc, data, popolized-github-mly-record, done
+  utils.travel-data acc, data, popolized-github-twlycrawler-mly-record, done
 
-popolized-github-mly-record = (orgids, record) ->
+popolized-github-twlycrawler-mly-record = (orgids, record) ->
+  #use last term information as baisc info.
+  last_term = record.each_term[record.each_term.length - 1]
+  partyname = last_term.party
+  organization_id = orgids["立法院"]
+  throw "orgids does not has 立法院" unless organization_id
   newrecord = do
     name: record.name
     image: record.image
-    gender: normalized-gender record.gender
-    # use ly.gov.tw ID as national_identify.
-    national_identify: record.id
+    gender: record.gender and normalized-gender record.gender or \unknown
     summary: ''
     biography: ''
-    memberships: find-github-mly-memberships orgids, record.name, record
+    memberships: []
+    other_names: []
+    # use twlycralwer id as unique id.
+    national_identify: "twlycralwer_#{record.id}"
   if record.education
     newrecord.biography += record.education.join "\n"
   if record.experience
     newrecord.biography += record.experience.join "\n"
-  return newrecord
+  # process each term to build other_names, experiences and memberships.
+  for term in record.each_term
+    # add other name if the name is different.
+    if term.name != record.name
+      newrecord.other_names.push do
+        name: term.name
+    term_info = do
+      label: "第#{term.ad}屆立法委員#{term.name}"
+      role: "立法委員"
+      posiname: "立法院立法委員"
+      organization_id: organization_id
+      links: [{note:l, url:v} for l,v of term.links]
+      #@FIXME: committees data is not in popolo form.
+      committees: term.committees
+      #@FIXME: constituency data is not in popolo form.
+      constituency: term.constituency
+      contact_details: []
+    if term.term_start
+      term_info.start_date = new Date term.term_start
+    if term.term_end
+      term_info.end_date = new Date term.term_end.end_date
 
-find-github-mly-memberships = (orgids, name, record) ->
-  m = []
-  partyname = partycode record.caucus
-  organization_id = orgids["立法院"]
-  throw "orgids does not has 立法院" unless organization_id
-  newrecord = do
-    label: "第#{record.ad}屆立法委員#{name}"
-    role: "立法委員"
-    posiname: "立法院立法委員"
-    organization_id: orgids["立法院"]
-    start_date: record.term_start
-    links: [{note:l, url:v} for l,v of record.links]
-    #@FIXME: committees data is not in popolo form.
-    committees: record.committees
-    contact_details: []
-  #Lygislactor who quit does not has contact details.
-  if record.contacts
-    for r in record.contacts
-      for k,v of r
-        if k is \name
-          continue
-        type = k is \phone and \voice or k
-        typename = switch type
-                  | \voice => \電話
-                  | \fax => \傳真
-                  | \address => \地址
-        newrecord.contact_details.push do
-                                  label: "#{r.name}#{typename}"
-                                  type: type
-                                  value: v
-  #@FIXME: poplo spec does not define terminate reason and replacement relationship.
-  if record.term_end and record.term_end
-    [y,mm,d] =(record.term_end.date / \-)
-    newrecord.end_date = utils.date y,mm,d
-  if record.remark
-    newrecord.note = record.remark
-  m.push newrecord
-
+    #Lygislactor who quit does not has contact details.
+    if term.contacts
+      for r in term.contacts
+        for k,v of r
+          if k is \name
+            continue
+          type = k is \phone and \voice or k
+          typename = switch type
+                    | \voice => \電話
+                    | \fax => \傳真
+                    | \address => \地址
+          term_info.contact_details.push do
+                                    label: "#{r.name}#{typename}"
+                                    type: type
+                                    value: v
+    newrecord.memberships.push term_info
   #Some Lygislactor does not belongs any party.
-  if partyname
-    m.push new-party-record orgids, name, partyname
-  m
+  if partyname and partyname isnt \無黨籍
+    newrecord.memberships.push new-party-record orgids, record.name, partyname
+  return newrecord
