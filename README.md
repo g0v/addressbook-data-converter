@@ -18,6 +18,7 @@ You should run this command after adding new rawdata source in `config.ls`.
 
 ```
 $ lsc update-data-index.ls
+$ lsc fetch-data.ls
 ```
 
 ## Generate Final Data
