@@ -167,18 +167,18 @@ popolized-github-twlycrawler-mly-record = (orgids, record) ->
   throw "orgids does not has 立法院" unless organization_id
   newrecord = do
     name: record.name
-    image: record.image
-    gender: record.gender and normalized-gender record.gender or \unknown
+    image: record.image and record.image or null
+    gender: record.gender and normalized-gender last_term.gender or \unknown
     summary: ''
     biography: ''
     memberships: []
     other_names: []
     # use twlycralwer id as unique id.
-    national_identify: "twlycralwer_#{record.id}"
-  if record.education
-    newrecord.biography += record.education.join "\n"
-  if record.experience
-    newrecord.biography += record.experience.join "\n"
+    national_identify: "twlycralwer_#{record.uid}"
+  if last_term.education
+    newrecord.biography += last_term.education.join "\n"
+  if last_term.experience
+    newrecord.biography += last_term.experience.join "\n"
   # process each term to build other_names, experiences and memberships.
   for term in record.each_term
     # add other name if the name is different.

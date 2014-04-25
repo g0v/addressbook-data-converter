@@ -87,6 +87,7 @@ describe 'Person Converter', ->
       acc = {data: [], count: 0, orgids: orgids}
       acc <- person.process_github_mly acc, \./test/testdata/person/source-github-mly.json
       acc.count.should.eq 1728
+      acc.data.0.biography.should.not.eq ''
       acc.data.0.name.should.eq \卜少夫
       acc.data.0.memberships.length.should.eq 2
       done!
