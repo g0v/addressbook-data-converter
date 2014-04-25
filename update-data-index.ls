@@ -27,14 +27,16 @@ for category, sets of cfg.sources
           throw "err" if err
           set <<< parse-set-prop-twgovdata body
           set.provider = "#{parsed_url.protocol}//#{parsed_url.host}"
-          set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
+          if not set.output-file
+            set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
           data-index[category].push set
           done!
         | /github/ =>
           provider_name = 'github'
           set.provider = "#{parsed_url.protocol}//#{parsed_url.host}"
           set.uri = set.url
-          set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
+          if not set.output-file
+            set.output-file = "rawdata/#{category}/source-#{provider_name}-#{set.id}.#{set.ext}"
           data-index[category].push set
           done!
         | _ => throw "unsupported provider"
