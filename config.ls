@@ -35,4 +35,4 @@ sources: do
     * url: 'https://raw.githubusercontent.com/g0v/twly_crawler/master/data(pretty_format)/merged.json'
       name: \立委
       processor: \process_github_mly
-      output-file: \output/person/source-github-mly.json
+      output-file: \rawdata/person/source-github-mly.json
