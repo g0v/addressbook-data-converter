@@ -93,6 +93,12 @@ export function process_twgovdata_7307(acc, src, done)
       fax: \傳真
       start_date: \機關生效日期
       dissolution_date: \機關裁撤日期
+      # 「機關層級」欄的數字代表該機關隸屬層級，分1至5級。
+      # - 1:總統府、國家安全會議、五院。
+      # - 2:為1級單位的所屬機關(例如:內政部、外交部…等)，及各縣市政府。
+      # - 3:為2級單位的所屬機關。
+      # - 4:為3級單位的所屬機關。
+      # - 5:為4級單位的所屬機關。
       classification: \機關層級
       dissolution_note: \裁撤註記
       new_orgcode: \新機關代碼
