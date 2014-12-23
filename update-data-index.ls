@@ -45,4 +45,4 @@ for category, sets of cfg.sources
 console.log "starting update data-index.json..."
 err, res <- async.waterfall funcs
 err <- fs.writeFile \data-index.json, JSON.stringify data-index, null, 4
-console.log "updateed data-index.json."
+console.log "updated data-index.json."
