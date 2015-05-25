@@ -24,14 +24,12 @@ scripts:
   """
 engines: {node: '*'}
 dependencies:
-  optimist: \0.6.x 
+  optimist: \0.6.x
   csv: \0.3.x
   cheerio: \0.13.x
   request: \2.34.x
   async : \0.7.x
   mkdirp: \0.3.x
-  time: \0.10.x
-  pgrest: \*
 devDependencies:
   mocha: \1.14.x
   supertest: \0.7.x

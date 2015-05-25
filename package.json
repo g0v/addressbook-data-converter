@@ -27,9 +27,7 @@
     "cheerio": "0.13.x",
     "request": "2.34.x",
     "async": "0.7.x",
-    "mkdirp": "0.3.x",
-    "time": "0.10.x",
-    "pgrest": "*"
+    "mkdirp": "0.3.x"
   },
   "devDependencies": {
     "mocha": "1.14.x",
