@@ -6,7 +6,21 @@ The sources of rawdata can be found in file `data-index.json`.
 
 [Document](http://g0v.github.io/addressbook-data-converter)
 
+
+# Prerequisite
+
+- [Node.js](https://nodejs.org/) [npm](https://www.npmjs.com/)
+
+
 ## Installation
+
+Change your current working directory to the (addressbook-data-convert) project root
+
+```
+$ cd /path/to/addressbook-data-convert
+```
+
+Use npm to install packages
 
 ```
 $ npm i
@@ -18,6 +32,7 @@ You should run this command after adding new rawdata source in `config.ls`.
 
 ```
 $ lsc update-data-index.ls
+$ lsc fetch-data.ls
 ```
 
 ## Generate Final Data
